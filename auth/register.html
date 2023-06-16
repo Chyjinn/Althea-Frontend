@@ -59,29 +59,14 @@
 		mp.trigger('ShowLoginForm');
 	}
 
-
-	function InvalidPassword()
+	registerButton.onclick = function ()
 	{
-
+		var username = document.getElementById('username').value;
+		var email = document.getElementById('email').value;
+		var password1 = document.getElementById('password1').value;
+		var password2 = document.getElementById('password2').value;
+		mp.trigger("client:RegisterAttempt",username,email,password1,password2);
 	}
-	
-	$(document).ready(function()
-	{$("#registerButton").click(
-	function()
-	{
-
-		if($("#password1").val() == '' || $("#password2").val() == '' || $("#username").val() == '' || $("#email").val() == '' )
-		{
-			$("#alertText").text("Töltsd ki a mezőket!");
-		}
-		else
-		{
-			mp.trigger("client:RegisterAttempt",$("username").val(),$("email").val(),$("password1").val(),$("password2").val()); 
-		}
-	}
-	)
-}
-	)
 </script>
 
 </html>

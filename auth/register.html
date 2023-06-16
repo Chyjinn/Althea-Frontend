@@ -17,25 +17,25 @@
 					<img src="src/altheabase.png" alt="">
                     <div class="inputbox">
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="username" required>
+                        <input id="username" type="username" required>
                         <label for="">Felhasználónév</label>
                     </div>
 					<div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
+                        <input id="email" type="email" required>
                         <label for="">E-Mail cím</label>
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-open-outline"></ion-icon>
-                        <input type="text" required>
+                        <input id="password1" type="text" required>
                         <label for="">Jelszó</label>
                     </div>
 					<div class="inputbox">
                         <ion-icon name="lock-open-outline"></ion-icon>
-                        <input type="text" required>
+                        <input id="password2" type="text" required>
                         <label for="">Jelszó újra</label>
                     </div>
-                    <button>Regisztráció</button>
+                    <button id ="registerbutton">Regisztráció</button>
 					<div class="changewindow">
                         <p>Van már felhasználód? <a id="loginbutton" href="#" >Jelentkezz be!</a></p>
                     </div>
@@ -43,7 +43,6 @@
             </div>
         </div>
     </section>
-
 </body>
 
 
@@ -53,7 +52,8 @@
 
 <script>
 	var loginButton = document.getElementById('loginbutton');
-
+	var registerButton = document.getElementById('registerbutton');
+	
 	loginButton.onclick = function ()
 	{
 		mp.trigger('ShowLoginForm');
@@ -64,18 +64,19 @@
 	{
 
 	}
+	
 	$(document).ready(function()
-	{$("#loginButton").click(
+	{$("#registerButton").click(
 	function()
 	{
 
-		if($("#password").val() == '' || $("#username").val() == '')
+		if($("#password1").val() == '' || $("#password2").val() == '' || $("#username").val() == '' || $("#email").val() == '' )
 		{
 			$("#alertText").text("Töltsd ki a mezőket!");
 		}
 		else
 		{
-			mp.trigger("LoginInfoToClient",$("username").val(),$("password").val()); 
+			mp.trigger("client:RegisterAttempt",$("username").val(),$("email").val(),$("password1").val(),$("password2").val()); 
 		}
 	}
 	)

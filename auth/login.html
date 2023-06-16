@@ -64,14 +64,15 @@
 	{$("#loginButton").click(
 	function()
 	{
-
+		mp.trigger("client:LogError","elküldve");
 		if($("#password").val() == '' || $("#username").val() == '')
 		{
 			$("#alertText").text("Töltsd ki a mezőket!");
 		}
 		else
 		{
-			mp.trigger("LoginInfoToClient",$("username").val(),$("password").val()); 
+			
+			mp.trigger("client:LoginAttempt",$("username").val(),$("password").val());
 		}
 	}
 	)

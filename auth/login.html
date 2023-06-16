@@ -46,7 +46,7 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
-
+	var loginButton = document.getElementById('loginbutton');
 	var registerButton = document.getElementById('registerbutton');
 
 	registerButton.onclick = function ()
@@ -54,30 +54,18 @@
 		mp.trigger('ShowRegisterForm');
 	}
 
+	loginButton.onclick = function ()
+	{
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+		mp.trigger("client:LoginAttempt",username,password);
+	}
+
 	function InvalidPassword()
 	{
 
 	}
 
-
-	$(document).ready(function()
-	{$("#loginButton").click(
-	function()
-	{
-		mp.trigger("client:LogError","elküldve");
-		if($("#password").val() == '' || $("#username").val() == '')
-		{
-			$("#alertText").text("Töltsd ki a mezőket!");
-		}
-		else
-		{
-			
-			mp.trigger("client:LoginAttempt",$("username").val(),$("password").val());
-		}
-	}
-	)
-}
-	)
 </script>
 
 </html>

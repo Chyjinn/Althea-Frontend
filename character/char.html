@@ -12,25 +12,20 @@
 <body>
   <div class="container">
     <div class="row">
-      
-      
         <section id="charlist" class="col-lg-4">
             <h2>Character List</h2>
-            <ul class="list-group">
+            <ul id="chargroup" class="list-group">
             <!-- List of characters -->
-            <li class="list-group-item">Character 1</li>
-            <li class="list-group-item">Character 2</li>
-            <li class="list-group-item">Character 3</li>
             <!-- Add more characters as needed -->
             </ul>
         </section>
 
             <section id="chardetails" class="col-lg-8">
-                <h2>Selected Character</h2>
+                <h2 id="charname">Selected Character</h2>
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Character Name</h5>
-                    <p class="card-text">Character Details</p>
+                    <h5 class="card-title">Tulajdonságok</h5>
+                    <p id="chardata" class="card-text">Character Details</p>
                   </div>
                 </div>
             </section>
@@ -45,4 +40,37 @@
 
   </div>
 </body>
+<script>
+  var charlist = document.getElementById('chargroup');
+  var charname = document.getElementById('charname');
+  var chardata = document.getElementById('chardata');
+
+  function AddCharacter(id,name) {
+    var button = document.createElement('li');
+    button.innerHTML = name;
+    button.className = "list-group-item";
+    button.onclick = function(){
+      ChangeCharacter(id);
+    }
+    charlist.appendChild(button);
+
+		}
+
+  function ChangeCharacter(id)
+  {
+    mp.trigger("client:CharChangeToServer",id);
+  }
+
+  function RefreshCharData(name, detail)
+  {
+    charname.textContent = name;
+    chardata.textContent = detail;
+  }
+/*
+  function UpdateCharData(name,gender) {
+			document.getElementbyId('name')[0].innerHTML = name;
+			document.getElementById('gender')[0].innerHTML = gender;
+		}
+*/
+</script>
 </html>

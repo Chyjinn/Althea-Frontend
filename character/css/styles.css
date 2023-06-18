@@ -4,122 +4,49 @@
     padding: 0;
     font-family: 'poppins',sans-serif;
 }
-body{
-	background: rgba(0,0,0,0.5);
+
+body
+{
+	background-color: rgba(0,0,0,0);
 }
 
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    min-height: 100vh;
-    width: 100%;
-}
-
-.form-box{
-    position: relative;
-    width: 400px;
-    height: 650px;
-    background: rgba(0,0,0,0.8);
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.inputbox{
-    position: relative;
-    margin: 30px 0;
-    width: 310px;
-    border-bottom: 2px solid #fff;
-}
-.inputbox label{
+#charlist
+{
     position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 1em;
-    pointer-events: none;
-    transition: .5s;
-}
-input:focus ~ label,
-input:valid ~ label{
-top: -5px;
-}
-.inputbox input {
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding:0 35px 0 5px;
-    color: #fff;
-}
-.inputbox ion-icon{
-    position: absolute;
-    right: 8px;
-    color: #fff;
-    font-size: 1.2em;
-    top: 20px;
-}
-.forget{
-    margin: -15px 0 15px ;
-    font-size: .9em;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;  
-}
-
-.forget label input{
-    margin-right: 3px;
+    left: 5%;
+    top: 35%;
+    width: 15%;
     
 }
-.forget a{
-    color: #fff;
-    text-decoration: none;
-}
-.forget a:hover{
-    text-decoration: underline;
-    font-weight: bold;
-}
-button{
-    width: 100%;
-    height: 40px;
-    border-radius: 40px;
-    background: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-}
 
-img{
-    display:flex;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -25px;
-    margin-bottom: -25px;
-}
-
-button:hover{
-    background-color: #d4d4d4;
-}
-.changewindow{
-    font-size: .9em;
-    color: #fff;
+h2
+{
     text-align: center;
-    margin: 25px 0 10px;
 }
-.changewindow p a{
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
+
+#charlist ul li
+{
+    color:white;
+    background-color: rgba(0,0,0,0.5);
 }
-.changewindow p a:hover{
-    text-decoration: underline;
+
+#charlist ul li:hover
+{
+    background-color: rgba(0,0,0,0.8);
+}
+
+#chardetails
+{
+    position: absolute;
+    right: 5%;
+    top: 35%;
+    width: 15%;
+    text-align: justify;
+}
+
+#buttons
+{
+    position: absolute;
+    left: 40%;
+    bottom: 5%;
 }

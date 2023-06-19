@@ -26,7 +26,7 @@
                         <label for="">Jelszó</label>
                     </div>
                     <div class="forget">
-                        <label for=""><input type="checkbox">Emlékezz rám</label>
+                        <label for=""><input id="remember" type="checkbox">Emlékezz rám</label>
 						<a href="#">Elfelejtett jelszó</a>
                     </div>
                     <button id="loginbutton">Bejelentkezés</button>
@@ -58,7 +58,8 @@
 	{
 		var username = document.getElementById('username').value;
 		var password = document.getElementById('password').value;
-		mp.trigger("client:LoginAttempt",username,password);
+        var remember = document.getElementById('remember').checked;
+		mp.trigger("client:LoginAttempt",username,password,remember);
 	}
 
 	function InvalidPassword()

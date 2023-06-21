@@ -61,10 +61,10 @@
     mp.trigger("client:CharChangeToServer",id);
   }
 
-  function RefreshCharData(name, detail)
+  function RefreshCharData(name, location, pob, dob)
   {
     charname.textContent = name;
-    chardata.textContent = detail;
+    chardata.textContent = 'Helyszín: ' + location +' - Születési hely: ' + pob + ' - Születési idő: '+dob;
   }
 /*
   function UpdateCharData(name,gender) {

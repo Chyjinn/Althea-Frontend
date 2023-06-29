@@ -163,8 +163,6 @@ const onDocumentReady = () => {
 
     updateCharCount();
 
-    chatAPI.push("Multiplayer started.");
-
     document.addEventListener("keydown", (e) => {
         switch(e.which) {
             case 84:

@@ -5,11 +5,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
 	<link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 
 <body>
+
+    <div class="video-container">
+        <iframe id="ytplayer" width="2560" height="1440" src="https://www.youtube.com/embed/Y5H9AoIY5zs?start=5&autoplay=1&mute=1&controls=0&quality=high" title="YouTube video player" frameborder="0" allow="autoplay;modestbranding; " allowfullscreen></iframe>
+    </div>
 	<section>
         <div class="form-box">
             <div class="form-value">
@@ -37,6 +49,7 @@
             </div>
         </div>
     </section>
+	
 
 </body>
 
@@ -46,6 +59,12 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
+	function SetResolution(x,y)
+	{
+		document.getElementById("ytplayer").width = x;
+		document.getElementById("ytplayer").height = y;
+	}
+		
 	var loginButton = document.getElementById('loginbutton');
 	var registerButton = document.getElementById('registerbutton');
 

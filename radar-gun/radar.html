@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="./css/styles.css" type="text/css" />
+</head>
+<body>
+<div id="radar">
+<div id="first-digit"></div>
+<div id="second-digit"></div>
+<div id="third-digit"></div>
+<div id="speed-unit"></div>
+
+
+<div id="dist-first"></div>
+<div id="dist-second"></div>
+<div id="dist-third"></div>
+<div id="dist-unit"></div>
+
+
+</div>
+</body>
+<script>
+const speedFirst = document.getElementById('first-digit');
+const speedSecond = document.getElementById('second-digit');
+const speedThird = document.getElementById('third-digit');
+const speedUnit = document.getElementById('speed-unit');
+
+const distFirst = document.getElementById('dist-first');
+const distSecond = document.getElementById('dist-second');
+const distThird = document.getElementById('dist-third');
+const distUnit = document.getElementById('dist-unit');
+
+dist = 'm';
+speed = 'mph';
+
+function setSpeedUnit(unit)
+{
+	if (unit == 'm')
+	{
+		unit = 'm'
+		distUnit.style.backgroundImage = 'url("../images/units/m.png")';
+	}
+	else if (unit == 'ft')
+	{
+		unit = 'ft';
+		distUnit.style.backgroundImage = 'url("../images/units/ft.png")';
+	}
+}
+
+
+function setDistUnit(unit)
+{
+	if (unit == 'mph')
+	{
+		unit = 'mph'
+		speedUnit.style.backgroundImage = 'url("../images/units/mph.png")';
+	}
+	else if (unit == 'kph')
+	{
+		unit = 'kph';
+		speedUnit.style.backgroundImage = 'url("../images/units/kph.png")';
+	}
+}
+
+function updateSpeed(value)
+{
+	var first = value.toString()[0];
+	var second = value.toString()[1];
+	var third = value.toString()[2];
+	console.log(first);
+	console.log(second);
+	console.log(third);
+	
+	if (first == '0')
+	{
+		speedFirst.style.backgroundImage = 'url("images/digits/blank.png")';
+	}
+	else
+	{
+	switch(first) {
+		case '1':
+	speedFirst.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	speedFirst.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	speedFirst.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	speedFirst.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	speedFirst.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	speedFirst.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	speedFirst.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	speedFirst.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	speedFirst.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	}
+	}
+	
+	if (second == '0' && first == '0')
+	{
+		speedSecond.style.backgroundImage = 'url("images/digits/blank.png")';
+	}
+	else
+	{
+	switch(second) {
+		case '0':
+	speedSecond.style.backgroundImage = 'url("images/digits/0.png")';
+	break;
+		case '1':
+	speedSecond.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	speedSecond.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	speedSecond.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	speedSecond.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	speedSecond.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	speedSecond.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	speedSecond.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	speedSecond.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	speedSecond.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	}
+	}
+	
+	
+	switch(third) {
+		case '0':
+	speedThird.style.backgroundImage = 'url("images/digits/0.png")';
+	break;
+		case '1':
+	speedThird.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	speedThird.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	speedThird.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	speedThird.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	speedThird.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	speedThird.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	speedThird.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	speedThird.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	speedThird.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	
+	}
+}
+
+function updateDist(value)
+{
+	var first = value.toString()[0];
+	var second = value.toString()[1];
+	var third = value.toString()[2];
+	
+	if (first == '0')
+	{
+		distFirst.style.backgroundImage = 'url("images/digits/blank.png")';
+	}
+	else
+	{
+	switch(first) {
+		case '1':
+	distFirst.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	distFirst.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	distFirst.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	distFirst.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	distFirst.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	distFirst.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	distFirst.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	distFirst.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	distFirst.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	}
+	}
+	
+	if (second == '0' && first == '0')
+	{
+		distSecond.style.backgroundImage = 'url("images/digits/blank.png")';
+	}
+	else
+	{
+	switch(second) {
+		case '0':
+	distSecond.style.backgroundImage = 'url("images/digits/0.png")';
+	break;
+		case '1':
+	distSecond.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	distSecond.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	distSecond.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	distSecond.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	distSecond.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	distSecond.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	distSecond.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	distSecond.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	distSecond.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	}
+	}
+	
+	
+	switch(third) {
+		case '0':
+	distThird.style.backgroundImage = 'url("images/digits/0.png")';
+	break;
+		case '1':
+	distThird.style.backgroundImage = 'url("images/digits/1.png")';
+	break;
+		case '2':
+	distThird.style.backgroundImage = 'url("images/digits/2.png")';
+	break;
+		case '3':
+	distThird.style.backgroundImage = 'url("images/digits/3.png")';
+	break;
+		case '4':
+	distThird.style.backgroundImage = 'url("images/digits/4.png")';
+	break;
+		case '5':
+	distThird.style.backgroundImage = 'url("images/digits/5.png")';
+	break;
+		case '6':
+	distThird.style.backgroundImage = 'url("images/digits/6.png")';
+	break;
+		case '7':
+	distThird.style.backgroundImage = 'url("images/digits/7.png")';
+	break;
+		case '8':
+	distThird.style.backgroundImage = 'url("images/digits/8.png")';
+	break;
+		case '9':
+	distThird.style.backgroundImage = 'url("images/digits/9.png")';
+	break;
+	
+	}
+}
+
+// Make the DIV element draggable:
+dragElement(document.getElementById("radar"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id)) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id).onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+</script>
+</html>

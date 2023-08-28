@@ -8,6 +8,7 @@
 .chatBox {
     margin: 0.5em 0 0 0.5em;
     width: 37em;
+	user-select: none;
 }
 .messageList {
     display: flex;
@@ -15,22 +16,27 @@
 	word-wrap: break-word;
     height: 18em;
     direction: rtl;
+	user-select: none;
 }
 .messageList div {
     margin-left: 0.25em;
     direction: ltr;
+	user-select: none;
 }
 .messageList::-webkit-scrollbar {
     width: 0.5em;
     height: 0.5em;
+	user-select: none;
 }
 .messageList::-webkit-scrollbar-track {
     border-radius: 1em;
     background: transparent;
+	user-select: none;
 }
 .messageList::-webkit-scrollbar-thumb{
     border-radius: 1em;
     background: rgba(0,0,0,0.75);
+	user-select: none;
 }
 .message {
     color: white;

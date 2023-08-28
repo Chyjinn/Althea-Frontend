@@ -1,0 +1,109 @@
+#radar{
+	position: absolute;
+	width: 20%;
+	height: 27%;
+	left: 75%;
+	top: 70%;
+	background-image: url("../images/frame.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	cursor: move;
+}
+
+#first-digit{
+	position: absolute;
+	width: 7%;
+	height: 12%;
+	left: 25%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+
+#second-digit{
+	position: absolute;
+	width: 7%;
+	height: 12%;
+	left: 32%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#third-digit{
+	position: absolute;
+	width: 7%;
+	height: 12%;
+	left: 39%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#speed-unit{
+	position: absolute;
+	width: 10%;
+	height: 15%;
+	left: 30%;
+	top: 47%;
+	background-image: url("../images/units/kph.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#dist-first{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	left: 50%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#dist-second{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	left: 55%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#dist-third{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	left: 60%;
+	top: 37%;
+	background-image: url("../images/digits/0.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+#dist-unit{
+	position: absolute;
+	width: 10%;
+	height: 10%;
+	left: 70%;
+	top: 37%;
+	background-image: url("../images/units/m.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}

@@ -20,8 +20,8 @@
 		<div class="buttons">
 			<button id="page1" onclick="Show('Page1');" type="button" class="btn btn-primary">Adatok</button>
 			<button id="page2" onclick="Show('Page2');" type="button" class="btn btn-primary">Szülők</button>
-			<button id="page2" onclick="Show('Page3');" type="button" class="btn btn-primary">Bőrszín</button>
-			<button id="page3" onclick="Show('Page4');" type="button" class="btn btn-primary">Arc</button>
+			<button id="page2" onclick="Show('Page3');" type="button" class="btn btn-primary">Arc</button>
+			<button id="page3" onclick="Show('Page4');" type="button" class="btn btn-primary">Bőr</button>
 			<button id="page4" onclick="Show('Page5');" type="button" class="btn btn-primary">Haj</button>
 			<button id="page4" onclick="Show('Page6');" type="button" class="btn btn-primary">Smink</button>
 		</div>
@@ -80,26 +80,200 @@
 			</div>
 			
 			<div class="attribute-group">
-			<label id="value" for="customRange" class="form-label">Arc hasonlóság: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="-100" max="100" value="0">
-			<label id="value" for="customRange" class="form-label">Bőr hasonlóság: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="-100" max="100" value="0">
-			<label id="value" for="customRange" class="form-label">Nagyszülő hasonlóság: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="-100" max="100" value="0">
+			<label id="facemix-label" for="facemix" class="form-label">Arc hasonlóság: 0</label>
+			<input id="facemix" type="range" class="form-range" name="points" step="1" min="0" max="100" value="50">
+			<label id="skinmix-label" for="skinmix" class="form-label">Bőr hasonlóság: 0</label>
+			<input id="skinmix" type="range" class="form-range" name="points" step="1" min="0" max="100" value="50">
+			<label id="thirdmix-label" for="thirdmix" class="form-label">Nagyszülő hasonlóság: 0</label>
+			<input id="thirdmix" type="range" class="form-range" name="points" step="1" min="0" max="100" value="50">
 			</div>
 			
-		
+
+	
         </section>				
 		</div>
-		
-		
 		<div id="Page3" class="page" style="display:none">
-			Content of Page 3
+		<section id="charedit" class="col-lg-4">	
+					<div class="attribute-group">
+			<label id="nosewidth-label" for="nosewidth" class="form-label">-</label>
+			<input id="nosewidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="noseheight-label" for="noseheight" class="form-label">-</label>
+			<input id="noseheight" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="noselength-label" for="noselength" class="form-label">-</label>
+			<input id="noselength" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="nosebridge-label" for="nosebridge" class="form-label">-</label>
+			<input id="nosebridge" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="nosetip-label" for="nosetip" class="form-label">-</label>
+			<input id="nosetip" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="nosebroken-label" for="nosebroken" class="form-label">-</label>
+			<input id="nosebroken" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="browheight-label" for="browheight" class="form-label">-</label>
+			<input id="browheight" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="browwidth-label" for="browwidth" class="form-label">-</label>
+			<input id="browwidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="cheekboneheight-label" for="cheekboneheight" class="form-label">-</label>
+			<input id="cheekboneheight" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="cheekbonewidth-label" for="cheekbonewidth" class="form-label">-</label>
+			<input id="cheekbonewidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="cheekwidth-label" for="cheekwidth" class="form-label">-</label>
+			<input id="cheekwidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="eyes-label" for="eyes" class="form-label">-</label>
+			<input id="eyes" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="lips-label" for="lips" class="form-label">-</label>
+			<input id="lips" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="jawwidth-label" for="jawwidth" class="form-label">-</label>
+			<input id="jawwidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="jawheight-label" for="jawheight" class="form-label">-</label>
+			<input id="jawheight" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="chinlength-label" for="chinlength" class="form-label">-</label>
+			<input id="chinlength" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="chinposition-label" for="chinposition" class="form-label">-</label>
+			<input id="chinposition" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="chinwidth-label" for="chinwidth" class="form-label">-</label>
+			<input id="chinwidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="chinshape-label" for="chinshape" class="form-label">-</label>
+			<input id="chinshape" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="neckwidth-label" for="neckwidth" class="form-label">-</label>
+			<input id="neckwidth" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			</div>
+			
+
+		</section>
+		</div>
+		
+		<div id="Page4" class="page" style="display:none">
+		<section id="charedit" class="col-lg-4">
+			<div class="attribute-group">
+			<label id="blemishid-label" for="blemishid" class="form-label">-</label>
+			<input id="blemishid" type="range" class="form-range" name="points" step="1" min="-1" max="23" value="-1">
+			<label id="blemishopacity-label" for="blemishopacity" class="form-label">-</label>
+			<input id="blemishopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="ageid-label" for="ageid" class="form-label">-</label>
+			<input id="ageid" type="range" class="form-range" name="points" step="1" min="-1" max="14" value="-1">
+			<label id="ageopacity-label" for="ageopacity" class="form-label">-</label>
+			<input id="ageopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="complexionid-label" for="complexionid" class="form-label">-</label>
+			<input id="complexionid" type="range" class="form-range" name="points" step="1" min="-1" max="11" value="-1">
+			<label id="complexionopacity-label" for="complexionopacity" class="form-label">-</label>
+			<input id="complexionopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="sundamageid-label" for="sundamageid" class="form-label">-</label>
+			<input id="sundamageid" type="range" class="form-range" name="points" step="1" min="-1" max="10" value="-1">
+			<label id="sundamageopacity-label" for="sundamageopacity" class="form-label">-</label>
+			<input id="sundamageopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="frecklesid-label" for="frecklesid" class="form-label">-</label>
+			<input id="frecklesid" type="range" class="form-range" name="points" step="1" min="-1" max="17" value="-1">
+			<label id="frecklesopacity-label" for="frecklesopacity" class="form-label">-</label>
+			<input id="frecklesopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="bodyblemish1id-label" for="bodyblemish1id" class="form-label">-</label>
+			<input id="bodyblemish1id" type="range" class="form-range" name="points" step="1" min="-1" max="111" value="-1">
+			<label id="bodyblemish1opacity-label" for="bodyblemish1opacity" class="form-label">-</label>
+			<input id="bodyblemish1opacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			<div class="attribute-group">
+			<label id="bodyblemish2id-label" for="bodyblemish2id" class="form-label">-</label>
+			<input id="bodyblemish2id" type="range" class="form-range" name="points" step="1" min="-1" max="1" value="-1">
+			<label id="bodyblemish2opacity-label" for="bodyblemish2opacity" class="form-label">-</label>
+			<input id="bodyblemish2opacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+			</div>
+			
+			</section>
 		</div>
 
+	<div id="Page5" class="page" style="display:none">
+	<section id="charedit" class="col-lg-4">
+		
+		<div class="attribute-group">
+		<label id="eyebrowid-label" for="eyebrowid" class="form-label">-</label>
+		<input id="eyebrowid" type="range" class="form-range" name="points" step="1" min="-1" max="33" value="-1">
+		<label id="eyebrowcolor-label" for="eyebrowcolor" class="form-label">-</label>
+		<input id="eyebrowcolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="eyebrowopacity-label" for="eyebrowopacity" class="form-label">-</label>
+		<input id="eyebrowopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
+		
+		<div class="attribute-group">
+		<label id="facialhairid-label" for="facialhairid" class="form-label">-</label>
+		<input id="facialhairid" type="range" class="form-range" name="points" step="1" min="-1" max="28" value="-1">
+		<label id="facialhaircolor-label" for="facialhaircolor" class="form-label">-</label>
+		<input id="facialhaircolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="facialhairopacity-label" for="facialhairopacity" class="form-label">-</label>
+		<input id="facialhairopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
+		
+		<div class="attribute-group">
+		<label id="chesthairid-label" for="chesthairid" class="form-label">-</label>
+		<input id="chesthairid" type="range" class="form-range" name="points" step="1" min="-1" max="16" value="-1">
+		<label id="chesthaircolor-label" for="chesthaircolor" class="form-label">-</label>
+		<input id="chesthaircolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="chesthairopacity-label" for="chesthairopacity" class="form-label">-</label>
+		<input id="chesthairopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
 	
-	
+	</section>
+	</div>
 
+	<div id="Page6" class="page" style="display:none">
+	<section id="charedit" class="col-lg-4">
+
+		<div class="attribute-group">
+		<label id="makeupid-label" for="makeupid" class="form-label">-</label>
+		<input id="makeupid" type="range" class="form-range" name="points" step="1" min="-1" max="74" value="-1">
+		<label id="makeupopacity-label" for="makeupopacity" class="form-label">-</label>
+		<input id="makeupopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
+		
+		<div class="attribute-group">
+		<label id="blushid-label" for="blushid" class="form-label">-</label>
+		<input id="blushid" type="range" class="form-range" name="points" step="1" min="-1" max="32" value="-1">
+		<label id="blushcolor-label" for="blushcolor" class="form-label">-</label>
+		<input id="blushcolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="blushopacity-label" for="blushopacity" class="form-label">-</label>
+		<input id="blushopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
+		
+		<div class="attribute-group">
+		<label id="lipstickid-label" for="lipstickid" class="form-label">-</label>
+		<input id="lipstickid" type="range" class="form-range" name="points" step="1" min="-1" max="9" value="-1">
+		<label id="lipstickcolor-label" for="lipstickcolor" class="form-label">-</label>
+		<input id="lipstickcolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="lipstickopacity-label" for="lipstickopacity" class="form-label">-</label>
+		<input id="lipstickopacity" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		</div>
+		
+		
+	</section>
+	</div>
 
 
         <section id="buttons" class="row mt-3">
@@ -111,11 +285,92 @@
   </div>
   </div>
   
-  
-
 </body>
 <script>
+  let attributes = [['parent1face','Első szülő arca: ', 4],
+  ['parent2face','Második szülő arca: ', 5],
+  ['parent3face','Nagyszülő arca: ', 6],
+  ['parent1skin','Első szülő bőre: ', 7],
+  ['parent2skin','Második szülő bőre: ', 8],
+  ['parent3skin','Nagyszülő bőre: ', 9],
+  ['facemix','Arc hasonlóság: ', 10],
+  ['skinmix','Bőr hasonlóság: ', 11],
+  ['thirdmix','Nagyszülő hasonlóság: ', 12],
+  //Arc
+  ['nosewidth','Orr szélesség: ', 13],
+  ['noseheight','Orr magasság: ', 14],
+  ['noselength','Orr hossz: ', 15],
+  ['nosebridge','Orrhíd: ', 16],
+  ['nosetip','Orrhegy: ', 17],
+  ['nosebroken','Törött orr: ', 18],
+  ['browheight','Szemöldök magasság: ', 19],
+  ['browwidth','Szemöldök szélesség: ', 20],
+  ['cheekboneheight','Arccsont magasság: ', 21],
+  ['cheekbonewidth','Arccsont szélesség: ', 22],
+  ['cheekwidth','Arc szélesség: ', 23],
+  ['eyes','Szem: ', 24],
+  ['lips','Ajkak: ', 25],
+  ['jawwidth','Állkapocs szélesség: ', 26],
+  ['jawheight','Állkapocs magasság: ', 27],
+  ['chinlength','Áll hossz: ', 28],
+  ['chinposition','Áll pozíció: ', 29],
+  ['chinwidth','Áll szélesség: ', 30],
+  ['chinshape','Áll alak: ', 31],
+  ['neckwidth','Nyak szélesség: ', 32],
+  //overlays
+  ['blemishid','Arc hiba: ', 33],
+  ['blemishopacity','Arc hiba láthatóság: ', 34],
+  ['facialhairid','Arcszőrzet: ', 35],
+  ['facialhaircolor','Arcszőrzet szín: ', 36],
+  ['facialhairopacity','Arcszőrzet láthatóság: ', 37],
+  ['eyebrowid','Szemöldök: ', 38],
+  ['eyebrowcolor','Szemöldök szín: ', 39],
+  ['eyebrowopacity','Szemöldök láthatóság: ', 40],
+  ['ageid','Ráncok: ', 41],
+  ['ageopacity','Ránc láthatóság: ', 42],
+  ['makeupid','Smink: ', 43],
+  ['makeupopacity','Smink láthatóság: ', 44],
+  ['blushid','Pír: ', 45],
+  ['blushcolor','Pír szín: ', 46],
+  ['blushopacity','Pír láthatóság: ', 47],
+  ['complexionid','Arcszín: ', 48],
+  ['complexionopacity','Arcszín láthatóság: ', 49],
+  ['sundamageid','Napsérülés: ', 50],
+  ['sundamageopacity','Napsérülés láthatóság: ', 51],
+  ['lipstickid','Rúzs: ', 52],
+  ['lipstickcolor','Rúzs szín: ', 53],
+  ['lipstickopacity','Rúzs láthatóság: ', 54],
+  ['frecklesid','Szeplők: ', 55],
+  ['frecklesopacity','Szelők láthatóság: ', 56],
+  ['chesthairid','Testszőrzet: ', 57],
+  ['chesthaircolor','Testszőrzet szín: ', 58],
+  ['chesthairopacity','Testszőrzet láthatóság: ', 59],
+  ['bodyblemish1id','Anyajegy: ', 60],
+  ['bodyblemish1opacity','Anyajegy láthatóság: ', 61],
+  ['bodyblemish2id','Testhiba: ', 62],
+  ['bodyblemish2opacity','Testhiba láthatóság: ', 63]
+  ];
+  
+  function GetAttributeText(label)
+{
+  for (let i = 0; i < attributes.length; i++) {
+  if (label === attributes[i][0])
+	  {
+		return attributes[i][1];
+	  }
+	}
+}
 
+function GetAttributeId(label)
+{
+  for (let i = 0; i < attributes.length; i++) {
+  if (label === attributes[i][0])
+	  {
+		return attributes[i][2];
+	  }
+	}
+}
+  
 function Show(elementID) {
     var ele = document.getElementById(elementID);
     if (!ele) {
@@ -133,50 +388,35 @@ function UpdateSlider(event){
     var source = event.target || event.srcElement;
 	var labelname = source.id + '-label';
 	var label = document.getElementById(source.id + '-label');
-	label.innerHTML = GetAttributeText(source.id) + source.value;
-	mp.trigger("client:AttributeToServer", GetAttributeId(source.id), source.value );
+	var ertek = source.value
+	if (ertek == -1 && GetAttributeId(source.id) > 32)
+	{
+		ertek = 255;
+	}
+	
+	label.innerHTML = GetAttributeText(source.id) + ertek;
+	mp.trigger("client:AttributeToServer", GetAttributeId(source.id), ertek );
 }
 
-function GetAttributeText(label)
+function UpdateLabel(source)
 {
-		switch(label) {
-		  case 'parent1face':
-			return 'Első szülő arca: ';
-			break;
-		  case 'parent2face':
-			return 'Második szülő arca: ';
-			break;
-		  case 'parent3face':
-			return 'Nagyszülő arca: ';
-			break;
-		}
-}
-
-function GetAttributeId(label)
-{
-		switch(label) {
-		case 'gender':
-		return 0;
-		break;
-		case 'parent1face':
-		return 4;
-		break;
-		case 'parent2face':
-		return 5;
-		break;
-		case 'parent3face':
-		return 6;
-		break;
-		}
+	var labelname = source.id + '-label';
+	var label = document.getElementById(source.id + '-label');
+	var ertek = source.value
+	if (ertek == -1 && GetAttributeId(source.id) > 32)
+	{
+		ertek = 255;
+	}
+	label.innerHTML = GetAttributeText(source.id) + ertek;
 }
 
 
-  var parent1face = document.getElementById("parent1face");
-  var parent2face = document.getElementById("parent2face");
-  var parent3face = document.getElementById("parent3face");
-  parent1face.addEventListener('input',UpdateSlider);
-  parent2face.addEventListener('input',UpdateSlider);
-  parent3face.addEventListener('input',UpdateSlider);
   
+  
+  for (let i = 0; i < attributes.length; i++) {
+  var element = document.getElementById(attributes[i][0]);
+  element.addEventListener('input',UpdateSlider);
+  UpdateLabel(element);
+	}
 </script>
 </html>

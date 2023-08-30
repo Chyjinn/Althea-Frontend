@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 
-<body>
+<body>>
 
     <div class="video-container">
         <iframe id="ytplayer" width="2560" height="1440" src="https://www.youtube.com/embed/Y5H9AoIY5zs?start=5&autoplay=1&mute=1&controls=0&quality=high" title="YouTube video player" frameborder="0" allow="autoplay;modestbranding; " allowfullscreen></iframe>
@@ -59,6 +59,15 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <script>
+	var onresize = function() {
+	   //your code here
+	   //this is just an example
+	   width = document.body.clientWidth;
+	   height = document.body.clientHeight;
+	   SetResolution(width, height);
+	}
+	window.addEventListener("resize", onresize);
+	
 	function SetResolution(x,y)
 	{
 		document.getElementById("ytplayer").width = x;

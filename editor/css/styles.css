@@ -20,6 +20,7 @@ body
 	border-style: solid;
 	border-color:black;
 	padding: 0;
+	overflow-y: auto;
 }
 
 h2{

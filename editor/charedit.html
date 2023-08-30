@@ -62,21 +62,21 @@
 		<section id="charedit" class="col-lg-4">
 		
 			<div class="attribute-group">
-			<label id="value" for="customRange" class="form-label">Első szülő arca: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
-			<label id="value" for="customRange" class="form-label">Második szülő arca: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
-			<label id="value" for="customRange" class="form-label">Nagyszülő szülő arca: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent1face-label" for="parent1face" class="form-label">Első szülő arca: 0</label>
+			<input id="parent1face" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent2face-label" for="parent2face" class="form-label">Második szülő arca: 0</label>
+			<input id="parent2face" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent3face-label" for="parent3face" class="form-label">Nagyszülő arca: 0</label>
+			<input id="parent3face" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
 			</div>
 			
 			<div class="attribute-group">
-			<label id="value" for="customRange" class="form-label">Első szülő bőre: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
-			<label id="value" for="customRange" class="form-label">Második szülő bőre: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
-			<label id="value" for="customRange" class="form-label">Nagyszülő szülő bőre: 0</label>
-			<input id="range" type="range" class="form-range" id="customRange" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent1skin-label" for="parent1skin" class="form-label">Első szülő bőre: 0</label>
+			<input id="parent1skin" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent2skin-label" for="parent2skin" class="form-label">Második szülő bőre: 0</label>
+			<input id="parent2skin" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
+			<label id="parent3skin-label" for="parent3skin" class="form-label">Nagyszülő bőre: 0</label>
+			<input id="parent3skin" type="range" class="form-range" name="points" step="1" min="0" max="45" value="0">
 			</div>
 			
 			<div class="attribute-group">
@@ -115,6 +115,7 @@
 
 </body>
 <script>
+
 function Show(elementID) {
     var ele = document.getElementById(elementID);
     if (!ele) {
@@ -128,18 +129,54 @@ function Show(elementID) {
     ele.style.display = 'block';
 }
 
-function Update(event){
+function UpdateSlider(event){
     var source = event.target || event.srcElement;
-	output.innerHTML = 'Első szülő arca: ' + source.value;
-    console.log(source.value);
+	var labelname = source.id + '-label';
+	var label = document.getElementById(source.id + '-label');
+	label.innerHTML = GetAttributeText(source.id) + source.value;
+	mp.trigger("client:AttributeToServer", GetAttributeId(source.id), source.value );
+}
+
+function GetAttributeText(label)
+{
+		switch(label) {
+		  case 'parent1face':
+			return 'Első szülő arca: ';
+			break;
+		  case 'parent2face':
+			return 'Második szülő arca: ';
+			break;
+		  case 'parent3face':
+			return 'Nagyszülő arca: ';
+			break;
+		}
+}
+
+function GetAttributeId(label)
+{
+		switch(label) {
+		case 'gender':
+		return 0;
+		break;
+		case 'parent1face':
+		return 4;
+		break;
+		case 'parent2face':
+		return 5;
+		break;
+		case 'parent3face':
+		return 6;
+		break;
+		}
 }
 
 
-   var slider = document.getElementById("range");
-  var output = document.getElementById("value");
-  var outputVarNo = document.getElementById("outputVar");
-
-  slider.addEventListener('input', Update);
+  var parent1face = document.getElementById("parent1face");
+  var parent2face = document.getElementById("parent2face");
+  var parent3face = document.getElementById("parent3face");
+  parent1face.addEventListener('input',UpdateSlider);
+  parent2face.addEventListener('input',UpdateSlider);
+  parent3face.addEventListener('input',UpdateSlider);
   
 </script>
 </html>

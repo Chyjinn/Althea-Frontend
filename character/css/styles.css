@@ -44,9 +44,21 @@ h2
     text-align: justify;
 }
 
-#buttons
-{
-    position: absolute;
-    left: 40%;
-    bottom: 5%;
+
+
+#enterGame{
+	position: absolute;
+	width: 10%;
+	height: 3%;
+	left: 30%;
+	bottom: 5%;
+}
+
+#editChar{
+	position: absolute;
+	width: 10%;
+	height: 3%;
+	right: 30%;
+	bottom: 5%;
+	
 }

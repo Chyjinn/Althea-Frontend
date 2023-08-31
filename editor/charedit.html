@@ -32,24 +32,24 @@
 		<section id="charedit" class="col-lg-4">
 			<div class="attribute-group">
 			<div class="radio">
-			  <label><input type="radio" name="optradio" checked>Férfi</label>
+			  <label><input onclick="changeGender()" id="male" type="radio" name="optradio" checked>Férfi</label>
 			</div>
 			<div class="radio">
-			  <label><input type="radio" name="optradio">Nő</label>
+			  <label><input onclick="changeGender()" id="female" type="radio" name="optradio" >Nő</label>
 			</div>
 		</div>
 		<div class="attribute-group">
-		<label for="fname">Vezetéknév:</label>
-		<input type="text" id="fname" name="firstname" placeholder="Vezetéknév">
+		<label for="fname">Keresztnév:</label>
+		<input type="text" id="firstname" name="firstname" required>
 		
-		<label for="lname">Keresztnév:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Keresztnév">
+		<label for="lname">Vezetéknév:</label>
+		<input type="text" id="lastname" name="lastname" required>
 		
 		<label for="lname">Születési hely:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Város">
+		<input type="text" id="pob" name="lastname" placeholder="Város" required>
 		
 		<label for="start">Születési idő:</label>
-		<input type="date" id="start" name="trip-start" value="" min="1900-01-01" max="2010-12-31" />
+		<input type="date" id="dob" name="trip-start" value="" min="1900-01-01" max="2010-12-31"  required>
 		
 
 		</div>
@@ -128,6 +128,11 @@
 			<div class="attribute-group">
 			<label id="eyes-label" for="eyes" class="form-label">-</label>
 			<input id="eyes" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
+			<label id="eyecolor-label" for="eyecolor" class="form-label">-</label>
+			<input id="eyecolor" type="range" class="form-range" name="points" step="1" min="0" max="31" value="0">
+			</div>
+			
+			<div class="attribute-group">
 			<label id="lips-label" for="lips" class="form-label">-</label>
 			<input id="lips" type="range" class="form-range" name="points" step="1" min="-100" max="100" value="0">
 			<label id="jawwidth-label" for="jawwidth" class="form-label">-</label>
@@ -214,6 +219,16 @@
 	<section id="charedit" class="col-lg-4">
 		
 		<div class="attribute-group">
+		<label id="hairstyle-label" for="hairstyle" class="form-label">-</label>
+		<input id="hairstyle" type="range" class="form-range" name="points" step="1" min="0" max="100" value="0">
+		<label id="haircolor-label" for="haircolor" class="form-label">-</label>
+		<input id="haircolor" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		<label id="hairhighlight-label" for="hairhighlight" class="form-label">-</label>
+		<input id="hairhighlight" type="range" class="form-range" name="points" step="1" min="0" max="63" value="0">
+		</div>
+		
+		
+		<div class="attribute-group">
 		<label id="eyebrowid-label" for="eyebrowid" class="form-label">-</label>
 		<input id="eyebrowid" type="range" class="form-range" name="points" step="1" min="-1" max="33" value="-1">
 		<label id="eyebrowcolor-label" for="eyebrowcolor" class="form-label">-</label>
@@ -278,7 +293,7 @@
 
         <section id="buttons" class="row mt-3">
                 <div class="col-lg-12">
-                <button id="enterGame" class="btn btn-primary">Létrehozás</button>
+				<input id="done" type="submit" class="btn btn-primary" value="Létrehozás" />
                 </div>
         </section>
 
@@ -287,7 +302,12 @@
   
 </body>
 <script>
-  let attributes = [['parent1face','Első szülő arca: ', 4],
+  let attributes = [
+  ['hairstyle','Hajstílus: ', -12],
+  ['haircolor','Hajszín: ', 2],
+  ['hairhighlight','Hajszín 2: ', 3],
+  ['eyecolor','Szem szín: ', 1],
+  ['parent1face','Első szülő arca: ', 4],
   ['parent2face','Második szülő arca: ', 5],
   ['parent3face','Nagyszülő arca: ', 6],
   ['parent1skin','Első szülő bőre: ', 7],
@@ -308,7 +328,7 @@
   ['cheekboneheight','Arccsont magasság: ', 21],
   ['cheekbonewidth','Arccsont szélesség: ', 22],
   ['cheekwidth','Arc szélesség: ', 23],
-  ['eyes','Szem: ', 24],
+  ['eyes','Szem méret: ', 24],
   ['lips','Ajkak: ', 25],
   ['jawwidth','Állkapocs szélesség: ', 26],
   ['jawheight','Állkapocs magasság: ', 27],
@@ -351,72 +371,110 @@
   ['bodyblemish2opacity','Testhiba láthatóság: ', 63]
   ];
   
-  function GetAttributeText(label)
-{
-  for (let i = 0; i < attributes.length; i++) {
-  if (label === attributes[i][0])
-	  {
-		return attributes[i][1];
-	  }
-	}
-}
+	function GetAttributeText(label)
+		{
+		  for (let i = 0; i < attributes.length; i++) {
+		  if (label === attributes[i][0])
+			  {
+				return attributes[i][1];
+			  }
+			}
+		}
 
-function GetAttributeId(label)
-{
-  for (let i = 0; i < attributes.length; i++) {
-  if (label === attributes[i][0])
-	  {
-		return attributes[i][2];
-	  }
-	}
-}
+	function GetAttributeId(label)
+		{
+		  for (let i = 0; i < attributes.length; i++) {
+		  if (label === attributes[i][0])
+			  {
+				return attributes[i][2];
+			  }
+			}
+		}
   
-function Show(elementID) {
-    var ele = document.getElementById(elementID);
-    if (!ele) {
-        alert("No Such Page Found.");
-        return;
-    }
-    var pages = document.getElementsByClassName('page');
-    for(var i = 0; i < pages.length; i++) {
-        pages[i].style.display = 'none';
-    }
-    ele.style.display = 'block';
-}
+	function Show(elementID) {
+		var ele = document.getElementById(elementID);
+		if (!ele) {
+			alert("No Such Page Found.");
+			return;
+		}
+		var pages = document.getElementsByClassName('page');
+		for(var i = 0; i < pages.length; i++) {
+			pages[i].style.display = 'none';
+		}
+		ele.style.display = 'block';
+		}
 
-function UpdateSlider(event){
-    var source = event.target || event.srcElement;
-	var labelname = source.id + '-label';
-	var label = document.getElementById(source.id + '-label');
-	var ertek = source.value
-	if (ertek == -1 && GetAttributeId(source.id) > 32)
+	function UpdateSlider(event){
+		var source = event.target || event.srcElement;
+		var labelname = source.id + '-label';
+		var label = document.getElementById(source.id + '-label');
+		var ertek = source.value
+		if (ertek == -1 && GetAttributeId(source.id) > 32)
+		{
+			ertek = 255;
+		}
+		
+		label.innerHTML = GetAttributeText(source.id) + ertek;
+		mp.trigger("client:AttributeToServer", GetAttributeId(source.id), ertek );
+	}
+
+	function UpdateLabel(source)
 	{
-		ertek = 255;
+		var labelname = source.id + '-label';
+		var label = document.getElementById(source.id + '-label');
+		var ertek = source.value
+		if (ertek == -1 && GetAttributeId(source.id) > 32)
+		{
+			ertek = 255;
+		}
+		label.innerHTML = GetAttributeText(source.id) + ertek;
 	}
 	
-	label.innerHTML = GetAttributeText(source.id) + ertek;
-	mp.trigger("client:AttributeToServer", GetAttributeId(source.id), ertek );
-}
-
-function UpdateLabel(source)
-{
-	var labelname = source.id + '-label';
-	var label = document.getElementById(source.id + '-label');
-	var ertek = source.value
-	if (ertek == -1 && GetAttributeId(source.id) > 32)
+	
+	var male = document.getElementById('male');
+	var female = document.getElementById('female');
+	
+	function changeGender()
 	{
-		ertek = 255;
+		if (male.checked == true)
+		{
+			mp.trigger("client:AttributeToServer", 0, true);
+		}
+		else if (female.checked == true)
+		{
+			mp.trigger("client:AttributeToServer", 0, false);
+		}
+			
+			
 	}
-	label.innerHTML = GetAttributeText(source.id) + ertek;
-}
-
-
   
   
   for (let i = 0; i < attributes.length; i++) {
   var element = document.getElementById(attributes[i][0]);
   element.addEventListener('input',UpdateSlider);
   UpdateLabel(element);
+	}
+	
+	var finishButton = document.getElementById('done');
+	
+	var firstname = document.getElementById('firstname');
+	var lastname = document.getElementById('lastname');
+	var pob = document.getElementById('pob');
+	var dob = document.getElementById('dob');
+	
+	finishButton.addEventListener('click', finishEditing);
+	
+	function finishEditing()
+	{
+		if (fistname.value && lastname.value && pob.value && dob.value)
+		{
+			var name = firstname.value + ' ' + lastname.value;
+			mp.trigger("client:AttributeToServer", -2, name);
+			mp.trigger("client:AttributeToServer", -3, pob.value);
+			mp.trigger("client:FinishEditing");
+			
+			
+		}
 	}
 </script>
 </html>

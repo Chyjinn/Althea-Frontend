@@ -1,0 +1,30 @@
+.inv{
+    background-color: rgba(0,0,0,0.7);
+	position: absolute;
+	width: 30%;
+	height: 30%;
+	right: 15%;
+	top: 60%;
+	border: solid black;
+}
+
+
+.video-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .video-containeriframe {
+    /* optional */
+    width: 100%;
+    height: 100%; 
+  }

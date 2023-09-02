@@ -8,15 +8,55 @@
 <body>
 
 <div class="inv">
+<div class="header">
+
+			<div id="inv-button" onclick="Show('Inventory');" type="button" class="btn btn-primary">Inv</div>
+			<div id="key-button" onclick="Show('Keys');" type="button" class="btn btn-primary">Kulcs</div>
+			<div id="clothes-button" onclick="Show('Clothes');" type="button" class="btn btn-primary">Ruha</div>
+</div>
+
+		
+		
+<div id="Inventory" class="page" style="display:block">
+
+<div id="slot1">
+</div>
+
+<div id="slot2">
+</div>
+
+<div id="slot3">
+</div>
+</div>
+
+<div id="Keys" class="page" style="display:block">
+
+
+</div>
+
+<div id="Clothes" class="page" style="display:block">
+
+
+</div>
+
+
+
 
 </div>
     </body>
 
     <script>
-        function SetResolution(x,y)
-        {
-            document.getElementById("ytplayer").width = x;
-            document.getElementById("ytplayer").height = y;
-        }
+        	function Show(elementID) {
+		var ele = document.getElementById(elementID);
+		if (!ele) {
+			alert("No Such Page Found.");
+			return;
+		}
+		var pages = document.getElementsByClassName('page');
+		for(var i = 0; i < pages.length; i++) {
+			pages[i].style.display = 'none';
+		}
+		ele.style.display = 'block';
+		}
     </script>
 </html>

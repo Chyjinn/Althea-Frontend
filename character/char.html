@@ -27,7 +27,9 @@
 
 
                 <button id="enterGame" class="btn btn-primary">Belépés a játékba</button>
-                <button id="editChar" class="btn btn-primary" style="display:block">Karakter szerkesztése</button>
+				
+                <button id="editChar" class="btn btn-secondary" style="display:block">Karakter szerkesztése</button>
+				<button id="newChar" class="btn btn-secondary">Új karakter létrehozása</button>
 
   </div>
   </div>
@@ -36,6 +38,7 @@
   var selectedChar = 0;
   var enterButton = document.getElementById('enterGame');
   var editButton = document.getElementById('editChar');
+  var newButton = document.getElementById('newChar');
   var charlist = document.getElementById('chargroup');
   var charname = document.getElementById('charname');
   var chardata = document.getElementById('chardata');
@@ -48,6 +51,11 @@
   editButton.onclick = function()
   {
 	mp.trigger("client:CharEditToServer", selectedChar);
+  }
+  
+    newButton.onclick = function()
+  {
+	mp.trigger("client:NewCharToServer");
   }
 
   function SetFirstCharId(id)

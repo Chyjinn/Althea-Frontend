@@ -7,19 +7,34 @@
   <link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-	
-  <div class="progress"></div>
-	
-  </div>
+  <div class="healthbar" id="healthbar">
+
+	<div class="rhombus" id="healthbar1"></div>
+	<div class="rhombus" id="healthbar2"></div>
+	<div class="rhombus" id="healthbar3"></div>
+	<div class="rhombus" id="healthbar4"></div>
+	<div class="rhombus" id="healthbar5"></div>
+	<div class="rhombus" id="healthbar6"></div>
+	<div class="rhombus" id="healthbar7"></div>
+	<div class="rhombus" id="healthbar8"></div>
+	<div class="rhombus" id="healthbar9"></div>
+	<div class="rhombus" id="healthbar10"></div>
   </div>
 </body>
 <script>
-  var selectedChar = 0;
-  var enterButton = document.getElementById('enterGame');
 
+	var healthbar =  document.getElementById('healthbar');
 
+  function RefreshHealthBarPosition(width, height, leftX, rightX, topY, bottomY)
+  {
+  healthbar.style.left = leftX*1.03+'px';
+  healthbar.style.top = bottomY*0.985+'px';
+  //healthbar.style.left = leftX+'px';
+  //healthbar.style.top = bottomY+'px';
+  healthbar.style.width = width+'px';
+  healthbar.style.height = width/20+'px';
+  }
+  
   function RefreshHealth(value)
   {
   
@@ -27,19 +42,5 @@
     chardata.textContent = 'Helyszín: ' + location +' - Születési hely: ' + pob + ' - Születési idő: '+dob;
   }
   
-  const wrapper = document.querySelectorAll('.progress');
-const barCount = 50; // number of bars
-const percentDemo = 50 * 90/100; // 90%
-for (let index = 0; index < barCount; index++) {
-  const className = index < percentDemo ? 'selected-demo' : '';
-  wrapper[0].innerHTML += `<i style="--i: ${index};" class="${className}"></i>`;
-}
-wrapper[0].innerHTML += `<p class="selected percent-text text-demo">90%</p>`
-/*
-  function UpdateCharData(name,gender) {
-			document.getElementbyId('name')[0].innerHTML = name;
-			document.getElementById('gender')[0].innerHTML = gender;
-		}
-*/
 </script>
 </html>

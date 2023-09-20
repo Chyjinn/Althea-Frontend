@@ -1,51 +1,71 @@
-.progress {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-.progress i {
+.rhombus {
   position: absolute;
+  border: solid 2px black;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transform: rotate(calc(45deg + calc(calc(360deg / var(--tlt-br-cnt)) * var(--i))));
-}
-.progress i::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: hsla(0, 0%,100%, 12%);;
-  width: 5px;
-  height: 20px;
-  border-radius: 999rem;
-  transform: rotate(-45deg);
-  transform-origin: top;
-  opacity: 0;
-  animation: barCreationAnimation 100ms ease forwards;
-  animation-delay: calc(var(--i) * 15ms);
-}
-.progress .selected-demo::after {
-  background: hsl(130, 100%, 50%);
-  box-shadow: 0 0 1px hsl(130, 100%, 50%),
-              0 0 3px hsl(130, 100%, 30%),
-              0 0 4px hsl(130, 100%, 10%);
+  width: 9%;
+  height: 100%;
+  /*transform: skewX(-45deg) scaleY(cos(45deg));*/
+  transform-origin: center;
 }
 
-.percent-text {
-  font-size: 3rem;
-  animation: barCreationAnimation 500ms ease forwards;
-  animation-delay: calc(var(--tlt-br-cnt) * 15ms / 2);
+body{
+	background-color: rgba(0,0,0,0);
 }
-.text-demo{
-  color: hsl(130, 100%, 50%);
-  text-shadow: 0 0 1px hsl(130, 100%, 50%),
-                  0 0 3px hsl(130, 100%, 30%),
-                  0 0 4px hsl(130, 100%, 10%);
-  opacity: 0;
+
+#healthbar1{
+  left: 0%;
+  background: #820000;
+}
+
+#healthbar2{
+  left: 10%;
+  background: #820000;
+}
+
+#healthbar3{
+  left: 20%;
+  background: #820000;
+}
+
+#healthbar4{
+  left: 30%;
+  background: #820000;
+}
+
+#healthbar5{
+  left: 40%;
+  background: #820000;
+}
+
+#healthbar6{
+  left: 50%;
+  background: #820000;
+}
+
+#healthbar7{
+  left: 60%;
+  background: #820000;
+}
+
+#healthbar8{
+  left: 70%;
+  background: #820000;
+}
+
+#healthbar9{
+  left: 80%;
+  background: #820000;
+}
+
+#healthbar10{
+  left: 90%;
+}
+
+.healthbar{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 600px;
+	height: 60px;
+	/*transform: translate(-50%, -50%);*/
 }

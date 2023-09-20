@@ -1,171 +1,364 @@
 .inv{
     background-color: rgba(0,0,0,0.5);
 	position: absolute;
-	width: 600px;
-	height: 300px;
+	width: 35%;
+	height: 35%;
 	right: 15%;
 	top: 60%;
-	border: solid black 5px;
+	border: solid black 1px;
 }
 
 .header{
 	background-color: rgba(0,0,0,0.8);
 	position: absolute;
 	top: 0px;
+	left: 0px;
 	width: 100%;
-	height: 30px;
-	
-	
+	height: 12%;
 }
+
+#logo
+{
+	position: absolute;
+	width: 8%;
+	height: 90%;
+	left: 1%;
+	top: 5%;
+}
+
+.item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	top: 0%;
+}	
 
 #inv-button{
 	position: absolute;
-	width: 30px;
-	height: 30px;
-	right: 100px;
-	top: 5px;
+	width: 8%;
+	height: 90%;
+	right: 45%;
+	top: 1%;
+	color: #fff;
+}
+
+
+#bag-button{
+	position: absolute;
+	width: 8%;
+	height: 90%;
+	right: 36%;
+	top: 1%;
 	color: #fff;
 }
 
 #key-button{
 	position: absolute;
-	width: 30px;
-	height: 30px;
-	right: 60px;
-	top: 5px;
+	width: 8%;
+	height: 90%;
+	right: 27%;
+	top: 1%;
+	color: #fff;
+}
+
+#paper-button{
+	position: absolute;
+	width: 8%;
+	height: 90%;
+	right: 19%;
+	top: 1%;
 	color: #fff;
 }
 
 #clothes-button{
 	position: absolute;
-	width: 30px;
-	height: 30px;
-	right: 10px;
-	top: 5px;
+	width: 8%;
+	height: 90%;
+	right: 10%;
+	top: 1%;
 	color: #fff;
 }
+
+#amount{
+	position:absolute;
+	padding: 1px 1px;
+	box-sizing: border-box;
+	border: solid black 1px;
+	background-color: grey;
+	color: white;
+	font-weight: bold;
+	width: 8%;
+	height: 60%;
+	right: 1%;
+	top: 20%;
+	text-align: center;
+}
+
 .buttons{
 	position: absolute;
 	
 }
 
-#slot1{
+.slots{
 	position: absolute;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 35px;
+	width: 9.45%;
+	height: 16.2%;
 	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	border: solid grey 1px;
+}
+
+.slots:hover{
+	border: solid orange 1px;
+}
+
+#slot1{
+	left: 0.5%;
+	top: 13%;
 }
 
 #slot2{
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	left: 60px;
-	top: 35px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 10.45%;
+	top: 13%;
 }
 
 #slot3{
-	position: absolute;
-	width: 50px;
-	height: 50px;
-	left: 115px;
-	top: 35px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 20.4%;
+	top: 13%;
 }
 
 #slot4{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 30.35%;
+	top: 13%;
 }
 
 #slot5{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 40.3%;
+	top: 13%;
 }
 
 #slot6{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 50.25%;
+	top: 13%;
 }
 
 #slot7{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 60.2%;
+	top: 13%;
 }
 
 #slot8{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 70.15%;
+	top: 13%;
 }
 
 #slot9{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 80.1%;
+	top: 13%;
 }
 
 #slot10{
-	position: relative;
-	width: 50px;
-	height: 50px;
-	left: 5px;
-	top: 5px;
-	background-color: rgba(0,0,0,0.7);
-	border: solid black 1px;
+	left: 90.05%;
+	top: 13%;
+}
+
+#slot11{
+	left: 0.5%;
+	top: 30%;
+}
+
+#slot12{
+	left: 10.45%;
+	top: 30%;
+}
+
+#slot13{
+	left: 20.4%;
+	top: 30%;
+}
+
+#slot14{
+	left: 30.35%;
+	top: 30%;
+}
+
+#slot15{
+	left: 40.3%;
+	top: 30%;
+}
+
+#slot16{
+	left: 50.25%;
+	top: 30%;
+}
+
+#slot17{
+	left: 60.2%;
+	top: 30%;
+}
+
+#slot18{
+	left: 70.15%;
+	top: 30%;
+}
+
+#slot19{
+	left: 80.1%;
+	top: 30%;
+}
+
+#slot20{
+	left: 90.05%;
+	top: 30%;
 }
 
 
-.video-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .video-containeriframe {
-    /* optional */
-    width: 100%;
-    height: 100%; 
-  }
+#slot21{
+	left: 0.5%;
+	top: 47%;
+}
+#slot22{
+	left: 10.45%;
+	top: 47%;
+}
+
+#slot23{
+	left: 20.4%;
+	top: 47%;
+}
+
+#slot24{
+	left: 30.35%;
+	top: 47%;
+}
+
+#slot25{
+	left: 40.3%;
+	top: 47%;
+}
+
+#slot26{
+	left: 50.25%;
+	top: 47%;
+}
+
+#slot27{
+	left: 60.2%;
+	top: 47%;
+}
+
+#slot28{
+	left: 70.15%;
+	top: 47%;
+}
+
+#slot29{
+	left: 80.1%;
+	top: 47%;
+}
+
+#slot30{
+	left: 90.05%;
+	top: 47%;
+}
+
+
+#slot31{
+	left: 0.5%;
+	top: 64%;
+}
+#slot32{
+	left: 10.45%;
+	top: 64%;
+}
+
+#slot33{
+	left: 20.4%;
+	top: 64%;
+}
+
+#slot34{
+	left: 30.35%;
+	top: 64%;
+}
+
+#slot35{
+	left: 40.3%;
+	top: 64%;
+}
+
+#slot36{
+	left: 50.25%;
+	top: 64%;
+}
+
+#slot37{
+	left: 60.2%;
+	top: 64%;
+}
+
+#slot38{
+	left: 70.15%;
+	top: 64%;
+}
+
+#slot39{
+	left: 80.1%;
+	top: 64%;
+}
+
+#slot40{
+	left: 90.05%;
+	top: 64%;
+}
+
+
+#slot41{
+	left: 0.5%;
+	top: 81%;
+}
+
+#slot42{
+	left: 10.45%;
+	top: 81%;
+}
+
+#slot43{
+	left: 20.4%;
+	top: 81%;
+}
+
+#slot44{
+	left: 30.35%;
+	top: 81%;
+}
+
+#slot45{
+	left: 40.3%;
+	top: 81%;
+}
+
+#slot46{
+	left: 50.25%;
+	top: 81%;
+}
+
+#slot47{
+	left: 60.2%;
+	top: 81%;
+}
+
+#slot48{
+	left: 70.15%;
+	top: 81%;
+}
+
+#slot49{
+	left: 80.1%;
+	top: 81%;
+}
+
+#slot50{
+	left: 90.05%;
+	top: 81%;
+}

@@ -12,31 +12,48 @@
 </head>
 <body>
 
-<div id="vehicle">
+<iframe src="audio/blinker.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+</iframe> 
+<div id="vehiclegauges">
+
+
+
+<div id="speedgauge">
 <div id="speedo"></div>
 <i id="speedunit">MPH</i>
 </div>
 
 
+<div id="fuelgauge">
+<div id="fuel"><i id="Armor" class="fas fa-gas-pump"></i></div>
+</div>
+</div>
 
 <div id="healthbar"><i id="Health" class="fas fa-heart"></i></div>
 
-<div id="armorbar"><i id="Armor" class="fas fa-shield-alt"></i></div>
+<div id="hpbar"></div>
+
+<div id="armorcircle"><i id="Armor" class="fas fa-shield-alt"></i></div>
 
 </body>
 <script>
-
+const blinkerSound = new Audio("audio/blinker.mp3");
 var healthbar = document.getElementById('healthbar');
-var armorbar = document.getElementById('armorbar');
+var armorcircle = document.getElementById('armorcircle');
 var speedometer = document.getElementById('speedo');
-var vehiclegauges = document.getElementById('vehicle');
+var fuelgauge = document.getElementById('fuel');
+var hpbarhud = document.getElementById('hpbar');
+var healthcolor = '#ffffff';
+var armorcolor = '#ffffff';
+
+var vehiclegauges = document.getElementById('vehiclegauges');
+
 var speed = 0;
 
 var speedo = new ProgressBar.SemiCircle(speedometer, {
   strokeWidth: 10,
   color: 'white',
-  duration: 250,
-  easing: 'easeInOut',
+  duration: 100,
   trailColor: '#fff',
   trailWidth: 2,
   svgStyle: null,
@@ -50,6 +67,27 @@ speedo.text.style.fontSize = '2rem';
 
 var speedNumber = document.querySelector('.progressbar-text');
 speedNumber.style.top = 40+'%';
+
+
+var fuel = new ProgressBar.SemiCircle(fuelgauge, {
+  strokeWidth: 10,
+  color: 'white',
+  duration: 1000,
+  trailColor: '#fff',
+  trailWidth: 2,
+  svgStyle: null,
+});
+
+
+var hpbar = new ProgressBar.Line(hpbarhud, {
+  strokeWidth: 2,
+  duration: 300,
+  color: '#FFEA82',
+  trailColor: '#eee',
+  trailWidth: 2,
+  svgStyle: {width: '100%', height: '100%'}
+});
+
 
 /*
 var speedo = new ProgressBar.Circle(speedometer, {
@@ -73,7 +111,6 @@ var speedo = new ProgressBar.Circle(speedometer, {
 speedo.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 speedo.text.style.fontSize = '2rem';
 */
-speedo.animate(0.5);  // Number from 0.0 to 1.0
 
 
 var health = new ProgressBar.Circle(healthbar, {
@@ -85,7 +122,7 @@ var health = new ProgressBar.Circle(healthbar, {
   svgStyle: null
 });
 
-var armor = new ProgressBar.Circle(armorbar, {
+var armor = new ProgressBar.Circle(armorcircle, {
   strokeWidth: 16,
   duration: 300,
   color: 'red',
@@ -98,20 +135,15 @@ function RefreshSpeed(value, rpm, gear)
 {
 	rpm = rpm/100;
 	speed = value;
-	if (rpm > 0.9)
+	if (rpm > 0.95)
 	{
 	    var path = document.querySelector('#speedo > svg > path:last-child');
 		path.setAttribute("stroke", "red");
 	}
-	else if (rpm > 0.8)
+	else if (rpm > 0.85)
 	{
 		var path = document.querySelector('#speedo > svg > path:last-child');
 		path.setAttribute("stroke", "orange");
-	}
-	else if (rpm > 0.7)
-	{
-		var path = document.querySelector('#speedo > svg > path:last-child');
-		path.setAttribute("stroke", "green");
 	}
 	else
 	{
@@ -120,6 +152,33 @@ function RefreshSpeed(value, rpm, gear)
 	}
 	
 	speedo.animate(rpm);
+}
+
+function RefreshFuel(value)
+{
+	fuel.animate(value/100);
+	
+}
+
+let blinkertimer = null;
+
+function ToggleBlinker(status)
+{
+if(status == 1)
+{
+clearInterval(blinkertimer);
+blinkertimer = setInterval(PlayBlinkerSound, 500);
+}
+else
+{
+clearInterval(blinkertimer);
+}
+	
+}
+
+function PlayBlinkerSound()
+{
+	blinkerSound.play();
 }
 
 
@@ -208,54 +267,55 @@ function stopDrag(e) {
 
   function RefreshHealth(hp, pancel)
   {
-  if (hp != 0)
+  if (hp > 0)
   {
 	  health.animate(hp/100);
 	  if (hp > 70)//sok hp, zöld
 	  {
-	  var path = document.querySelector('#healthbar > svg > path:last-child');
-		path.setAttribute("stroke", "#8BC65A");
+	  healthcolor = "#8BC65A";
 	  }
 	  else if(hp < 30)//kevés hp, piros
 	  {
-	  var path = document.querySelector('#healthbar > svg > path:last-child');
-		path.setAttribute("stroke", "#6F1400");
+	  healthcolor = "#6F1400";
+
 	  }
 	  else//közepes hp, sárga
 	  {
-		var path = document.querySelector('#healthbar > svg > path:last-child');
-		path.setAttribute("stroke", "#D6AF00");
+		healthcolor = "#D6AF00";
 	  }
+
 	}
 	else
 	{
+		healthcolor = "#6F1400";
 		health.animate(0);
 	}
+		var path = document.querySelector('#healthbar > svg > path:last-child');
+		path.setAttribute("stroke", healthcolor);
 	  
 	  if(pancel > 0)
 	  
 	  {
-	  armorbar.style.display = 'block';
+	  armorcircle.style.display = 'block';
 		  armor.animate(pancel/100);
-		  if(pancel > 80)
+		  if(pancel > 80)//sok armor
 		  {
-			var path = document.querySelector('#armorbar > svg > path:last-child');
-			path.setAttribute("stroke", "#005780");
+			armorcolor = '#005780';
 		  }
-		  else if(pancel < 30)
+		  else if(pancel < 30)//kevés armor
 		  {
-				var path = document.querySelector('#armorbar > svg > path:last-child');
-				path.setAttribute("stroke", "#80d7ff");
+			armorcolor = '#80d7ff';
 		  }
 		  else//közepes armor
 		  {
-				var path = document.querySelector('#armorbar > svg > path:last-child');
-				path.setAttribute("stroke", "#008bcc");
+			armorcolor = '#008bcc';
 		  }
+				var path = document.querySelector('#armorcircle > svg > path:last-child');
+				path.setAttribute("stroke", armorcolor);
 	  }
 	  else
 	  {
-		armorbar.style.display = 'none';
+		armorcircle.style.display = 'none';
 	  }
 	  
 	  

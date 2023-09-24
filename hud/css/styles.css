@@ -1,5 +1,7 @@
 body{
 	background-color: rgba(0,0,0,0);
+	overflow: hidden;
+	user-select: none;
 }
 
 #healthbar{
@@ -9,29 +11,51 @@ body{
 	display: block;
 	right: 1vh;
 	bottom: 1vh;
+	text-shadow: 1px 1px 3px black;
+	/*transform: translate(-50%, -50%);*/
+}
+
+#hpbar{
+	position: absolute;
+	width: 16vh;
+	height: 2vh;
+	display: block;
+	right: 4vh;
+	top: 4vh;
+	text-shadow: 1px 1px 3px black;
 	/*transform: translate(-50%, -50%);*/
 }
 
 #armorbar{
+	position: absolute;
+	width: 16vh;
+	height: 2vh;
+	display: block;
+	right: 4vh;
+	top: 4vh;
+	text-shadow: 1px 1px 3px black;
+	/*transform: translate(-50%, -50%);*/
+}
+
+#armorcircle{
 	position: absolute;
 	width: 6vh;
 	height: 6vh;
 	display: block;
 	right: 7.5vh;
 	bottom: 1vh;
+	text-shadow: 1px 1px 3px black;
 	/*transform: translate(-50%, -50%);*/
 }
 
-#vehicle{
-	display: none;
+#speedgauge{
 	position: absolute;
 	width: 16vh;
 	height: 10vh;
-	display: block;
 	left: 50%;
-	bottom: 0%;
+	bottom: -1.5vh;
 	transform: translate(-50%, 0%);
-	overflow: clip;
+	text-shadow: 1px 1px 3px black;
 }
 
 #speedunit{
@@ -45,9 +69,31 @@ body{
 	transform: translate(-50%, 0%);
 	font-family: Raleway, Helvetica, sans-serif;
 	font-size: 1.5rem;
+	font-style: normal;
+	text-shadow: 1px 1px 3px black;
 }
 
+#fuelgauge{
+	position: absolute;
+	width: 8vh;
+	height: 5vh;
+	left: 43%;
+	bottom: -0.2vh;
+	transform: translate(-50%, 0%);
+}
 
+#vehiclegauges{
+	display: block;
+}
+
+.fa-gas-pump{
+  color: white;
+  position: absolute;
+  font-size: 2vh;
+  left: 3vh;
+  bottom: 1vh;
+  text-shadow: 1px 1px 2px black;
+}
 
 .fa-heart,
 .fa-shield-alt

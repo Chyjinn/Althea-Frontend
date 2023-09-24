@@ -1,71 +1,50 @@
-.rhombus {
-  position: absolute;
-  border: solid 2px black;
-  top: 0;
-  width: 9%;
-  height: 100%;
-  /*transform: skewX(-45deg) scaleY(cos(45deg));*/
-  transform-origin: center;
-}
-
 body{
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0,0,0,1);
 }
 
-#healthbar1{
-  left: 0%;
-  background: #820000;
-}
-
-#healthbar2{
-  left: 10%;
-  background: #820000;
-}
-
-#healthbar3{
-  left: 20%;
-  background: #820000;
-}
-
-#healthbar4{
-  left: 30%;
-  background: #820000;
-}
-
-#healthbar5{
-  left: 40%;
-  background: #820000;
-}
-
-#healthbar6{
-  left: 50%;
-  background: #820000;
-}
-
-#healthbar7{
-  left: 60%;
-  background: #820000;
-}
-
-#healthbar8{
-  left: 70%;
-  background: #820000;
-}
-
-#healthbar9{
-  left: 80%;
-  background: #820000;
-}
-
-#healthbar10{
-  left: 90%;
-}
-
-.healthbar{
+#healthbar{
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 600px;
-	height: 60px;
+	width: 6vh;
+	height: 6vh;
+	display: block;
+	right: 1vh;
+	bottom: 1vh;
 	/*transform: translate(-50%, -50%);*/
 }
+
+#armorbar{
+	position: absolute;
+	width: 6vh;
+	height: 6vh;
+	display: block;
+	right: 7.5vh;
+	bottom: 1vh;
+	/*transform: translate(-50%, -50%);*/
+}
+
+#speedo{
+	position: absolute;
+	width: 6vh;
+	height: 6vh;
+	display: block;
+	left: 7.5vh;
+	bottom: 1vh;
+	/*transform: translate(-50%, -50%);*/
+}
+
+.fa-heart,
+.fa-shield-alt
+{
+  color: white;
+  position: absolute;
+  font-size: 2vh;
+  left: 2vh;
+  bottom: 1.8vh;
+}
+
+.resizable { 
+
+box-shadow: 0px 0px 10px 15px black;
+ }
+ 
+.resizer { width: 10px; height: 10px; background: blue; position:absolute; right: -5px; bottom: -5px; cursor: se-resize; }

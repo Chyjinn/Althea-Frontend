@@ -3,43 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/0.9.0/progressbar.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 <body>
-  <div class="healthbar" id="healthbar">
+<div id="speedo"><i id="Speedometer"></i></div>
 
-	<div class="rhombus" id="healthbar1"></div>
-	<div class="rhombus" id="healthbar2"></div>
-	<div class="rhombus" id="healthbar3"></div>
-	<div class="rhombus" id="healthbar4"></div>
-	<div class="rhombus" id="healthbar5"></div>
-	<div class="rhombus" id="healthbar6"></div>
-	<div class="rhombus" id="healthbar7"></div>
-	<div class="rhombus" id="healthbar8"></div>
-	<div class="rhombus" id="healthbar9"></div>
-	<div class="rhombus" id="healthbar10"></div>
-  </div>
+
+<div id="healthbar"><i id="Health" class="fas fa-heart"></i></div>
+
+<div id="armorbar"><i id="Armor" class="fas fa-shield-alt"></i></div>
+
 </body>
 <script>
 
-	var healthbar =  document.getElementById('healthbar');
+var healthbar = document.getElementById('healthbar');
+var armorbar = document.getElementById('armorbar');
+var speedometer = document.getElementById('speedo');
+var speed = 300;
+
+var speedo = new ProgressBar.Circle(speedometer, {
+  // This has to be the same size as the maximum width to
+  // prevent clipping
+  strokeWidth: 10,
+  duration: 300,
+  color: 'white',
+  trailColor: '#fff',
+  trailWidth: 2,
+  svgStyle: null,
+  // Set default step function for all animate calls
+  step: function(state, circle) {
+
+    if (speed === 0) {
+      circle.setText('');
+    } else {
+      circle.setText(speed);
+    }
+  }
+});
+speedo.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+speedo.text.style.fontSize = '2rem';
+
+speedo.animate(1.0);  // Number from 0.0 to 1.0
+
+
+var health = new ProgressBar.Circle(healthbar, {
+  strokeWidth: 16,
+  duration: 300,
+  color: 'red',
+  trailColor: '#eee',
+  trailWidth: 8,
+  svgStyle: null
+});
+
+var armor = new ProgressBar.Circle(armorbar, {
+  strokeWidth: 16,
+  duration: 300,
+  color: 'red',
+  trailColor: '#eee',
+  trailWidth: 8,
+  svgStyle: null
+});
+
+function RefreshSpeed(value)
+{
+	speed = value;
+}
+/*
+var resizeElement =  document.getElementById('healthbar');
+	
+
+resizeElement.addEventListener('click', function init() {
+    resizeElement.removeEventListener('click', init, false);
+    resizeElement.className = resizeElement.className + ' resizable';
+    var resizer = document.createElement('div');
+    resizer.className = 'resizer';
+    resizeElement.appendChild(resizer);
+    resizer.addEventListener('mousedown', initDrag, false);
+}, false);
+
+var startX, startY, startWidth, startHeight;
+
+function initDrag(e) {
+   startX = e.clientX;
+   startY = e.clientY;
+   startWidth = parseInt(document.defaultView.getComputedStyle(resizeElement).width, 10);
+   startHeight = parseInt(document.defaultView.getComputedStyle(resizeElement).height, 10);
+   document.documentElement.addEventListener('mousemove', doDrag, false);
+   document.documentElement.addEventListener('mouseup', stopDrag, false);
+}
+
+function doDrag(e) {
+   resizeElement.style.width = (startWidth + e.clientX - startX) + 'px';
+   resizeElement.style.height = (startHeight + e.clientY - startY) + 'px';
+}
+
+function stopDrag(e) {
+    document.documentElement.removeEventListener('mousemove', doDrag, false);    document.documentElement.removeEventListener('mouseup', stopDrag, false);
+}
+
+
+*/
 
   function RefreshHealthBarPosition(width, height, leftX, rightX, topY, bottomY)
   {
-  healthbar.style.left = leftX*1.03+'px';
-  healthbar.style.top = bottomY*0.985+'px';
+  /*
+  healthbar.style.left = '2%';
+  healthbar.style.bottom = '0.5%';
+  armorbar.style.left = '5%';
+  armorbar.style.bottom = '0.5%';
+  */
+  /*
+  
+  var hpleft = Number(rightX);
+  hpleft += 20;
+  var hptop = Number(topY);
+  hptop += 20;
+  healthbar.style.left = hpleft+'px';
+  healthbar.style.top = hptop+'px';
+  
+  var armleft = hpleft;
+  var armtop = hptop + 90;
+  
+  
+  armorbar.style.left = armleft+'px';
+  armorbar.style.top = armtop+'px';
+  */
   //healthbar.style.left = leftX+'px';
   //healthbar.style.top = bottomY+'px';
-  healthbar.style.width = width+'px';
-  healthbar.style.height = width/20+'px';
+  //healthbar.style.width = width+'px';
+  //healthbar.style.height = width/20+'px';
   }
   
-  function RefreshHealth(value)
-  {
   
-    charname.textContent = name;
-    chardata.textContent = 'Helyszín: ' + location +' - Születési hely: ' + pob + ' - Születési idő: '+dob;
+  
+  
+
+  function RefreshHealth(hp, pancel)
+  {
+	  health.animate(hp/100);
+	  if (hp > 70)//sok hp, zöld
+	  {
+	  var path = document.querySelector('#healthbar > svg > path:last-child');
+		path.setAttribute("stroke", "#8BC65A");
+	  }
+	  else if(hp < 30)//kevés hp, piros
+	  {
+	  var path = document.querySelector('#healthbar > svg > path:last-child');
+		path.setAttribute("stroke", "#6F1400");
+	  }
+	  else//közepes hp, sárga
+	  {
+		var path = document.querySelector('#healthbar > svg > path:last-child');
+		path.setAttribute("stroke", "#D6AF00");
+	  }
+	  
+	  if(pancel > 0)
+	  
+	  {
+	  armorbar.style.display = 'block';
+		  armor.animate(pancel/100);
+		  if(pancel > 80)
+		  {
+			var path = document.querySelector('#armorbar > svg > path:last-child');
+			path.setAttribute("stroke", "#005780");
+		  }
+		  else if(pancel < 30)
+		  {
+				var path = document.querySelector('#armorbar > svg > path:last-child');
+				path.setAttribute("stroke", "#80d7ff");
+		  }
+		  else//közepes armor
+		  {
+				var path = document.querySelector('#armorbar > svg > path:last-child');
+				path.setAttribute("stroke", "#008bcc");
+		  }
+	  }
+	  else
+	  {
+		armorbar.style.display = 'none';
+	  }
+	  
+	  
+
+	  
+	  
+	  
   }
   
 </script>

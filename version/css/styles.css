@@ -6,23 +6,31 @@
 	url('../fonts/ChaletComprime-CologneSixty.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: "Rage-Italic";
+	src: local('RAGE'), local('RAGE'),
+	url('../fonts/RAGE.ttf') format('truetype'),
+}
+
+
+
 body {
-	font-family: 'ChaletComprime-CologneSixty';
+	
 	font-style: normal;
 	font-weight: normal;
 	background-color: rgba(0,0,0,0);
 }
 
 #title{
+	font-family: 'ChaletComprime-CologneSixty';
 	user-select: none;
 	color: white;
 	-webkit-text-stroke: 1px black;
 	position: absolute;
-	width: 500px;
+	width: 50%;
 	bottom: 0.5%;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	text-align: center;
+	left: 1.5%;
+	text-align: left;
 	font-size: 200%;
 	text-shadow:
     -1px -1px 0 #000,
@@ -34,4 +42,9 @@ body {
     -1px  1px 0 #000,
     -1px  0   0 #000,
 		2px 3px 2px rgba(0,0,0,0.75);
+}
+
+i{
+	font-style: normal;
+	color: orange;
 }

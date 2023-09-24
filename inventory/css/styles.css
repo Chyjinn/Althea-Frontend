@@ -1,9 +1,10 @@
 .inv{
     background-color: rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 5px 6px #ccc;
 	position: absolute;
-	width: 35%;
-	height: 35%;
-	right: 15%;
+	width: 25%;
+	height: 25%;
+	right: 10%;
 	top: 60%;
 	border: solid black 1px;
 }
@@ -20,7 +21,7 @@
 #logo
 {
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	left: 1%;
 	top: 5%;
@@ -36,47 +37,47 @@
 
 #inv-button{
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	right: 45%;
-	top: 1%;
+	top: 5%;
 	color: #fff;
 }
 
 
 #bag-button{
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	right: 36%;
-	top: 1%;
+	top: 5%;
 	color: #fff;
 }
 
 #key-button{
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	right: 27%;
-	top: 1%;
+	top: 5%;
 	color: #fff;
 }
 
 #paper-button{
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	right: 19%;
-	top: 1%;
+	top: 5%;
 	color: #fff;
 }
 
 #clothes-button{
 	position: absolute;
-	width: 8%;
+	width: 6%;
 	height: 90%;
 	right: 10%;
-	top: 1%;
+	top: 5%;
 	color: #fff;
 }
 
@@ -104,8 +105,10 @@
 	position: absolute;
 	width: 9.45%;
 	height: 16.2%;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.5);
 	border: solid grey 1px;
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 15px rgba(0,0,0,1.0);
 }
 
 .slots:hover{

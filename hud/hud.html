@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 <body>
-<div id="speedo"><i id="Speedometer"></i></div>
+
+<div id="vehicle">
+<div id="speedo"></div>
+<i id="speedunit">MPH</i>
+</div>
+
 
 
 <div id="healthbar"><i id="Health" class="fas fa-heart"></i></div>
@@ -24,18 +29,38 @@
 var healthbar = document.getElementById('healthbar');
 var armorbar = document.getElementById('armorbar');
 var speedometer = document.getElementById('speedo');
-var speed = 300;
+var vehiclegauges = document.getElementById('vehicle');
+var speed = 0;
 
-var speedo = new ProgressBar.Circle(speedometer, {
-  // This has to be the same size as the maximum width to
-  // prevent clipping
+var speedo = new ProgressBar.SemiCircle(speedometer, {
   strokeWidth: 10,
-  duration: 300,
   color: 'white',
+  duration: 250,
+  easing: 'easeInOut',
   trailColor: '#fff',
   trailWidth: 2,
   svgStyle: null,
   // Set default step function for all animate calls
+  step: function(state, circle) {
+	circle.setText(speed);
+  }
+});
+speedo.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+speedo.text.style.fontSize = '2rem';
+
+var speedNumber = document.querySelector('.progressbar-text');
+speedNumber.style.top = 40+'%';
+
+/*
+var speedo = new ProgressBar.Circle(speedometer, {
+  strokeWidth: 10,
+  color: 'white',
+  duration: 50,
+  easing: 'linear',
+  trailColor: '#fff',
+  trailWidth: 2,
+  svgStyle: null,
+  
   step: function(state, circle) {
 
     if (speed === 0) {
@@ -47,8 +72,8 @@ var speedo = new ProgressBar.Circle(speedometer, {
 });
 speedo.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 speedo.text.style.fontSize = '2rem';
-
-speedo.animate(1.0);  // Number from 0.0 to 1.0
+*/
+speedo.animate(0.5);  // Number from 0.0 to 1.0
 
 
 var health = new ProgressBar.Circle(healthbar, {
@@ -69,9 +94,47 @@ var armor = new ProgressBar.Circle(armorbar, {
   svgStyle: null
 });
 
-function RefreshSpeed(value)
+function RefreshSpeed(value, rpm, gear)
 {
+	rpm = rpm/100;
 	speed = value;
+	if (rpm > 0.9)
+	{
+	    var path = document.querySelector('#speedo > svg > path:last-child');
+		path.setAttribute("stroke", "red");
+	}
+	else if (rpm > 0.8)
+	{
+		var path = document.querySelector('#speedo > svg > path:last-child');
+		path.setAttribute("stroke", "orange");
+	}
+	else if (rpm > 0.7)
+	{
+		var path = document.querySelector('#speedo > svg > path:last-child');
+		path.setAttribute("stroke", "green");
+	}
+	else
+	{
+		var path = document.querySelector('#speedo > svg > path:last-child');
+		path.setAttribute("stroke", "white");
+	}
+	
+	speedo.animate(rpm);
+}
+
+
+function EnableVehicleGauges(state)
+{
+if(state == 1)
+{
+vehiclegauges.style.display = 'block';
+}
+else
+{
+vehiclegauges.style.display = 'none';
+}
+
+
 }
 /*
 var resizeElement =  document.getElementById('healthbar');
@@ -145,6 +208,8 @@ function stopDrag(e) {
 
   function RefreshHealth(hp, pancel)
   {
+  if (hp != 0)
+  {
 	  health.animate(hp/100);
 	  if (hp > 70)//sok hp, zöld
 	  {
@@ -161,6 +226,11 @@ function stopDrag(e) {
 		var path = document.querySelector('#healthbar > svg > path:last-child');
 		path.setAttribute("stroke", "#D6AF00");
 	  }
+	}
+	else
+	{
+		health.animate(0);
+	}
 	  
 	  if(pancel > 0)
 	  

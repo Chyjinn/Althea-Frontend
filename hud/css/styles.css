@@ -1,5 +1,5 @@
 body{
-	background-color: rgba(0,0,0,1);
+	background-color: rgba(0,0,0,0);
 }
 
 #healthbar{
@@ -22,15 +22,32 @@ body{
 	/*transform: translate(-50%, -50%);*/
 }
 
-#speedo{
+#vehicle{
+	display: none;
 	position: absolute;
-	width: 6vh;
-	height: 6vh;
+	width: 16vh;
+	height: 10vh;
 	display: block;
-	left: 7.5vh;
-	bottom: 1vh;
-	/*transform: translate(-50%, -50%);*/
+	left: 50%;
+	bottom: 0%;
+	transform: translate(-50%, 0%);
+	overflow: clip;
 }
+
+#speedunit{
+	position: absolute;
+	width: 8vh;
+	height: 4vh;
+	left: 50%;
+	bottom: 0vh;
+	color: white;
+	text-align: center;
+	transform: translate(-50%, 0%);
+	font-family: Raleway, Helvetica, sans-serif;
+	font-size: 1.5rem;
+}
+
+
 
 .fa-heart,
 .fa-shield-alt

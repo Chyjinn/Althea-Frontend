@@ -19,7 +19,7 @@ body{
 	position: absolute;
 	width: 16vh;
 	height: 2vh;
-	display: block;
+	display: none;
 	right: 4vh;
 	top: 4vh;
 	text-shadow: 1px 1px 3px black;
@@ -83,7 +83,7 @@ body{
 }
 
 #vehiclegauges{
-	display: block;
+	display: none;
 }
 
 .fa-gas-pump{

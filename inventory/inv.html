@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css" type="text/css" />
 	<script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/0.9.0/progressbar.min.js"></script>
 </head>
 <body>
 <div class="content">
@@ -14,14 +14,12 @@
 	  <div class="navigation">
 		<image src="css/logo.png" class="logo">
 		<input type="text" class="amount">
-		<i class="fa-solid fa-shirt clothes"></i>
-		<i class="fa-solid fa-key keys"></i>
-		<i class="fa-solid fa-box inv"></i>
-		
-		
-		
+		<i id="section2" class="fa-solid fa-shirt navbuttons"></i>
+		<i id="section1" class="fa-solid fa-key navbuttons"></i>
+		<i id="section0" class="fa-solid fa-box navbuttons"></i>
 		</div>
-        <div id="section0" class="slotSpace">
+		
+        <div id="inv-0" class="slotSpace">
           <div id="0;0" class="slot"></div>
           <div id="0;1" class="slot"></div>
           <div id="0;2" class="slot"></div>
@@ -82,8 +80,166 @@
 		  <div id="0;48" class="slot"></div>
 		  <div id="0;49" class="slot"></div>
         </div>
+		
+		
+		<div id="inv-1" class="slotSpace" >
+          <div id="1;0" class="slot"></div>
+          <div id="1;1" class="slot"></div>
+          <div id="1;2" class="slot"></div>
+          <div id="1;3" class="slot"></div>
+          <div id="1;4" class="slot"></div>
+          <div id="1;5" class="slot"></div>
+          <div id="1;6" class="slot"></div>
+          <div id="1;7" class="slot">
+          </div>
+          <div id="1;8" class="slot"></div>
+          <div id="1;9" class="slot"></div>
+          <div id="1;10" class="slot"></div>
+          <div id="1;11" class="slot"></div>
+          <div id="1;12" class="slot"></div>
+          <div id="1;13" class="slot"></div>
+          <div id="1;14" class="slot"></div>
+          <div id="1;15" class="slot"></div>
+          <div id="1;16" class="slot"></div>
+          <div id="1;17" class="slot"></div>
+          <div id="1;18" class="slot"></div>
+          <div id="1;19" class="slot"></div>
+          <div id="1;20" class="slot"></div>
+          <div id="1;21" class="slot"></div>
+          <div id="1;22" class="slot"></div>
+          <div id="1;23" class="slot"></div>
+          <div id="1;24" class="slot"></div>
+          <div id="1;25" class="slot"></div>
+          <div id="1;26" class="slot"></div>
+		  <div id="1;27" class="slot"></div>
+		  <div id="1;28" class="slot"></div>
+		  <div id="1;29" class="slot"></div>
+		  <div id="1;30" class="slot"></div>
+		  <div id="1;31" class="slot"></div>
+		  <div id="1;32" class="slot"></div>
+		  <div id="1;33" class="slot"></div>
+		  <div id="1;34" class="slot"></div>
+		  <div id="1;35" class="slot">
+		  <div class="item" id="wood">
+              <img
+                src="https://png.pngtree.com/png-vector/20220531/ourmid/pngtree-gun-magazine-icon-steel-isolated-png-image_4783868.png"
+              />
+              <div class="number">
+                33
+              </div>
+            </div></div>
+		  <div id="1;36" class="slot"></div>
+		  <div id="1;37" class="slot"></div>
+		  <div id="1;38" class="slot"></div>
+		  <div id="1;39" class="slot"></div>
+		  <div id="1;40" class="slot"></div>
+		  <div id="1;41" class="slot"></div>
+		  <div id="1;42" class="slot"></div>
+		  <div id="1;43" class="slot"></div>
+		  <div id="1;44" class="slot"></div>
+		  <div id="1;45" class="slot"></div>
+		  <div id="1;46" class="slot"></div>
+		  <div id="1;47" class="slot"></div>
+		  <div id="1;48" class="slot"></div>
+		  <div id="1;49" class="slot"></div>
+        </div>
+		
+
+		<div id="inv-2">
+		
+		<div id="wear">
+		
+		 <div id="hat" class="slot"><i class="fa-solid fa-hat-cowboy-side"></i></div>
+		 <div id="mask" class="slot"><i class="fa-solid fa-mask"></i></div>
+		 
+		 
+          <div id="glasses" class="slot"><i class="fa-solid fa-glasses"></i></div>
+          <div id="ears" class="slot"><i class="fa-solid fa-headphones"></i></div>
+		  
+		  
+		  
+          
+		  
+		 
+		 
+		 
+          <div id="polo" class="slot"><i class="fa-solid fa-shirt"></i></div>
+          <div id="legs" class="slot"></div>
+          <div id="feet" class="slot"><i class="fa-solid fa-socks"></i></div>
+		  
+		  
+		  <div id="watch" class="slot"><i class="fa-solid fa-clock"></i></div>
+          <div id="bracelet" class="slot"><i class="fa-solid fa-hand"></i></div>
+		  <div id="accessories" class="slot"><i class="fa-solid fa-gem"></i></div>
+		  
+          <div id="bag" class="slot"><i class="fa-solid fa-briefcase"></i></div>
+		  <div id="armor" class="slot"><i class="fa-solid fa-shield"></i></div>
+		  
+		  <div id="decal" class="slot"><i class="fa-solid fa-star"></i></div>
+		</div>
+		
+		<div id="clothes">
+		
+		
+		
+          <div id="2;0" class="slot"></div>
+          <div id="2;1" class="slot"></div>
+          <div id="2;2" class="slot"></div>
+          <div id="2;3" class="slot"></div>
+          <div id="2;4" class="slot"></div>
+          <div id="2;5" class="slot"></div>
+          <div id="2;6" class="slot"></div>
+          <div id="2;7" class="slot">
+
+          </div>
+          <div id="2;8" class="slot"></div>
+          <div id="2;9" class="slot"></div>
+          <div id="2;10" class="slot"></div>
+          <div id="2;11" class="slot"></div>
+          <div id="2;12" class="slot"></div>
+          <div id="2;13" class="slot"></div>
+          <div id="2;14" class="slot"></div>
+          <div id="2;15" class="slot"></div>
+          <div id="2;16" class="slot"></div>
+          <div id="2;17" class="slot"></div>
+          <div id="2;18" class="slot"></div>
+          <div id="2;19" class="slot"></div>
+          <div id="2;20" class="slot"></div>
+          <div id="2;21" class="slot"></div>
+          <div id="2;22" class="slot"></div>
+          <div id="2;23" class="slot"></div>
+          <div id="2;24" class="slot"></div>
+          <div id="2;25" class="slot"></div>
+          <div id="2;26" class="slot"></div>
+		  <div id="2;27" class="slot"></div>
+		  <div id="2;28" class="slot"></div>
+		  <div id="2;29" class="slot"></div>
+		  <div id="2;30" class="slot"></div>
+		  <div id="2;31" class="slot"></div>
+		  <div id="2;32" class="slot"></div>
+		  <div id="2;33" class="slot"></div>
+		  <div id="2;34" class="slot"></div>
+		  <div id="2;35" class="slot"></div>
+		  <div id="2;36" class="slot"></div>
+		  <div id="2;37" class="slot"></div>
+		  <div id="2;38" class="slot"></div>
+		  <div id="2;39" class="slot"></div>
+		  <div id="2;40" class="slot"></div>
+		  <div id="2;41" class="slot"></div>
+		  <div id="2;42" class="slot"></div>
+		  <div id="2;43" class="slot"></div>
+		  <div id="2;44" class="slot"></div>
+		  <div id="2;45" class="slot"></div>
+		  <div id="2;46" class="slot"></div>
+		  <div id="2;47" class="slot"></div>
+        </div>
+		</div>
+		<div id="weightbar"></div>
+		
       </div>
+	  <div id="tooltip">Valami tooltip.</div>
     </div>
+	
     </body>
 	<script>
 let amount = 0;
@@ -92,6 +248,86 @@ let status_click = false;
 let current_itemId = null;
 let current_itemType = null;
 let current_itemValue = null;
+const weightbar = document.getElementById('weightbar');
+const tooltip = document.getElementById('tooltip');
+var weight = new ProgressBar.Line(weightbar, {
+  strokeWidth: 1,
+  duration: 300,
+  color: 'red',
+  trailColor: 'white',
+  trailWidth: 1,
+  svgStyle: {width: '100%', height: '100%'}
+});
+
+weight.animate(0.5);
+let actualweight = 0.5;
+const sectioninv = document.querySelector('#inv-0');
+const sectionkeys = document.querySelector('#inv-1');
+const sectionclothes=  document.querySelector('#inv-2');
+
+
+weightbar.addEventListener('mouseenter', displayToolTip);
+weightbar.addEventListener('mouseleave', hideToolTip);
+
+
+	function displayToolTip(){
+		tooltip.innerHTML = (actualweight*100)+'%';
+		tooltip.style.display = 'block';
+		document.addEventListener('mousemove', moveToolTip);
+	}
+	
+	
+	function hideToolTip(){
+		tooltip.style.display = 'none';
+		document.removeEventListener('mousemove', moveToolTip);
+	}
+
+
+  function moveToolTip(event) {
+    let x = event.clientX;
+    let y = event.clientY;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+
+	let pages = document.querySelectorAll('.navbuttons');
+	
+	pages.forEach((item) => {
+	  item.addEventListener('click', switchPage);
+	  item.setAttribute('draggable', false);
+	});
+	
+	function switchPage(event){
+	console.log(event.target.id);
+	switch(event.target.id) {
+	  case 'section0'://fő ablak
+		sectioninv.style.display = 'flex';
+		sectionkeys.style.display = 'none';
+		sectionclothes.style.display = 'none';
+		console.log('vmi');
+		break;
+	  case 'section1'://kulcsok
+		sectioninv.style.display = 'none';
+		sectionkeys.style.display = 'flex';
+		sectionclothes.style.display = 'none';
+		break;
+		case 'section2'://ruhák
+		sectioninv.style.display = 'none';
+		sectionkeys.style.display = 'none';
+		sectionclothes.style.display = 'flex';
+		break;
+	  default:
+    // code block
+		}
+	  pages.forEach((item) => {
+	  item.style.color = 'white';
+	  });
+	  event.target.style.color = 'orange';
+
+	}
+	
+	
+
 
 let items = null;
 const amountTextBox = document.querySelector('.amount');

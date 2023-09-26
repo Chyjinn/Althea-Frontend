@@ -59,6 +59,10 @@
 	float: right;
 }
 
+.active{
+	border: solid 1px green;
+}
+
 #inv-1{
 	display: none;
 }

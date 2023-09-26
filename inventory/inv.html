@@ -326,7 +326,7 @@ if(this.isactive == false && event.button == 0)
 
 	  event.preventDefault();
 	  const item = this;
-	  let waitItem = null;
+	  let waitItem = this;
 	  let ghostItem = item.cloneNode(true);
 	  ghostItem.setAttribute('class', 'ghostItem');
 	  item.classList.add('invisible');
@@ -344,7 +344,17 @@ if(this.isactive == false && event.button == 0)
 		  let free_space = !!!area.firstElementChild;
 
 		  if (free_space) {
+		  	let parts = item.parentNode.id.split(";");//a slot ID-je kell nekünk majd és átküldeni a section/slot-ot a szervernek hogy szeretnénk használni
+			let section = parts[0];
+			let startslot = parts[1]
 			area.append(item);
+			let parts2 = item.parentNode.id.split(";");
+			let endslot = parts2[1];
+	//parts[0] section
+	//parts[1] slot
+	mp.trigger("client:MoveItemInInventoryToServer", parseInt(section),parseInt(startslot),parseInt(endslot) );
+	
+	
 		  } else if (current_itemType == item.id) {
 			let destiny = area.firstElementChild.lastElementChild.innerHTML;
 			let origin = item.lastElementChild.innerHTML;
@@ -402,7 +412,7 @@ if(this.isactive == false && event.button == 0)
 	  else if(parseInt(this.lastElementChild.innerHTML) >= parseInt(amount)){//kevesebb itemet szeretnénk mozgatni mint összesen van, szóval ketté szeretnénk válogatni
 	   event.preventDefault();
 	  const item = this;
-	  let waitItem = null;
+	  let waitItem = this;
 	  let ghostItem = item.cloneNode(true);
 	  ghostItem.setAttribute('class', 'ghostItem');
 	  ghostItem.lastElementChild.innerHTML = amount;
@@ -539,7 +549,9 @@ function leaveDroppable(elem) {
 
 function clearInventory()
 {
-	inv.clearInventory();
+	items.forEach((item) => {
+	item.remove();
+	});
 }
 
 

@@ -10,8 +10,8 @@
 }
 
 .inventory {
-  width: 440px;
-  height: 265px;
+  width: 560px;
+  height: 323px;
   background-color: rgba(0,0,0,0.5);
   position: absolute;
   right: 10%;
@@ -25,16 +25,20 @@
 	display: block;
 	bottom: 0px;
 	left: 0px;
-	width: 420px;
+	width: 540px;
 	height: 4px;
 }
 
 .navigation{
-	width: 434px;
+	width: 554px;
 	height: 30px;
 	background-color: rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 1px black, inset 0px 0px 15px rgba(0,0,0,1);
 	padding: 3px;
+}
+
+#section0{
+	color: orange;
 }
 
     
@@ -67,13 +71,13 @@
 
 #clothes{
   display: flex;
-  margin: 0px 0px 0px 170px;
+  margin: 0px 0px 0px 167px;
   flex-wrap: wrap;
 }
 
 #clothes .slot{
-	width: 30px;
-	height: 33px;
+	width: 50px;
+	height: 50px;
 }
 
 #wear{
@@ -81,18 +85,18 @@
   left: 5px;
   top: 42px;
   width: 155px;
-  height: 210px;
+  height: 255px;
   background-image: url('../human.png');
   background-repeat: no-repeat;
-  background-size: 100px 210px;
+  background-size: 100px 250px;
   background-position: center;
 }
 
 #wear .slot{
 	position: absolute;
 	transform: translate(-50%, 0);
-	width: 35px;
-	height: 35px;
+	width: 45px;
+	height: 45px;
 	color: white;
 }
 
@@ -104,12 +108,6 @@
 	left: 50%;
 	top: 0%;
 }
-
-#mask{
-	left: 85%;
-	top: 22%;
-}
-
 #glasses{
 	left: 15%;
 	top: 0%;
@@ -120,50 +118,60 @@
 	top: 0%;
 }
 
-#polo{
+
+#accessories{
+	left: 15%;
+	top: 25%;
+}
+#shirt{
 	left: 50%;
-	top: 22%;
+	top: 25%;
+}
+#mask{
+	left: 85%;
+	top: 25%;
 }
 
-#legs{
-	left: 50%;
-	top: 44%;
-}
 
-#feet{
-	left: 50%;
-	top: 83%;
-}
+
 
 #watch{
 	left: 15%;
-	top: 44%;
+	top: 45%;
 }
-
+#legs{
+	left: 50%;
+	top: 45%;
+}
 #bracelet{
 	left: 85%;
-	top: 44%;
-}
-
-#bag{
-	
-	left: 85%;
-	top: 66%;
+	top: 45%;
 }
 
 #armor{
 	left: 15%;
-	top: 66%;
+	top: 65%;
 }
 #decal{
 	left: 50%;
 	top: 65%;
 }
-
-#accessories{
-	left: 15%;
-	top: 22%;
+#bag{
+	
+	left: 85%;
+	top: 65%;
 }
+
+
+
+#feet{
+	left: 50%;
+	top: 85%;
+}
+
+
+
+
 
 
 #tooltip{	
@@ -210,14 +218,15 @@ font-size: 12px;
 }
 
 .slot {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   background-color: rgba(0,0,0,0.5);
   border: solid grey 1px;
   border-radius: 5px;
   box-shadow: inset 0px 0px 15px rgba(0,0,0,1.0);
+  margin: 1px;
 }
 
 .slot:hover{

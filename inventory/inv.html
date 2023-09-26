@@ -27,16 +27,7 @@
           <div id="0;4" class="slot"></div>
           <div id="0;5" class="slot"></div>
           <div id="0;6" class="slot"></div>
-          <div id="0;7" class="slot">
-            <div class="item" id="wood">
-              <img
-                src="https://png.pngtree.com/png-vector/20220531/ourmid/pngtree-gun-magazine-icon-steel-isolated-png-image_4783868.png"
-              />
-              <div class="number">
-                33
-              </div>
-            </div>
-          </div>
+          <div id="0;7" class="slot"></div>
           <div id="0;8" class="slot"></div>
           <div id="0;9" class="slot"></div>
           <div id="0;10" class="slot"></div>
@@ -119,15 +110,7 @@
 		  <div id="1;32" class="slot"></div>
 		  <div id="1;33" class="slot"></div>
 		  <div id="1;34" class="slot"></div>
-		  <div id="1;35" class="slot">
-		  <div class="item" id="wood">
-              <img
-                src="https://png.pngtree.com/png-vector/20220531/ourmid/pngtree-gun-magazine-icon-steel-isolated-png-image_4783868.png"
-              />
-              <div class="number">
-                33
-              </div>
-            </div></div>
+		  <div id="1;35" class="slot"></div>
 		  <div id="1;36" class="slot"></div>
 		  <div id="1;37" class="slot"></div>
 		  <div id="1;38" class="slot"></div>
@@ -148,34 +131,30 @@
 		<div id="inv-2">
 		
 		<div id="wear">
-		
+		 <div id="glasses" class="slot"><i class="fa-solid fa-glasses"></i></div>
 		 <div id="hat" class="slot"><i class="fa-solid fa-hat-cowboy-side"></i></div>
+		 <div id="ears" class="slot"><i class="fa-solid fa-headphones"></i></div>
+		 
+		 <div id="accessories" class="slot"><i class="fa-solid fa-gem"></i></div>
+		 <div id="shirt" class="slot"><i class="fa-solid fa-shirt"></i></div>
 		 <div id="mask" class="slot"><i class="fa-solid fa-mask"></i></div>
 		 
-		 
-          <div id="glasses" class="slot"><i class="fa-solid fa-glasses"></i></div>
-          <div id="ears" class="slot"><i class="fa-solid fa-headphones"></i></div>
+		 <div id="watch" class="slot"><i class="fa-solid fa-clock"></i></div>
+          <div id="legs" class="slot"></div>
+          <div id="bracelet" class="slot"><i class="fa-solid fa-hand"></i></div>
+		  
+		  <div id="armor" class="slot"><i class="fa-solid fa-shield"></i></div>
+		  <div id="decal" class="slot"><i class="fa-solid fa-star"></i></div>
+          <div id="bag" class="slot"><i class="fa-solid fa-briefcase"></i></div>
+		  
+          <div id="feet" class="slot"><i class="fa-solid fa-socks"></i></div>
 		  
 		  
 		  
           
-		  
-		 
-		 
-		 
-          <div id="polo" class="slot"><i class="fa-solid fa-shirt"></i></div>
-          <div id="legs" class="slot"></div>
-          <div id="feet" class="slot"><i class="fa-solid fa-socks"></i></div>
+
 		  
 		  
-		  <div id="watch" class="slot"><i class="fa-solid fa-clock"></i></div>
-          <div id="bracelet" class="slot"><i class="fa-solid fa-hand"></i></div>
-		  <div id="accessories" class="slot"><i class="fa-solid fa-gem"></i></div>
-		  
-          <div id="bag" class="slot"><i class="fa-solid fa-briefcase"></i></div>
-		  <div id="armor" class="slot"><i class="fa-solid fa-shield"></i></div>
-		  
-		  <div id="decal" class="slot"><i class="fa-solid fa-star"></i></div>
 		</div>
 		
 		<div id="clothes">
@@ -219,19 +198,6 @@
 		  <div id="2;32" class="slot"></div>
 		  <div id="2;33" class="slot"></div>
 		  <div id="2;34" class="slot"></div>
-		  <div id="2;35" class="slot"></div>
-		  <div id="2;36" class="slot"></div>
-		  <div id="2;37" class="slot"></div>
-		  <div id="2;38" class="slot"></div>
-		  <div id="2;39" class="slot"></div>
-		  <div id="2;40" class="slot"></div>
-		  <div id="2;41" class="slot"></div>
-		  <div id="2;42" class="slot"></div>
-		  <div id="2;43" class="slot"></div>
-		  <div id="2;44" class="slot"></div>
-		  <div id="2;45" class="slot"></div>
-		  <div id="2;46" class="slot"></div>
-		  <div id="2;47" class="slot"></div>
         </div>
 		</div>
 		<div id="weightbar"></div>
@@ -353,224 +319,185 @@ console.log(amount);
 amountTextBox.addEventListener('input', refreshInputValue);
 
 
-function moveItem() {
-if(amount == 0 || amount > parseInt(this.lastElementChild.innerHTML)){
+function moveItem(event) {
+if(this.isactive == false && event.button == 0)
+	{
+	if(amount == 0 || amount > parseInt(this.lastElementChild.innerHTML)){//ha nem adtunk meg mennyiséget, vagy nagyobb a mennyiség mint ahány item van
 
-  event.preventDefault();
-  const item = this;
-  let waitItem = null;
-  let ghostItem = item.cloneNode(true);
-  ghostItem.setAttribute('class', 'ghostItem');
-  item.classList.add('invisible');
-  
-  let shiftX = ghostItem.getBoundingClientRect().left + 20;
-  let shiftY = ghostItem.getBoundingClientRect().top + 20;
+	  event.preventDefault();
+	  const item = this;
+	  let waitItem = null;
+	  let ghostItem = item.cloneNode(true);
+	  ghostItem.setAttribute('class', 'ghostItem');
+	  item.classList.add('invisible');
+	  
+	  let shiftX = ghostItem.getBoundingClientRect().left + 20;
+	  let shiftY = ghostItem.getBoundingClientRect().top + 20;
 
-  ghostItem.style.position = 'absolute';
-  ghostItem.style.zIndex = 1000;
-  document.body.append(ghostItem);
+	  ghostItem.style.position = 'absolute';
+	  ghostItem.style.zIndex = 1000;
+	  document.body.append(ghostItem);
 
-  ghostItem.onmouseup = function (event) {
-    if (current_itemId && current_itemId != item.parentNode.id) {
-      let area = document.getElementById(current_itemId);
-      let free_space = !!!area.firstElementChild;
+	  ghostItem.onmouseup = function (event) {
+		if (current_itemId && current_itemId != item.parentNode.id) {
+		  let area = document.getElementById(current_itemId);
+		  let free_space = !!!area.firstElementChild;
 
-      if (free_space) {
-        area.append(item);
-      } else if (current_itemType == item.id) {
-        let destiny = area.firstElementChild.lastElementChild.innerHTML;
-        let origin = item.lastElementChild.innerHTML;
-        let total = parseInt(destiny) + parseInt(origin);
-        area.firstElementChild.lastElementChild.innerHTML = total;
-        item.remove();
-      } else {
-        item.parentNode.append(area.firstElementChild);
-        area.append(item);
-      }
-    }
-    item && item.classList.remove('invisible');
-    ghostItem.remove();
-    status_click = false;
-  };
+		  if (free_space) {
+			area.append(item);
+		  } else if (current_itemType == item.id) {
+			let destiny = area.firstElementChild.lastElementChild.innerHTML;
+			let origin = item.lastElementChild.innerHTML;
+			let total = parseInt(destiny) + parseInt(origin);
+			area.firstElementChild.lastElementChild.innerHTML = total;
+			item.remove();
+		  } else {
+			item.parentNode.append(area.firstElementChild);
+			area.append(item);
+		  }
+		}
+		item && item.classList.remove('invisible');
+		ghostItem.remove();
+		status_click = false;
+	  };
 
-  ghostItem.oncontextmenu = function (event) {
-    event.preventDefault();
-    if (current_itemId && current_itemId != item.parentNode.id) {
-      let area = document.getElementById(current_itemId);
-      let free_space = !!!area.firstElementChild;
-      if (free_space) {
-        let newItem = item.cloneNode(true);
-        newItem.addEventListener('click', moveItem);
-        newItem.addEventListener('contextmenu', moveItem);
-        newItem.setAttribute('draggable', false);
-        if (parseInt(item.lastElementChild.innerHTML) == 1) {
-          ghostItem.remove();
-          status_click = !status_click;
-          item.remove();
-        } else {
-          item.lastElementChild.innerHTML =
-            parseInt(item.lastElementChild.innerHTML) - 1;
-          ghostItem.lastElementChild.innerHTML =
-            parseInt(ghostItem.lastElementChild.innerHTML) - 1;
-        }
-        newItem.lastElementChild.innerHTML = 1;
-        area.append(newItem);
-        newItem.classList.remove('invisible');
-      } else if (current_itemType == item.id) {
-        if (parseInt(item.lastElementChild.innerHTML) == 1) {
-          ghostItem.remove();
-          status_click = !status_click;
-          item.remove();
-        }
-        let destiny = parseInt(
-          area.firstElementChild.lastElementChild.innerHTML
-        );
-        let origin = parseInt(item.lastElementChild.innerHTML);
-        let ghost = parseInt(ghostItem.lastElementChild.innerHTML);
+	  status_click = !status_click;
 
-        area.firstElementChild.lastElementChild.innerHTML = destiny + 1;
-        item.lastElementChild.innerHTML = origin - 1;
-        ghostItem.lastElementChild.innerHTML = ghost - 1;
-      }
-    }
-  };
+	  if (status_click) {
+		moveAt(event.pageX, event.pageY);
+	  }
 
-  status_click = !status_click;
+	  function moveAt(pageX, pageY) {
+		ghostItem.style.left = pageX - shiftX + 'px';
+		ghostItem.style.top = pageY - shiftY + 'px';
+	  }
 
-  if (status_click) {
-    moveAt(event.pageX, event.pageY);
-  }
+	  function onMouseMove(event) {
+		if (status_click) {
+		  moveAt(event.pageX, event.pageY);
+		}
+		ghostItem.hidden = true;
+		let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+		
+		ghostItem.hidden = false;
+		
+		if (!elemBelow) return;
+		let droppableBelow = elemBelow.closest('.slot');
+		
+		if (current_slot != droppableBelow) {
+		  if (current_slot) {
+			leaveDroppable(current_slot);
+		  }
+		  current_slot = droppableBelow;
+		  if (current_slot) {
+			enterDroppable(current_slot);
+		  }
+		}
+	  }
 
-  function moveAt(pageX, pageY) {
-    ghostItem.style.left = pageX - shiftX + 'px';
-    ghostItem.style.top = pageY - shiftY + 'px';
-  }
+	  document.addEventListener('mousemove', onMouseMove);
+	  
+	  }
+	  
+	  else if(parseInt(this.lastElementChild.innerHTML) >= parseInt(amount)){//kevesebb itemet szeretnénk mozgatni mint összesen van, szóval ketté szeretnénk válogatni
+	   event.preventDefault();
+	  const item = this;
+	  let waitItem = null;
+	  let ghostItem = item.cloneNode(true);
+	  ghostItem.setAttribute('class', 'ghostItem');
+	  ghostItem.lastElementChild.innerHTML = amount;
+	  
+	  //ezt ki kell venni, helyette átírni a számát annyira amennyi van
+	  //ghostitem-nek meg az amount legyen a száma
 
-  function onMouseMove(event) {
-    if (status_click) {
-      moveAt(event.pageX, event.pageY);
-    }
-    ghostItem.hidden = true;
-    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-	
-    ghostItem.hidden = false;
-	
-    if (!elemBelow) return;
-    let droppableBelow = elemBelow.closest('.slot');
-	
-    if (current_slot != droppableBelow) {
-      if (current_slot) {
-        leaveDroppable(current_slot);
-      }
-      current_slot = droppableBelow;
-      if (current_slot) {
-        enterDroppable(current_slot);
-      }
-    }
-  }
+	  //item.classList.add('invisible');
 
-  document.addEventListener('mousemove', onMouseMove);
-  
-  }
-  
-  else if(parseInt(this.lastElementChild.innerHTML) >= parseInt(amount)){
-   event.preventDefault();
-  const item = this;
-  let waitItem = null;
-  let ghostItem = item.cloneNode(true);
-  ghostItem.setAttribute('class', 'ghostItem');
-  ghostItem.lastElementChild.innerHTML = amount;
-  
-  //ezt ki kell venni, helyette átírni a számát annyira amennyi van
-  //ghostitem-nek meg az amount legyen a száma
+	  let shiftX = ghostItem.getBoundingClientRect().left + 20;
+	  let shiftY = ghostItem.getBoundingClientRect().top + 20;
 
-  //item.classList.add('invisible');
+	  ghostItem.style.position = 'absolute';
+	  ghostItem.style.zIndex = 1000;
+	  document.body.append(ghostItem);
 
-  let shiftX = ghostItem.getBoundingClientRect().left + 20;
-  let shiftY = ghostItem.getBoundingClientRect().top + 20;
+	  ghostItem.onmouseup = function (event) {
+		if (current_itemId && current_itemId != item.parentNode.id) {//nem a jelenlegi itemre húzzuk vissza
+		  let area = document.getElementById(current_itemId);
+		  let free_space = !!!area.firstElementChild;
+		  if (free_space) {//szabad a hely
+			let newItem = item.cloneNode(true);
+			newItem.addEventListener('mousedown', moveItem);
+			newItem.setAttribute('draggable', false);
+			newItem.lastElementChild.innerHTML = amount;
+			if (parseInt(item.lastElementChild.innerHTML) <= amount) {
+			  ghostItem.remove();
+			  status_click = !status_click;
+			  item.remove();
+			} else {
+			  item.lastElementChild.innerHTML =
+				parseInt(item.lastElementChild.innerHTML - amount);
+			  ghostItem.lastElementChild.innerHTML =
+				parseInt(ghostItem.lastElementChild.innerHTML);
+			}
+			newItem.lastElementChild.innerHTML = amount;
+			area.append(newItem);
+			newItem.classList.remove('invisible');
+		  } else if (current_itemType == item.id) {//nem szabad a hely, megnézzük hogy ugyanolyan item van-e ott mint nekünk kell
+		  console.log(item.lastElementChild.innerHTML);
+			item.lastElementChild.innerHTML -= amount;
+			if (parseInt(item.lastElementChild.innerHTML) < 1) {
+			  ghostItem.remove();
+			  status_click = false;
+			  item.remove();
+			}
+			let destiny = parseInt(
+			  area.firstElementChild.lastElementChild.innerHTML
+			);
+			area.firstElementChild.lastElementChild.innerHTML = parseInt(destiny) + parseInt(amount);
+		  }
+		}
+		item && item.classList.remove('invisible');
+		ghostItem.remove();
+		status_click = false;
+	  };
 
-  ghostItem.style.position = 'absolute';
-  ghostItem.style.zIndex = 1000;
-  document.body.append(ghostItem);
+	  status_click = !status_click;
 
-  ghostItem.onmouseup = function (event) {
-    if (current_itemId && current_itemId != item.parentNode.id) {
-      let area = document.getElementById(current_itemId);
-      let free_space = !!!area.firstElementChild;
-      if (free_space) {
-        let newItem = item.cloneNode(true);
-        newItem.addEventListener('mousedown', moveItem);
-        newItem.setAttribute('draggable', false);
-		newItem.lastElementChild.innerHTML = amount;
-        if (parseInt(item.lastElementChild.innerHTML) <= amount) {
-          ghostItem.remove();
-          status_click = !status_click;
-          item.remove();
-        } else {
-          item.lastElementChild.innerHTML =
-            parseInt(item.lastElementChild.innerHTML - amount);
-          ghostItem.lastElementChild.innerHTML =
-            parseInt(ghostItem.lastElementChild.innerHTML);
-        }
-        newItem.lastElementChild.innerHTML = amount;
-        area.append(newItem);
-        newItem.classList.remove('invisible');
-      } else if (current_itemType == item.id) {
-	  console.log(item.lastElementChild.innerHTML);
-		item.lastElementChild.innerHTML -= amount;
-        if (parseInt(item.lastElementChild.innerHTML) < 1) {
-          ghostItem.remove();
-          status_click = false;
-          item.remove();
-        }
-        let destiny = parseInt(
-          area.firstElementChild.lastElementChild.innerHTML
-        );
-        area.firstElementChild.lastElementChild.innerHTML = parseInt(destiny) + parseInt(amount);
-      }
-    }
-    item && item.classList.remove('invisible');
-    ghostItem.remove();
-    status_click = false;
-  };
+	  if (status_click) {
+		moveAt(event.pageX, event.pageY);
+	  }
 
-  status_click = !status_click;
+	  function moveAt(pageX, pageY) {
+		ghostItem.style.left = pageX - shiftX + 'px';
+		ghostItem.style.top = pageY - shiftY + 'px';
+	  }
 
-  if (status_click) {
-    moveAt(event.pageX, event.pageY);
-  }
+	  function onMouseMove(event) {
+		if (status_click) {
+		  moveAt(event.pageX, event.pageY);
+		}
+		ghostItem.hidden = true;
+		let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+		
+		ghostItem.hidden = false;
+		
+		if (!elemBelow) return;
+		let droppableBelow = elemBelow.closest('.slot');
+		
+		if (current_slot != droppableBelow) {
+		  if (current_slot) {
+			leaveDroppable(current_slot);
+		  }
+		  current_slot = droppableBelow;
+		  if (current_slot) {
+			enterDroppable(current_slot);
+		  }
+		}
+	  }
 
-  function moveAt(pageX, pageY) {
-    ghostItem.style.left = pageX - shiftX + 'px';
-    ghostItem.style.top = pageY - shiftY + 'px';
-  }
-
-  function onMouseMove(event) {
-    if (status_click) {
-      moveAt(event.pageX, event.pageY);
-    }
-    ghostItem.hidden = true;
-    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-	
-    ghostItem.hidden = false;
-	
-    if (!elemBelow) return;
-    let droppableBelow = elemBelow.closest('.slot');
-	
-    if (current_slot != droppableBelow) {
-      if (current_slot) {
-        leaveDroppable(current_slot);
-      }
-      current_slot = droppableBelow;
-      if (current_slot) {
-        enterDroppable(current_slot);
-      }
-    }
-  }
-
-  document.addEventListener('mousemove', onMouseMove);
-  
-  }
+	  document.addEventListener('mousemove', onMouseMove);
+	  
+	  }
+	}
 }
 
 
@@ -582,11 +509,18 @@ function enterDroppable(elem) {
     current_itemValue = child.lastElementChild.innerHTML;
   }
   if(status_click){
+   if (elem.isactive == false)
+  {
   elem.style.border = 'solid 1px darkblue';
+  }
+
   }
   else
   {
+  if (elem.isactive == false)
+  {
   elem.style.border = 'solid 1px orange';
+  }
   }
 }
 
@@ -601,56 +535,69 @@ function leaveDroppable(elem) {
 
 
 
-class Inventory{
-
-constructor()
-{
-this.items = [];
-}
-
-addItem()
-{
-
-}
-
-delItem()
-{
-
-}
 
 
-clearInventory()
-{
-this.items = [];
-}
-
-}
-
-
-let inv = new Inventory();
-reloadInventory();
-function reloadInventory()
+function clearInventory()
 {
 	inv.clearInventory();
+}
+
+
+function itemActive(section,slot,state){
+if(state == 1){
+let activeitem = document.getElementById(section+';'+slot);
+activeitem.style.border = 'solid 1px green';
+activeitem.isactive = true;
+}
+else
+{
+let activeitem = document.getElementById(section+';'+slot);
+activeitem.isactive = false;
+activeitem.style.border = 'solid 1px grey';
+}
+
+
+}
+
+function loadInventory()
+{
 	items = document.querySelectorAll('.item');
 	
 	items.forEach((item) => {
 	  item.addEventListener('mousedown', moveItem);
 	  item.addEventListener('contextmenu', moveItem);
 	  item.setAttribute('draggable', false);
+	  item.isactive = false;
+	    item.oncontextmenu = function (event) {
+    event.preventDefault();
+    let parts = item.parentNode.id.split(";");//a slot ID-je kell nekünk majd és átküldeni a section/slot-ot a szervernek hogy szeretnénk használni
+	//parts[0] section
+	//parts[1] slot
+	mp.trigger("client:UseItemToServer", parseInt(parts[0]),parseInt(parts[1]) );
+  };
+  
+  
 	});
 }
 
 
-function addNewItem()
+function addNewItem(section,slot,itemid,amount,itempicture)
 {
-inv.addItem();
+let addedSlot = document.getElementById(section+';'+slot);
+	let toAdd = '<div class="item" id="' + itemid + '">' +
+              '<img ' +
+                'src="'+itempicture+'"'+
+              '/>' +
+              '<div class="number">'+ amount +
+              '</div>'+
+            '</div>';
+	addedSlot.innerHTML = toAdd;
 //ha már van a sloton valami item akkor nem egyezik a szerver-kliens inv -> újratölteni
 }
 
 function deleteItem()
 {
-inv.delItem();
+
 //ha nem sikerült törölni akkor újratölteni az egészet, mert nem egyezik
 }
 

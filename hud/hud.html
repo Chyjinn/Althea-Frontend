@@ -54,7 +54,7 @@ var speedo = new ProgressBar.SemiCircle(speedometer, {
   strokeWidth: 10,
   color: 'white',
   duration: 100,
-  trailColor: '#fff',
+  trailColor: 'grey',
   trailWidth: 2,
   svgStyle: null,
   // Set default step function for all animate calls
@@ -63,7 +63,7 @@ var speedo = new ProgressBar.SemiCircle(speedometer, {
   }
 });
 speedo.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-speedo.text.style.fontSize = '2rem';
+speedo.text.style.fontSize = '2.5rem';
 
 var speedNumber = document.querySelector('.progressbar-text');
 speedNumber.style.top = 40+'%';
@@ -72,8 +72,8 @@ speedNumber.style.top = 40+'%';
 var fuel = new ProgressBar.SemiCircle(fuelgauge, {
   strokeWidth: 10,
   color: 'white',
-  duration: 1000,
-  trailColor: '#fff',
+  duration: 2000,
+  trailColor: 'grey',
   trailWidth: 2,
   svgStyle: null,
 });
@@ -135,15 +135,10 @@ function RefreshSpeed(value, rpm, gear)
 {
 	rpm = rpm/100;
 	speed = value;
-	if (rpm > 0.95)
+	if (rpm > 0.99)
 	{
 	    var path = document.querySelector('#speedo > svg > path:last-child');
 		path.setAttribute("stroke", "red");
-	}
-	else if (rpm > 0.85)
-	{
-		var path = document.querySelector('#speedo > svg > path:last-child');
-		path.setAttribute("stroke", "orange");
 	}
 	else
 	{

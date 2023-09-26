@@ -1,0 +1,367 @@
+.inv{
+    background-color: rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 5px 6px #ccc;
+	position: absolute;
+	width: 25%;
+	height: 25%;
+	right: 10%;
+	top: 60%;
+	border: solid black 1px;
+}
+
+.header{
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 12%;
+}
+
+#logo
+{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	left: 1%;
+	top: 5%;
+}
+
+.item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0%;
+	top: 0%;
+}	
+
+#inv-button{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	right: 45%;
+	top: 5%;
+	color: #fff;
+}
+
+
+#bag-button{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	right: 36%;
+	top: 5%;
+	color: #fff;
+}
+
+#key-button{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	right: 27%;
+	top: 5%;
+	color: #fff;
+}
+
+#paper-button{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	right: 19%;
+	top: 5%;
+	color: #fff;
+}
+
+#clothes-button{
+	position: absolute;
+	width: 6%;
+	height: 90%;
+	right: 10%;
+	top: 5%;
+	color: #fff;
+}
+
+#amount{
+	position:absolute;
+	padding: 1px 1px;
+	box-sizing: border-box;
+	border: solid black 1px;
+	background-color: grey;
+	color: white;
+	font-weight: bold;
+	width: 8%;
+	height: 60%;
+	right: 1%;
+	top: 20%;
+	text-align: center;
+}
+
+.buttons{
+	position: absolute;
+	
+}
+
+.slots{
+	position: absolute;
+	width: 9.45%;
+	height: 16.2%;
+	background-color: rgba(0,0,0,0.5);
+	border: solid grey 1px;
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 15px rgba(0,0,0,1.0);
+}
+
+.slots:hover{
+	border: solid orange 1px;
+}
+
+#slot1{
+	left: 0.5%;
+	top: 13%;
+}
+
+#slot2{
+	left: 10.45%;
+	top: 13%;
+}
+
+#slot3{
+	left: 20.4%;
+	top: 13%;
+}
+
+#slot4{
+	left: 30.35%;
+	top: 13%;
+}
+
+#slot5{
+	left: 40.3%;
+	top: 13%;
+}
+
+#slot6{
+	left: 50.25%;
+	top: 13%;
+}
+
+#slot7{
+	left: 60.2%;
+	top: 13%;
+}
+
+#slot8{
+	left: 70.15%;
+	top: 13%;
+}
+
+#slot9{
+	left: 80.1%;
+	top: 13%;
+}
+
+#slot10{
+	left: 90.05%;
+	top: 13%;
+}
+
+#slot11{
+	left: 0.5%;
+	top: 30%;
+}
+
+#slot12{
+	left: 10.45%;
+	top: 30%;
+}
+
+#slot13{
+	left: 20.4%;
+	top: 30%;
+}
+
+#slot14{
+	left: 30.35%;
+	top: 30%;
+}
+
+#slot15{
+	left: 40.3%;
+	top: 30%;
+}
+
+#slot16{
+	left: 50.25%;
+	top: 30%;
+}
+
+#slot17{
+	left: 60.2%;
+	top: 30%;
+}
+
+#slot18{
+	left: 70.15%;
+	top: 30%;
+}
+
+#slot19{
+	left: 80.1%;
+	top: 30%;
+}
+
+#slot20{
+	left: 90.05%;
+	top: 30%;
+}
+
+
+#slot21{
+	left: 0.5%;
+	top: 47%;
+}
+#slot22{
+	left: 10.45%;
+	top: 47%;
+}
+
+#slot23{
+	left: 20.4%;
+	top: 47%;
+}
+
+#slot24{
+	left: 30.35%;
+	top: 47%;
+}
+
+#slot25{
+	left: 40.3%;
+	top: 47%;
+}
+
+#slot26{
+	left: 50.25%;
+	top: 47%;
+}
+
+#slot27{
+	left: 60.2%;
+	top: 47%;
+}
+
+#slot28{
+	left: 70.15%;
+	top: 47%;
+}
+
+#slot29{
+	left: 80.1%;
+	top: 47%;
+}
+
+#slot30{
+	left: 90.05%;
+	top: 47%;
+}
+
+
+#slot31{
+	left: 0.5%;
+	top: 64%;
+}
+#slot32{
+	left: 10.45%;
+	top: 64%;
+}
+
+#slot33{
+	left: 20.4%;
+	top: 64%;
+}
+
+#slot34{
+	left: 30.35%;
+	top: 64%;
+}
+
+#slot35{
+	left: 40.3%;
+	top: 64%;
+}
+
+#slot36{
+	left: 50.25%;
+	top: 64%;
+}
+
+#slot37{
+	left: 60.2%;
+	top: 64%;
+}
+
+#slot38{
+	left: 70.15%;
+	top: 64%;
+}
+
+#slot39{
+	left: 80.1%;
+	top: 64%;
+}
+
+#slot40{
+	left: 90.05%;
+	top: 64%;
+}
+
+
+#slot41{
+	left: 0.5%;
+	top: 81%;
+}
+
+#slot42{
+	left: 10.45%;
+	top: 81%;
+}
+
+#slot43{
+	left: 20.4%;
+	top: 81%;
+}
+
+#slot44{
+	left: 30.35%;
+	top: 81%;
+}
+
+#slot45{
+	left: 40.3%;
+	top: 81%;
+}
+
+#slot46{
+	left: 50.25%;
+	top: 81%;
+}
+
+#slot47{
+	left: 60.2%;
+	top: 81%;
+}
+
+#slot48{
+	left: 70.15%;
+	top: 81%;
+}
+
+#slot49{
+	left: 80.1%;
+	top: 81%;
+}
+
+#slot50{
+	left: 90.05%;
+	top: 81%;
+}

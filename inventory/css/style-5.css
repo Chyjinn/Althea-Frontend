@@ -10,8 +10,8 @@
 }
 
 .inventory {
-  width: 41.5vh;
-  height: 25.5vh;
+  width: 560px;
+  height: 323px;
   background-color: rgba(0,0,0,0.5);
   position: absolute;
   right: 10%;
@@ -25,15 +25,16 @@
 	display: block;
 	bottom: 0px;
 	left: 0px;
-	width: 588px;
+	width: 540px;
 	height: 4px;
 }
 
 .navigation{
-	width: 41.5vh;
-	height: 4vh;
+	width: 554px;
+	height: 30px;
 	background-color: rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 1px black, inset 0px 0px 15px rgba(0,0,0,1);
+	padding: 3px;
 }
 
 #section0{
@@ -42,14 +43,13 @@
 
     
 .logo{
-	width: 3vh;
-	height: 3vh;
+	width: 30px;
+	height: 30px;
 	float: left;
-	padding: 0.5vh;
 }
 .amount{
-	width: 4vh;
-	height: 2vh;
+	width: 40px;
+	height: 20px;
 	background-color: rgba(0,0,0,0.2);
 	box-shadow: 0px 0px 1px black, inset 0px 0px 15px rgba(0,0,0,1);
 	border-radius: 5px;
@@ -60,7 +60,7 @@
 }
 
 .active{
-	border: solid 2px green;
+	border: solid 1px green;
 }
 
 #inv-1{
@@ -75,21 +75,21 @@
 
 #clothes{
   display: flex;
-  margin: 0px 0px 0px 17vh;
+  margin: 0px 0px 0px 167px;
   flex-wrap: wrap;
 }
 
 #clothes .slot{
-	width: 5vh;
-	height: 5vh;
+	width: 50px;
+	height: 50px;
 }
 
 #wear{
   position: absolute;
-  left: 1vh;
-  top: 5vh;
-  width: 16vh;
-  height: 26vh;
+  left: 5px;
+  top: 42px;
+  width: 155px;
+  height: 255px;
   background-image: url('../human.png');
   background-repeat: no-repeat;
   background-size: 100px 250px;
@@ -99,8 +99,8 @@
 #wear .slot{
 	position: absolute;
 	transform: translate(-50%, 0);
-	width: 4vh;
-	height: 4vh;
+	width: 45px;
+	height: 45px;
 	color: white;
 }
 
@@ -205,11 +205,10 @@ font-size: 12px;
 	color: white;
 	font-size: 20px;
 	text-align: center;
-	width: 3vh;
-	height: 3vh;
+	width: 25px;
+	height: 25px;
 	float: right;
-	font-size: 2.5vh;
-	padding: 0.5vh;
+	margin: 5px;
 }
 
 .number {
@@ -219,25 +218,24 @@ font-size: 12px;
   position: relative;
   text-shadow: #333 1px 2px 1px;
   top: -25px;
+  right: -25px;
   cursor: default;
-  text-align: right;
-  margin-right: 5px;
 }
 
 .slot {
-  width: 3.5vh;
-  height: 3.5vh;
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
   background-color: rgba(0,0,0,0.5);
-  border: solid grey 2px;
+  border: solid grey 1px;
   border-radius: 5px;
   box-shadow: inset 0px 0px 15px rgba(0,0,0,1.0);
   margin: 1px;
 }
 
 .slot:hover{
-	border: solid orange 2px;
+	border: solid orange 1px;
 }
 
 .slotSpace {
@@ -256,6 +254,7 @@ font-size: 12px;
   align-items: center;
   width: 100%;
   height: 100%;
+
 }
 
 
@@ -268,10 +267,8 @@ font-size: 12px;
   width: 40px;
 }
 .ghostItem .number {
-  top: -25px;
-  text-align: right;
-  margin-right: 5px;
-  font-size: 14px;
+  top: -20px;
+  right: -13px;
 }
 
 ::selection {

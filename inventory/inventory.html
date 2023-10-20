@@ -8,36 +8,73 @@
 <body>
 <div class="content">
 
-      <div class="inventory">
+      <div class="inventory player">
         <div class="header">
           
           <input type="text" class="search" placeholder="Keresés ...">
 
         </div>
         <div class="items">
-
         </div>
       </div>
 
-      <div class="container">
+      <div class="inventory container">
 
 
       </div>
-      
+
+      <div class="clothes">
+        <div class="slot" id="clothes;0">Kalap</div>
+        <div class="slot" id="clothes;1">Maszk</div>
+        <div class="slot" id="clothes;2">Szemüveg</div>
+        <div class="slot" id="clothes;3">Fülbevaló</div>
+        <div class="slot" id="clothes;4">Nyaklánc</div>
+        <div class="slot" id="clothes;5">Póló</div>
+        <div class="slot" id="clothes;6">Armor</div>
+        <div class="slot" id="clothes;7">Nadrág</div>
+        <div class="slot" id="clothes;8">Kesztyű</div>
+        <div class="slot" id="clothes;9">Karkötő</div>
+        <div class="slot" id="clothes;10">Óra</div>
+        <div class="slot" id="clothes;11">Cipő</div>
+      </div>
+
     </div>
 
-    <div class="tooltip">valami</div>
+    <div class="itemmenu">
+      <div class="menubutton" id="use_item">Használat</div>
+      <div class="menubutton">Szétválasztás</div>
+      <div class="menubutton" id="close_menu">Mégse</div>
+    </div>
+
+    <div class="tooltip"></div>
     </body>
 	<script>
-    let inventory = document.querySelector('.inventory');
     let items = document.querySelector('.items');
-    let tooltip = document.querySelector('.tooltip');
-    let numberOfItems = 0;
+    let item = null;
 
-    function AddNewItem(itemid, itemname, itemdescription, weight, amount, itempicture){
+    let container_type = null;
+    let opened_container = null;
+
+
+    let itemmenu = document.querySelector('.itemmenu');
+    let close_itemmenu = document.querySelector('#close_menu');
+    let use_itemmenu = document.querySelector('#use_item');
+    let itemmenu_target = null;
+
+    use_itemmenu.addEventListener('mousedown',useItem);
+    close_itemmenu.addEventListener('mousedown', closeItemMenu);
+
+
+    let tooltip = document.querySelector('.tooltip');
+    let status_click = false;
+    let ghostItem = null;
+    let target_inventory = null;
+    let target_item = null;
+
+    function addNewItem(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
-      newItem.id = items.childElementCount;
+      newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
               '<div class="amount">'+amount+'</div>';
 
@@ -45,10 +82,169 @@
       newItem.itemname = itemname;
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
+      newItem.priority = priority;
       items.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
+      newItem.addEventListener('contextmenu', itemMenu);
+      newItem.addEventListener('mousedown', moveItem);
+    }
+
+    function SortItemsByPriority()
+    {
+      var children = Array.from(items.children);
+      console.log(children);
+      children.forEach(remove);
+
+      function remove(elem){
+        elem.remove();
+
+      };
+    }
+
+
+  function itemMenu(ev){
+    ev.preventDefault();
+    const item = this;
+    itemmenu.style.display = 'block';
+    var rect = item.getBoundingClientRect();
+    itemmenu.style.left = (rect.left+rect.right) /2 + 'px';
+    itemmenu.style.top = rect.bottom-5 + 'px';
+    itemmenu_target = ev.target;
+  }
+
+  function useItem(ev){
+    console.log(itemmenu_target);
+
+  }
+
+  function closeItemMenu(ev){
+    ev.preventDefault();
+    itemmenu.style.display = 'none';
+  }
+
+  function moveItem(ev){
+    if(event.button == 0)
+    {
+      ev.preventDefault();
+      item = this;
+      ghostItem = item.cloneNode(true);
+      ghostItem.setAttribute('class', 'ghostItem');
+      item.classList.add('invisible');
+
+      let shiftX = ghostItem.getBoundingClientRect().left + 20;
+      let shiftY = ghostItem.getBoundingClientRect().top + 20;
+
+      ghostItem.style.position = 'absolute';
+      ghostItem.style.zIndex = 1000;
+      document.body.append(ghostItem);
+
+      status_click = !status_click;
+
+      if(status_click){
+        moveAt(event.pageX,event.pageY);
+      }
+      
+      function moveAt(pageX, pageY) {
+        ghostItem.style.left = pageX - shiftX + 'px';
+        ghostItem.style.top = pageY - shiftY + 'px';
+	  }
+
+
+    function onMouseMove(event) {
+      if (status_click) {
+        moveAt(event.pageX, event.pageY);
+      }
+      ghostItem.hidden = true;
+      let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+      
+      ghostItem.hidden = false;
+      if (!elemBelow) return;
+      let droppableBelow = elemBelow.closest('.inventory');
+      let itemBelow = elemBelow.closest('.item');
+
+          target_inventory = droppableBelow;
+          target_item = itemBelow;
+	  }
+
+      document.addEventListener('mousemove', onMouseMove);
+      ghostItem.addEventListener('mouseup', dropItem);
+    }
+
+
+
+  function dropItem(ev)//megnézni hogy az inventory vagy container fölött engedte-e el.
+  {//ha inventory, akkor -> priority változtatás - item sorbarendezés
+    //ha container, akkor küldeni szervernek, visszakapni hogy törölje az inventorynkból és hozzáadja a másikhoz
+    if(target_inventory != null)
+    {
+      if(target_item != null)//Másik item-re mozgatás, priority módosítás
+      {
+        if(target_inventory.classList.contains('container'))//másik inventory-ba húzás
+        {
+          //mp.trigger('client:MoveItemToContainer',item.id,target_item.id);
+          console.log('Item -> Container item')
+        }
+        else if(target_inventory.classList.contains('player'))//saját inventory-ba húzás
+        {
+          //mp.trigger('client:MoveItemInInventory',item.id,target_item.id);
+          console.log('Item -> item');
+        }
+
+      }
+      else
+      {
+        if(target_inventory.classList.contains('container'))//másik inventory-ba húzás
+        {
+          console.log('Item -> container');
+        }
+        else if(target_inventory.classList.contains('player'))//saját inventory-ba húzás
+        {
+          console.log('Item -> Inventory')
+        }
+        //console.log(target_inventory);//simán másik inventory-ba akarjuk húzni, beszúrjuk az utolsó helyre
+      }
+      
+    }
+    else//nincs inventory, 3d world-re akarja húzni
+    {
+      console.log('3d');
+    }
+      ghostItem.remove();
+      item.classList.remove('invisible');
+      item = null;
+      status_click = false;
+  }
+
+}
+
+    function openContainer(type, id)
+    {
+      container_type = type;
+      opened_container = id;
+    }
+
+    function RemoveItem(dbid){
+      var children = Array.from(items.children);  
+      children.forEach(remove);
+
+    function remove(item){
+      if(item.id == dbid){
+        item.remove();
+      }
+    }
+    }
+
+
+    function clearInventory()
+    {
+      var children = Array.from(items.children);
+      children.forEach(remove);
+
+      function remove(item){
+        item.remove();
+      }
     }
 
 
@@ -91,10 +287,7 @@
 		  document.removeEventListener('mousemove', moveToolTip);
 	}
 
-
-    function RemoveExistingItem(id){
-
-    }
+  
 
     </script>
 </html>

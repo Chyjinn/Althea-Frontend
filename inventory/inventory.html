@@ -11,31 +11,50 @@
       <div class="inventory player">
         <div class="header">
           
-          <input type="text" class="search" placeholder="Keresés ...">
+          <input id="inventory-search" type="text" class="search" placeholder="Keresés...">
 
         </div>
-        <div class="items">
+        <div class="inventory-items">
         </div>
       </div>
 
       <div class="inventory container">
+        <div class="header">
+          
+          <input id="container-search" type="text" class="search" placeholder="Keresés...">
 
+        </div>
+        <div class="container-items">
+        </div>
 
       </div>
 
       <div class="clothes">
-        <div class="slot" id="clothes;0">Kalap</div>
-        <div class="slot" id="clothes;1">Maszk</div>
-        <div class="slot" id="clothes;2">Szemüveg</div>
-        <div class="slot" id="clothes;3">Fülbevaló</div>
-        <div class="slot" id="clothes;4">Nyaklánc</div>
-        <div class="slot" id="clothes;5">Póló</div>
-        <div class="slot" id="clothes;6">Armor</div>
-        <div class="slot" id="clothes;7">Nadrág</div>
-        <div class="slot" id="clothes;8">Kesztyű</div>
-        <div class="slot" id="clothes;9">Karkötő</div>
-        <div class="slot" id="clothes;10">Óra</div>
-        <div class="slot" id="clothes;11">Cipő</div>
+        <div class="slot" id="kalap"></div>
+        <div class="slot" id="maszk"></div>
+        <div class="slot" id="szemuveg"></div>
+        <div class="slot" id="fulbevalo"></div>
+        <div class="slot" id="nyaklanc"></div>
+        <div class="slot" id="polo"></div>
+        <div class="slot" id="armor"></div>
+        <div class="slot" id="nadrag"></div>
+        <div class="slot" id="taska"></div>
+        <div class="slot" id="karkoto"></div>
+        <div class="slot" id="ora"></div>
+        <div class="slot" id="cipo"></div>
+      </div>
+
+      <div class="actionbar">
+        <div class="action_slot"><div class="action_number">0</div></div>
+        <div class="action_slot"><div class="action_number">1</div></div>
+        <div class="action_slot"><div class="action_number">2</div></div>
+        <div class="action_slot"><div class="action_number">3</div></div>
+        <div class="action_slot"><div class="action_number">4</div></div>
+        <div class="action_slot"><div class="action_number">5</div></div>
+        <div class="action_slot"><div class="action_number">6</div></div>
+        <div class="action_slot"><div class="action_number">7</div></div>
+        <div class="action_slot"><div class="action_number">8</div></div>
+        <div class="action_slot"><div class="action_number">9</div></div>
       </div>
 
     </div>
@@ -49,7 +68,8 @@
     <div class="tooltip"></div>
     </body>
 	<script>
-    let items = document.querySelector('.items');
+    let items = document.querySelector('.inventory-items');
+    let container_items = document.querySelector('.container-items');
     let item = null;
 
     let container_type = null;
@@ -71,7 +91,7 @@
     let target_inventory = null;
     let target_item = null;
 
-    function addNewItem(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
+    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -91,16 +111,24 @@
       newItem.addEventListener('mousedown', moveItem);
     }
 
-    function SortItemsByPriority()
-    {
-      var children = Array.from(items.children);
-      console.log(children);
-      children.forEach(remove);
+    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
+      let newItem =  document.createElement('div');
+      newItem.className = 'item';
+      newItem.id = dbid;
+      newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
+              '<div class="amount">'+amount+'</div>';
 
-      function remove(elem){
-        elem.remove();
-
-      };
+      newItem.itemid = itemid;
+      newItem.itemname = itemname;
+      newItem.itemdescription = itemdescription;
+      newItem.weight = weight;
+      newItem.priority = priority;
+      container_items.appendChild(newItem);
+      
+      newItem.addEventListener('mouseenter', displayItemInfo);
+      newItem.addEventListener('mouseleave', hideToolTip)
+      newItem.addEventListener('contextmenu', itemMenu);
+      newItem.addEventListener('mousedown', moveItem);
     }
 
 

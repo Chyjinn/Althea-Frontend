@@ -1,5 +1,12 @@
-function loadPage(){
-    
+function addAnimToContent(animName, animDictionary){
+    let anim = document.createElement('p');
+    anim.innerHTML = "animDictionary: " +
+    animDictionary +
+    " animName: " + animName;
+    anim.animDictionary = animDictionary;
+    anim.animName = animName;    
+    document.getElementById('tartalom').appendChild(anim);
+
 }
 
 function replyClick(clicked_id){

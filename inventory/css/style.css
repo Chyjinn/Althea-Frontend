@@ -67,7 +67,7 @@
 .container {
   left: 5vw;
   top: 25vh;
-
+  display: none;
 }
 
 

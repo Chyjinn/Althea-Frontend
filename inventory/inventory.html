@@ -139,7 +139,7 @@
       items = document.querySelectorAll('.item');
     }
 
-    function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, slot){
+    function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -153,42 +153,42 @@
       newItem.priority = priority;
       newItem.isclothing = true;
       let toAppend = null;
-      switch(slot)
+      switch(itemid)
       {
-          case '0':
+          case '1':
             toAppend = document.querySelector("#kalap");
             break;
-          case '1':
-            toAppend = document.querySelector("#nyaklanc");
-            break;
           case '2':
-            toAppend = document.querySelector("#polo");
+            toAppend = document.querySelector("#maszk");
             break;
           case '3':
-          toAppend = document.querySelector("#nadrag");
+            toAppend = document.querySelector("#nyaklanc");
             break;
           case '4':
-          toAppend = document.querySelector("#cipo");
-            break;
-          case '5':
-          toAppend = document.querySelector("#taska");
-            break;
-          case '6':
-          toAppend = document.querySelector("#maszk");
-            break;
-          case '7':
             toAppend = document.querySelector("#szemuveg");
             break;
-          case '8':
+          case '5':
+            toAppend = document.querySelector("#polo");
+            break;
+          case '6':
             toAppend = document.querySelector("#fulbevalo");
             break;
-          case '9':
+          case '7':
+          toAppend = document.querySelector("#nadrag");
+            break;
+          case '8':
             toAppend = document.querySelector("#karkoto");
             break;
+          case '9':
+          toAppend = document.querySelector("#cipo");
+            break;
           case '10':
-          toAppend = document.querySelector("#ora");
+            toAppend = document.querySelector("#ora");
             break;
           case '11':
+          toAppend = document.querySelector("#taska");
+            break;
+          case '12':
           toAppend = document.querySelector("#armor");
             break;
           default:

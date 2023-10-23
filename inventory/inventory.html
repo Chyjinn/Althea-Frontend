@@ -68,9 +68,11 @@
     <div class="tooltip"></div>
     </body>
 	<script>
-    let items = document.querySelector('.inventory-items');
-    let container_items = document.querySelector('.container-items');
-    let clothes = document.querySelector('.slot');
+    let items = document.querySelectorAll('.item');
+    let inv_player = document.querySelector('.inventory-items');
+    let inv_container = document.querySelector('.container-items');
+    let inv_clothes = document.querySelectorAll('.slot');
+
     let item = null;
 
     let container_type = null;
@@ -105,12 +107,15 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
-      items.appendChild(newItem);
+
+
+      inv_player.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
+      items = document.querySelectorAll('.item');
     }
 
     function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
@@ -125,12 +130,13 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
-      container_items.appendChild(newItem);
+      inv_container.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
+      items = document.querySelectorAll('.item');
     }
 
     function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, slot){
@@ -145,6 +151,7 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
+      newItem.isclothing = true;
       let toAppend = null;
       switch(slot)
       {
@@ -197,6 +204,7 @@
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
+      items = document.querySelectorAll('.item');
     }
 
 
@@ -275,7 +283,7 @@
   function dropItem(ev)//megnézni hogy az inventory vagy container fölött engedte-e el.
   {//ha inventory, akkor -> priority változtatás - item sorbarendezés
     //ha container, akkor küldeni szervernek, visszakapni hogy törölje az inventorynkból és hozzáadja a másikhoz
-    console.log(item.id);
+    console.log("ITEMID:"+item.id);
     if(target_slot != null && target_slot)//ruha slot-ra húzta
     {
       let target_clothing = -1;
@@ -331,11 +339,21 @@
     }
     else if(target_item != null)//item-re húzta, inventory is beállítva ilyenkor
     {
-      console.log(target_item.id);
+      if(item.isclothing)
+      {
+        mp.trigger('client:SwapItem',item.id,target_item.id, true);
+      }
+      else
+      {
+        mp.trigger('client:SwapItem',item.id,target_item.id, false);
+      }
+      
     }
     else if(target_inventory != null)//simán valamelyik inventory-ra húzta
     {
-      console.log(target_inventory.classList);
+      mp.trigger('client:MoveItem',item.id,container_type,opened_container);
+
+      //mp.trigger('client:MoveItem',container_type,opened_container,item.id);
     }
     else//nem húzta semmire
     {
@@ -356,34 +374,21 @@
     }
 
     function RemoveItem(dbid){
-      var children = Array.from(items.children);  
-      children.forEach(remove);
-
-      children = Array.from(container_items.children);  
-      children.forEach(remove);
-
-      children = Array.from(clothes.children);  
-      children.forEach(remove);
-
-      function remove(item){
-        if(item.id == dbid){
+      items.forEach(remove_one_item);
+      function remove_one_item(item){
+        if(item.id == ''+dbid){
           item.remove();
         }
       }
     }
 
     function ClearInventory(){
-      var children = Array.from(items.children);  
-      children.forEach(remove_every_item);
-
-      children = Array.from(container_items.children);  
-      children.forEach(remove_every_item);
-
-      children = Array.from(clothes.children);  
-      children.forEach(remove_every_item);
+      items.forEach(remove_every_item);
 
       function remove_every_item(item){
+          console.log(item.id);
           item.remove();
+
       }
     }
 

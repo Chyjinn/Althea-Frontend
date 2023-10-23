@@ -5,11 +5,22 @@
     float: left;
     display:flex;
     flex-direction: column;
-    overflow: auto;
+    overflow: auto;    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 #tartalom{
     border: 2px solid red;
     height: 300pt;
     width: 500pt;
     overflow: hidden;
+    
+}
+#animpanel{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }

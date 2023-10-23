@@ -42,6 +42,7 @@
     color: white;
     padding-left: 0.3em;
     line-height: 1.5em;
+	user-select: none;
 }
 .inputBar {
     background-color: rgba(0, 0, 0, 0.5);
@@ -52,13 +53,16 @@
     height: 2em;
     padding: 0 0.3em 0 0.3em;
     margin-top: 0.3em;
+	user-select: none;
 }
 .inputBar::placeholder {
-    color: rgba(255, 255, 255, 0.5);;
+    color: rgba(255, 255, 255, 0.5);
+	user-select: none;
 }
 .charCount {
     color: white;
     margin-left: 1em;
+	user-select: none;
 }
 .hide {
     visibility: hidden;

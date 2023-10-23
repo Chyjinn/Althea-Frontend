@@ -1,0 +1,15 @@
+#menu{
+    border: 2px solid orange;
+    height: 300pt;
+    width: auto;
+    float: left;
+    display:flex;
+    flex-direction: column;
+    overflow: auto;
+}
+#tartalom{
+    border: 2px solid red;
+    height: 300pt;
+    width: 500pt;
+    overflow: hidden;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimSelector</title>
+    <link rel="stylesheet" href="animselector.css">
+</head>
+<body>
+    <div id="animSelectorPanel">
+        <div class="buttons">
+            <img src="kepek/left.png" alt="left" onclick="replyClick(this.id)" class="btns" id="left">
+            <img src="kepek/up.png" alt="up" onclick="replyClick(this.id)"class="btns" id="up">                        
+        </div>     
+        <div class="buttons">
+            <img src="kepek/right.png" alt="right" onclick="replyClick(this.id)"class="btns" id="right">
+            <img src="kepek/down.png" alt="down" onclick="replyClick(this.id)"class="btns" id="down"> 
+        </div>        
+        <div id="texts">
+            <div id="flagDiv">
+                <p>Flag: </p>                
+                <p id="flag">0</p>            
+                <p>|</p>
+                <p>Index: </p>
+                <p id="index">0</p>                  
+            </div>
+
+        </div>
+    </div>
+    <script src="animselector.js"></script>
+</body>
+</html>

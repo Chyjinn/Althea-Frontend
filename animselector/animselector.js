@@ -3,6 +3,10 @@ let initialX;
 let initialY;
 let currentX;
 let currentY;
+let osszeg = 0;    
+let nmbr = 0;
+let indexNmbr = 0;
+let indexOsszeg = 0;
 
 const panel = document.getElementById("animSelectorPanel");
 const texts = document.getElementById("texts");
@@ -27,11 +31,7 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
 });
 
-function replyClick(id){
-    let osszeg = 0;    
-    let nmbr = 0;
-    let indexNmbr = 0;
-    let indexOsszeg = 0;
+function replyClick(id){    
     if(id == "up"){
         nmbr = parseInt(document.getElementById("flag").innerText);
         osszeg = nmbr + 1                            

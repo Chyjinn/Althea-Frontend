@@ -46,11 +46,31 @@
     font-family: 'Times New Roman', Times, serif;       
     overflow: auto;
 }
-#animDictionaryAndName{
+.animDictionaryAndNameDiv{
+    width: 100%;
+    float: inline;
+    display:flex;
+    height: 100%;
+    flex-direction: row; 
+}
+.animDictionaryAndNameDiv div{
+    width: 120px;     
+}
+#anyad{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+#animDictionary {
+    width: 250px;
+  }
+#animName {
+    width: 250px;
+  }
+.animDictAndNameClass{
     color: orange;
     height:fit-content;
-    width: auto;    
-    position: fixed;
+    width: 150px;        
     flex-direction: column;
     display: flex;    
     font-family: 'Times New Roman', Times, serif;       

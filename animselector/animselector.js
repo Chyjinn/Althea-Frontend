@@ -7,6 +7,8 @@ let osszeg = 0;
 let nmbr = 0;
 let indexNmbr = 0;
 let indexOsszeg = 0;
+let animName2 = "";
+let animDictionary2 = "";
 
 const panel = document.getElementById("animSelectorPanel");
 const texts = document.getElementById("texts");
@@ -30,6 +32,11 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", () => {
   isDragging = false;
 });
+
+function getAnimNameAndDictionary(animNames, animDictionaries){
+    animName2 = animNames;
+    animDictionary2 = animDictionaries;
+}
 
 function replyClick(id){    
     if(id == "up"){

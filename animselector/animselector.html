@@ -6,7 +6,7 @@
     <title>AnimSelector</title>
     <link rel="stylesheet" href="animselector.css">
 </head>
-<body>
+<body onload="onLoad()">
     <div id="animSelectorPanel">
         <div class="buttons">
             <img src="kepek/left.png" alt="left" onclick="replyClick(this.id)" class="btns" id="left">
@@ -17,45 +17,23 @@
             <img src="kepek/down.png" alt="down" onclick="replyClick(this.id)"class="btns" id="down"> 
         </div>        
         <div id="texts">
-            <div id="animDictionaryAndName">
-                <p>AnimDictionary: </p>
-                <div id="animDictionary"></div>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <p>AnimName: </p>
-                <div id="animName"></div>
+            <div id="anyad">
+                <div class="animDictionaryAndNameDiv">
+                    <div>AnimDictionary: </div>
+                    <div id="animDictionary" class="animDictAndNameClass">Dict</div>                                           
+                </div>
+                <div class="animDictionaryAndNameDiv">
+                    <div>AnimName: </div>                
+                    <div id="animName" class="animDictAndNameClass">Name</div>
+                </div>
             </div>
-            
+            <div id="playBtnDiv">
+                <img src="kepek/play.png" alt="" onclick="playAnimation(this.id)" id="playBtn" class="playPauseBtns">
+                <img src="kepek/pause.png" alt="" onclick="stopAnimation(this.id)" id="pauseBtn" class="playPauseBtns">
+            </div>
+            <div id="uploadDiv">
+                <img src="kepek/upload.png" alt="" onclick="uploadAnimation(this.id)" id="uploadBtn">
+            </div>
             <div id="flagDiv">
                 <p>Flag: </p>                
                 <p id="flag">0</p>            

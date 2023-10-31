@@ -176,9 +176,47 @@ function playAnimation(id){
 function stopAnimation(id){
     mp.trigger('client:playAnim', animDictionary2, animName2, osszeg, false)
 }
+function closePanel(){
+    mp.trigger('toggleSelectorWindow');
+}
 
 function uploadAnim(){
-    var command = document.getElementById("command").value;
-    var category = document.getElementById("category").value;
-        
+    var command = document.getElementById("command").value;    
+    var flag = osszeg;    
+    //Player player, string cmd, string dict, string anim, int flag, string category        
+    mp.trigger('client:uploadAnim', command, animDictionary2, animName2, flag, category);    
 }
+
+const dropdowns = document.querySelectorAll('.dropdown');
+var category;
+dropdowns.forEach(dropdown => {
+    
+    const select = dropdown.querySelector('.select');
+    const caret = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li');
+    const selected = dropdown.querySelector('.selected');
+
+    select.addEventListener('click', ()=>{
+        select.classList.toggle('select-clicked');
+        caret.classList.toggle('caret-rotate');
+        menu.classList.toggle('menu-open');
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () =>{
+            selected.innerText = option.innerText;            
+            category = option.id;            
+            select.classList.remove('select-clicked');
+            caret.classList.remove('caret-rotate');
+            menu.classList.remove('menu-open');
+            options.forEach(option => {
+                option.classList.remove('active');
+                select.classList.toggle('select-clicked');
+            });
+        });
+    });
+});
+
+
+

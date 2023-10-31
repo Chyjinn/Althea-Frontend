@@ -1,0 +1,296 @@
+body{
+overflow: hidden;
+}
+
+.speedo{
+	position: absolute;
+	width: 20vw;
+	height: 10vw;
+	right: 2%;
+	bottom: 2%;
+	background-color: rgba(0,0,0,0);
+}
+
+.speedo .speed{
+	position: absolute;
+	text-align: center;
+	left: 13vw;
+	top: 1vw;
+	width: 15vw;
+	height: 8vw;
+	transform: translate(-50%,0);
+	font-size: 7vw;
+	font-weight: bold;
+	font-style: italic;
+	font-family: sans-serif;
+	color: rgba(55,56,60,0.9);
+	text-shadow: 1px 1px black;
+}
+.speedo .unit{
+	position: absolute;
+	right: 1vw;
+	top: 1vw;
+	font-size: 1vw;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-style: italic;
+	color: rgba(55,56,60,0.9);
+	text-shadow: 1px 1px black;
+}
+.speedo .gear{
+	position: absolute;
+	width: 4vw;
+	height: 4vw;
+	left: 0.5vw;
+	top: 3vw;
+	border-radius: 50%;
+	border: solid 0.25vw rgba(41,247,149, 0.9);
+	font-size: 3vw;
+	font-weight: bold;
+	font-family: sans-serif;
+	box-shadow: 1px 1px black;
+}
+
+.speedo .gear p{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: rgba(41,247,149, 0.9);
+	text-shadow: 1px 1px black;
+}
+
+.speedo .rpm{
+	position: absolute;
+	width: 20vw;
+	height: 2vw;
+	left: 0vw;
+	bottom: 0vw;
+}
+
+.speedo .rpm .tick{
+	position: absolute;
+	width: 1.5vw;
+	height: 2vw;
+	fill: black;
+	background-color: rgba(255,255,255,0);
+}
+
+.tick polygon{
+	fill: rgba(55,56,60,0.9);
+	filter: drop-shadow(1px 1px 3px black);
+}
+
+#tick1{
+	left: 0.5vw;
+	bottom: 0vw;
+}
+
+#tick2{
+	left: 0.9vw;
+	bottom: 0vw;
+}
+
+#tick3{
+	left: 1.3vw;
+	bottom: 0vw;
+}
+#tick4{
+	left: 1.7vw;
+	bottom: 0vw;
+}
+#tick5{
+	left: 2.1vw;
+	bottom: 0vw;
+}
+#tick6{
+	left: 2.5vw;
+	bottom: 0vw;
+}
+#tick7{
+	left: 2.9vw;
+	bottom: 0vw;
+}
+#tick8{
+	left: 3.3vw;
+	bottom: 0vw;
+}
+#tick9{
+	left: 3.7vw;
+	bottom: 0vw;
+}
+#tick10{
+	left: 4.1vw;
+	bottom: 0vw;
+}
+#tick11{
+	left: 4.5vw;
+	bottom: 0vw;
+}
+#tick12{
+	left: 4.9vw;
+	bottom: 0vw;
+}
+#tick13{
+	left: 5.3vw;
+	bottom: 0vw;
+}
+
+#tick14{
+	left: 5.7vw;
+	bottom: 0vw;
+}
+
+#tick15{
+	left: 6.1vw;
+	bottom: 0vw;
+}
+
+#tick16{
+	left: 6.5vw;
+	bottom: 0vw;
+}
+
+#tick17{
+	left: 6.9vw;
+	bottom: 0vw;
+}
+
+#tick18{
+	left: 7.3vw;
+	bottom: 0vw;
+}
+
+#tick19{
+	left: 7.7vw;
+	bottom: 0vw;
+}
+
+#tick20{
+	left: 8.1vw;
+	bottom: 0vw;
+}
+
+#tick21{
+	left: 8.5vw;
+	bottom: 0vw;
+}
+
+#tick22{
+	left: 8.9vw;
+	bottom: 0vw;
+}
+
+#tick23{
+	left: 9.3vw;
+	bottom: 0vw;
+}
+
+
+#tick24{
+	left: 9.7vw;
+	bottom: 0vw;
+}
+
+#tick25{
+	left: 10.1vw;
+	bottom: 0vw;
+}
+
+#tick26{
+	left: 10.5vw;
+	bottom: 0vw;
+}
+
+#tick27{
+	left: 10.9vw;
+	bottom: 0vw;
+}
+
+
+#tick28{
+	left: 11.3vw;
+	bottom: 0vw;
+}
+
+#tick29{
+	left: 11.7vw;
+	bottom: 0vw;
+}
+
+
+#tick30{
+	left: 12.1vw;
+	bottom: 0vw;
+}
+#tick31{
+	left: 12.5vw;
+	bottom: 0vw;
+}
+#tick32{
+	left: 12.9vw;
+	bottom: 0vw;
+}
+#tick33{
+	left: 13.3vw;
+	bottom: 0vw;
+}
+#tick34{
+	left: 13.7vw;
+	bottom: 0vw;
+}
+#tick35{
+	left: 14.1vw;
+	bottom: 0vw;
+}
+#tick36{
+	left: 14.5vw;
+	bottom: 0vw;
+}
+#tick37{
+	left: 14.9vw;
+	bottom: 0vw;
+}
+#tick38{
+	left: 15.3vw;
+	bottom: 0vw;
+}
+#tick39{
+	left: 15.7vw;
+	bottom: 0vw;
+}
+#tick40{
+	left: 16.1vw;
+	bottom: 0vw;
+}
+#tick41{
+	left: 16.5vw;
+	bottom: 0vw;
+}
+#tick42{
+	left: 16.9vw;
+	bottom: 0vw;
+}
+#tick43{
+	left: 17.3vw;
+	bottom: 0vw;
+	
+}
+#tick41 polygon,
+#tick42 polygon,
+#tick43 polygon,
+#tick44 polygon,
+#tick45 polygon{
+	fill: rgba(204,31,76,0.9);
+}
+#tick44{
+	left: 17.7vw;
+	bottom: 0vw;
+	fill: red;
+}
+#tick45{
+	left: 18.1vw;
+	bottom: 0vw;
+	fill: red;
+}

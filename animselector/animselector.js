@@ -24,8 +24,7 @@ function dragElement(elmnt) {
   }
 
   function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
+    e = e || window.event;    
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
@@ -102,8 +101,9 @@ document.addEventListener('keydown', (e) =>{
     if(keyname == "Backspace"){
         mp.trigger('client:playAnim', animDictionary2, animName2, osszeg, false)
     }
-    if(keyname == "Shift"){
+    if(keyname == "Control"){
         //ide jön az upload script.
+        
     }
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -175,4 +175,10 @@ function playAnimation(id){
 }
 function stopAnimation(id){
     mp.trigger('client:playAnim', animDictionary2, animName2, osszeg, false)
+}
+
+function uploadAnim(){
+    var command = document.getElementById("command").value;
+    var category = document.getElementById("category").value;
+        
 }

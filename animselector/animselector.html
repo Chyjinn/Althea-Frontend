@@ -31,9 +31,39 @@
                 <img src="kepek/play.png" alt="" onclick="playAnimation(this.id)" id="playBtn" class="playPauseBtns">
                 <img src="kepek/pause.png" alt="" onclick="stopAnimation(this.id)" id="pauseBtn" class="playPauseBtns">
             </div>
-            <div id="uploadDiv">
-                <img src="kepek/upload.png" alt="" onclick="uploadAnimation(this.id)" id="uploadBtn">
+            <div id="closeBtnDiv">
+                <img src="kepek/closebtn.png" alt="" onclick="closePanel()" id="closeBtn" class="playPauseBtns">
             </div>
+            <form id="commandAndCategoryForm" onSubmit="javascript:uploadAnim()">
+                <div id="uploadDiv">
+                    <input type="image" src="kepek/upload.png" alt="" id="uploadBtn">                    
+                </div>
+                <div id="inputDiv">
+                    <label for="command">Command</label>
+                    <input type="text" id="command" value="">                    
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected" id="category">Kategória</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li id="sit">Ülő animációk</li>
+                            <li id="stand">Álló animációk</li>
+                            <li id="lay">Fekvő animációk</li>
+                            <li id="prop">Propos animációk</li>
+                            <li id="handsigns">Kézjelek</li>
+                            <li id="dance">Tánc & Szórakozás animációk</li>
+                            <li id="job">Munka animációk</li>
+                            <li id="food">Étel & Ital animációk</li>
+                            <li id="leo">Rendvédelmi animációk</li>
+                            <li id="shared">Páros animációk</li>
+                            <li id="weapon">Fegyveres animációk</li>
+                            <li id="vehicle">Jármű animációk</li>
+                            <li id="other">Egyéb animációk</li>
+                        </ul>
+                    </div>                   
+                </div>
+            </form>
             <div id="flagDiv">
                 <p>Flag: </p>                
                 <p id="flag">0</p>            

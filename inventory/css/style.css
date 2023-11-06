@@ -1,4 +1,6 @@
-
+body{
+  background-color: rgba(0,0,0,0);
+}
 .content {
   width: 100%;
   height: 100%;
@@ -52,7 +54,7 @@
 .inventory{
   width: 30vw;
   height: 52vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255,255,255,0.8);
   position: absolute;
   border: solid grey 0.1vh;
   border-radius: 2vh;
@@ -99,15 +101,32 @@
 .tooltip{
   font-family: sans-serif;
   font-weight: bold;
-  background-color: black;
-  color: white;
+  background-color: rgba(255,255,255,0.8);
+  border: solid 1px black;
+  color: black;
 	padding: 1vh;
   position: absolute;
   text-align: center;
   display: inline;
   margin: 0px;
   overflow: clip;
-  display: none;
+  width: 10vw;
+  height: 15vh;
+  display: block;
+}
+
+.tooltip .name{
+  width: 100%;
+  color: green;
+}
+.tooltip .description{
+  width: 100%;
+  color: black;
+}
+
+.tooltip .weight{
+  width: 100%;
+  color: black;
 }
 
 .inventory-items,
@@ -127,7 +146,7 @@
 }
 
 .ghostItem{
-  border: solid 1px white;
+  border: solid 0.2vh white;
   border-radius: 0.5vh;
 }
 .ghostItem img{
@@ -141,15 +160,16 @@
 
 .item{
   margin: 0.5vh;
-  width: 5vw;
-  height: 9vh;
+  width: 4vw;
+  height: 7vh;
   min-height: 0;
   overflow: hidden;
   background-color: rgb(0, 0, 0, 0.4);
-  border: solid 1px white;
+  border: solid 0.2vh white;
   position: relative;
   align-self: stretch;
   border-radius: 0.5vw;
+  box-shadow: 2px 2px;
 }
 
 
@@ -191,29 +211,35 @@
 }
 
 
-.amount{
+.item .amount{
   position: absolute;
   color: white;
   left: 0.25vh;
   top: 0.25vh;
 }
 
-.name{
+.item .name{
   font-weight: bold;
   position: absolute;
   color: white;
-  left: 0vh;
-  width: 8vh;
-  bottom: 0vh;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 100%;
+
+  bottom: 5%;
   text-align: center;
 }
 
-.weight{
+.item .weight{
   position: absolute;
   color: white;
   right: 0.25vh;
   top: 0.25vh;
   text-align: right;
+}
+
+.item:hover{
+  border: solid 0.2vh lightskyblue;
 }
 
 /* width */
@@ -250,10 +276,10 @@
 }
 
 .clothes .slot{
-  width: 5vw;
-  height: 9vh;
+  width: 4vw;
+  height: 7vh;
   background-color: rgba(0,0,0,0.8);
-  border: solid 1px white;
+  border: solid 0.2vh white;
   color: white;
   border-radius: 0.5vw;
   position: absolute;

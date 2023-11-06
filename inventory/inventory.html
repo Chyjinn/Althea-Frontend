@@ -65,7 +65,11 @@
       <div class="menubutton" id="close_menu">Mégse</div>
     </div>
 
-    <div class="tooltip"></div>
+    <div class="tooltip">
+      <div class="name">Neve</div>
+      <div class="description">valami jó hosszú leírás</div>
+      <div class="weight">2 kg</div>
+    </div>
     </body>
 	<script>
     let items = document.querySelectorAll('.item');
@@ -100,6 +104,7 @@
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
+              '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>';
 
       newItem.itemid = itemid;
@@ -110,12 +115,13 @@
 
 
       inv_player.appendChild(newItem);
-      
+
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
       items = document.querySelectorAll('.item');
+      
     }
 
     function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){

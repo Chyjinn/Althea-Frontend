@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+</head>
+<body>
+<div class="content">
+
+  </div>
+    </body>
+	<script>
+        
+    let names = document.querySelectorAll('.content');
+
+   function renderNametag(charid, name, posX, posY, scale)
+   {
+      let newName =  document.createElement('div');
+      newName.className = 'nametag';
+      newName.id = charid;
+      newName.innerHTML = '<div class="name">'+name+'</div>';
+      newName.style.left = posX + 'px';
+      newName.style.top = posY + 'px';
+      newName.style.fontSize = '150%';
+      names = document.querySelector('.content');
+      names.appendChild(newName);
+   }
+
+   function clearNametags()
+   {
+    names = document.querySelectorAll('.nametag');
+    names.forEach(remove_every_item);
+
+    function remove_every_item(item){
+        item.remove();
+    }
+   }
+    </script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimSelector</title>
+    <link rel="stylesheet" href="animselector.css">
+</head>
+<body onload="onLoad()">
+    <div id="animSelectorPanel">
+        <div class="buttons">
+            <img src="kepek/left.png" alt="left" onclick="replyClick(this.id)" class="btns" id="left">
+            <img src="kepek/up.png" alt="up" onclick="replyClick(this.id)"class="btns" id="up">                        
+        </div>     
+        <div class="buttons">
+            <img src="kepek/right.png" alt="right" onclick="replyClick(this.id)"class="btns" id="right">
+            <img src="kepek/down.png" alt="down" onclick="replyClick(this.id)"class="btns" id="down"> 
+        </div>        
+        <div id="texts">
+            <div id="anyad">
+                <div class="animDictionaryAndNameDiv">
+                    <div>AnimDictionary: </div>
+                    <div id="animDictionary" class="animDictAndNameClass">Dict</div>                                           
+                </div>
+                <div class="animDictionaryAndNameDiv">
+                    <div>AnimName: </div>                
+                    <div id="animName" class="animDictAndNameClass">Name</div>
+                </div>
+            </div>
+            <div id="playBtnDiv">
+                <img src="kepek/play.png" alt="" onclick="playAnimation(this.id)" id="playBtn" class="playPauseBtns">
+                <img src="kepek/pause.png" alt="" onclick="stopAnimation(this.id)" id="pauseBtn" class="playPauseBtns">
+            </div>
+            <div id="closeBtnDiv">
+                <img src="kepek/closebtn.png" alt="" onclick="closePanel()" id="closeBtn" class="playPauseBtns">
+            </div>
+            <form id="commandAndCategoryForm" onSubmit="javascript:uploadAnim()">
+                <div id="uploadDiv">
+                    <input type="image" src="kepek/upload.png" alt="" id="uploadBtn">                    
+                </div>
+                <div id="inputDiv">
+                    <label for="command">Command</label>
+                    <input type="text" id="command" value="">                    
+                    <div class="dropdown">
+                        <div class="select">
+                            <span class="selected" id="category">Kategória</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li id="sit">Ülő animációk</li>
+                            <li id="stand">Álló animációk</li>
+                            <li id="lay">Fekvő animációk</li>
+                            <li id="prop">Propos animációk</li>
+                            <li id="handsigns">Kézjelek</li>
+                            <li id="dance">Tánc & Szórakozás animációk</li>
+                            <li id="job">Munka animációk</li>
+                            <li id="food">Étel & Ital animációk</li>
+                            <li id="leo">Rendvédelmi animációk</li>
+                            <li id="shared">Páros animációk</li>
+                            <li id="weapon">Fegyveres animációk</li>
+                            <li id="vehicle">Jármű animációk</li>
+                            <li id="other">Egyéb animációk</li>
+                        </ul>
+                    </div>                   
+                </div>
+            </form>
+            <div id="flagDiv">
+                <p>Flag: </p>                
+                <p id="flag">0</p>            
+                <p>|</p>
+                <p>Index: </p>
+                <p id="index">0</p>                  
+            </div>
+
+        </div>
+    </div>
+    <script src="animselector.js"></script>
+</body>
+</html>

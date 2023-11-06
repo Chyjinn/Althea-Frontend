@@ -1,40 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="./css/styles.css" type="text/css" />
 </head>
 <body>
-<div class="content">
 
-  </div>
-    </body>
-	<script>
-        
-    let names = document.querySelectorAll('.content');
+<div class="speedo">
+<div class="speed"><span class="first">0</span><span class="second">0</span><span class="third">0</span></div>
+<div class="unit">KM/H</div>
+<div class="gear"><p>1</p></div>
+<div class="rpm">
+	<svg class="tick" id="tick1" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick2" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick3" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick4" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick5" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick6" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick7" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick8" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick9" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick10" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick11" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick12" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick13" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick14" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick15" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick16" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick17" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick18" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick19" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick20" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick21" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick22" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick23" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick24" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick25" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick26" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick27" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick28" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick29" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick30" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick31" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick32" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick33" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick34" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick35" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick36" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick37" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick38" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick39" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick40" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick41" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick42" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick43" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick44" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+	  <svg class="tick" id="tick45" viewBox="0 0 100 100">
+		<polygon points='20,0 0,100 20,100 40,0' fill='white' />
+	  </svg>
+</div>
+</div>
+</body>
+<script>
+let ticks = document.querySelectorAll('.tick');
+let rpms =  document.querySelectorAll('.tick polygon');
+let speed = document.querySelector('.speed');
+let gear = document.querySelector('.gear p');
 
-   function renderNametag(charid, name, posX, posY, scale)
-   {
-      let newName =  document.createElement('div');
-      newName.className = 'nametag';
-      newName.id = charid;
-      newName.innerHTML = '<div class="name">'+name+'</div>';
-      newName.style.left = posX + 'px';
-      newName.style.top = posY + 'px';
-      newName.style.fontSize = '150%';
-      names = document.querySelector('.content');
-      names.appendChild(newName);
-   }
+let firstdigit = document.querySelector('.first');
+let seconddigit = document.querySelector('.second');
+let thirddigit = document.querySelector('.third');
+	function setSpeed(current)
+	{
+		let toDisplay = "000";
+		if(current == 0)
+		{
+			toDisplay = '000';
+			firstdigit.style.color = 'rgba(55,56,60,0.9)';
+			seconddigit.style.color = 'rgba(55,56,60,0.9)';
+			thirddigit.style.color = 'rgba(55,56,60,0.9)';
+		}
+		else if(current < 10)
+		{
+			toDisplay = '00'+current;
+			firstdigit.style.color = 'rgba(55,56,60,0.9)';
+			seconddigit.style.color = 'rgba(55,56,60,0.9)';
+			thirddigit.style.color = 'rgba(255,255,255,0.9)';
+		}
+		else if(current < 100)
+		{
+			toDisplay = '0'+current;
+			firstdigit.style.color = 'rgba(55,56,60,0.9)';
+			seconddigit.style.color = 'rgba(255,255,255,0.9)';
+			thirddigit.style.color = 'rgba(255,255,255,0.9)';
+		}
+		else
+		{
+			toDisplay = ''+current;
+			firstdigit.style.color = 'rgba(255,255,255,0.9)';
+			seconddigit.style.color = 'rgba(255,255,255,0.9)';
+			thirddigit.style.color = 'rgba(255,255,255,0.9)';
+		}
+		firstdigit.innerHTML = toDisplay.charAt(0);
+		seconddigit.innerHTML = toDisplay.charAt(1);
+		thirddigit.innerHTML = toDisplay.charAt(2);
 
-   function clearNametags()
-   {
-    names = document.querySelectorAll('.nametag');
-    names.forEach(remove_every_item);
 
-    function remove_every_item(item){
-        item.remove();
-    }
-   }
-    </script>
+
+		console.log(firstdigit);
+	}
+
+	function setRpm(rpm)//0-40
+	{
+		//rpm az 0.0 és 1.0 közötti érték
+		//ki kell számolnunk, megszorozzuk 100-al -> 100, elosztjuk 2.5-el -> 40
+		if(rpm > 100)
+		{
+			rpm = 100;
+		}
+		let toSet = Math.round(rpm/2.5);
+		for (let i = 0; i <= rpms.length-5; i++) {
+			rpms[i].style.fill = 'rgba(55,56,60,0.9)';
+		}
+		if(toSet > 0)
+		{
+			for (let i = 0; i <= toSet; i++) {
+			rpms[i].style.fill = 'rgba(255,255,255,0.9)';
+		}
+		}
+	}
+
+	function setGear(value)
+	{
+		if(value == 0)
+		{
+			value = 'N';
+		}
+		else if(value == -1)
+		{
+			value = 'R';
+		}
+		gear.innerHTML = value;
+	}
+</script>
 </html>

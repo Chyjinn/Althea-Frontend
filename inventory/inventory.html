@@ -84,13 +84,11 @@
 
 
     let itemmenu = document.querySelector('.itemmenu');
+    let split_item = document.querySelector('#split_item');
     let close_itemmenu = document.querySelector('#close_menu');
     let use_itemmenu = document.querySelector('#use_item');
+    let open_container = document.querySelector('#open_container');
     let itemmenu_target = null;
-
-    use_itemmenu.addEventListener('mousedown',useItem);
-    close_itemmenu.addEventListener('mousedown', closeItemMenu);
-
 
     let tooltip = document.querySelector('.tooltip');
     let status_click = false;
@@ -99,7 +97,7 @@
     let target_item = null;
     let target_slot = null;
 
-    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
+    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, container, priority){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -112,6 +110,8 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
+      newItem.amount = amount;
+      newItem.container = container;
 
 
       inv_player.appendChild(newItem);
@@ -121,10 +121,9 @@
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
       items = document.querySelectorAll('.item');
-      
     }
 
-    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
+    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, container, priority){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -136,6 +135,8 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
+      newItem.amount = amount;
+      newItem.container = container;
       inv_container.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
@@ -214,6 +215,9 @@
     }
 
 
+
+
+
   function itemMenu(ev){
     ev.preventDefault();
     const item = this;
@@ -222,6 +226,41 @@
     itemmenu.style.left = (rect.left+rect.right) /2 + 'px';
     itemmenu.style.top = rect.bottom-5 + 'px';
     itemmenu_target = ev.target;
+    setItemMenuStyle();
+  }
+
+  function setItemMenuStyle()
+  {
+    let menubuttons = '';
+    if(itemmenu_target.itemid <= 14)//ruha
+    {
+      menubuttons = '<div class="menubutton" id="use_item">Felvétel</div>';
+    }
+
+    if(itemmenu_target.container > 0)//tároló
+    {
+      menubuttons += '<div class="menubutton" id="open_container">Megnyitás</div>';
+    }
+
+    if(itemmenu_target.amount > 1)
+    {
+      menubuttons += '<div class="menubutton" id="split_item">Szétválasztás</div>';
+    }
+    menubuttons += '<div class="menubutton" id="close_menu">Mégse</div>';
+    itemmenu.innerHTML = menubuttons;
+    split_item = document.querySelector('#split_item');
+    close_itemmenu = document.querySelector('#close_menu');
+    open_container = document.querySelector('#open_container');
+    use_itemmenu = document.querySelector('#use_item');
+
+    use_itemmenu.addEventListener('mousedown',useItem);
+    open_container.addEventListener('mousedown',openContainer);
+    close_itemmenu.addEventListener('mousedown', closeItemMenu);
+  }
+
+  function openContainer(ev)
+  {
+    
   }
 
   function useItem(ev){

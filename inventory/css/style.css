@@ -54,10 +54,8 @@ body{
 .inventory{
   width: 30vw;
   height: 52vh;
-  background-color: rgba(255,255,255,0.8);
+  background-color: rgba(0,0,0,0.4);
   position: absolute;
-  border: solid grey 0.1vh;
-  border-radius: 2vh;
   overflow: hidden;
 }
 
@@ -77,9 +75,9 @@ body{
 .header{
   width: 30vw;
   height: 5vh;
-  background-color: rgba(126, 126, 126, 1);
+  background-color: rgba(0,0,0,0.8);
   border-style: none none solid none;
-  border-color: white;
+  border-color: black;
   border-width: 0.25vh;
 }
 
@@ -100,43 +98,30 @@ body{
 .tooltip{
   font-family: sans-serif;
   font-weight: bold;
-  background-color: rgba(255,255,255,0.8);
-  border: solid 1px black;
-  color: black;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
 	padding: 1vh;
   position: absolute;
   text-align: center;
   display: inline;
   margin: 0px;
   overflow: clip;
-  width: 10vw;
-  height: 15vh;
-  display: block;
+  width: auto;
+  height: auto;
+  display: none;
 }
 
-.tooltip .name{
-  width: 100%;
-  color: green;
-}
-.tooltip .description{
-  width: 100%;
-  color: black;
-}
-
-.tooltip .weight{
-  width: 100%;
-  color: black;
-}
 
 .inventory-items,
 .container-items{
-  min-height: 82%;
-  max-height: 82%;
+  min-height: 88%;
+  max-height: 88%;
   flex-direction: row;
   margin: 0.5vh;
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
+  height: auto;
   align-content: flex-start;
 }
 
@@ -196,7 +181,7 @@ body{
   height: 7vh;
   min-height: 0;
   overflow: hidden;
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: rgb(0, 0, 0, 1);
   border: solid 0.2vh white;
   position: relative;
   align-self: stretch;
@@ -215,31 +200,29 @@ body{
   display: none;
   position: absolute;
   width: 10vh;
-  height: 7vh;
+  height: auto;
   background-color: rgba(0,0,0,0.5);
+  font-size: 2vh;
   color: white;
   min-width: 8vh;
-  padding-top: 0.25vh;
-  padding-bottom: 0.25vh;
-  border-radius: 0.5vh;
   text-align: center;
   user-select: none;
-  padding-top: 0.5vh;
-  padding-bottom: 0.5vh;
   transform: translate(-50%,0);
 }
 
 .menubutton{
   text-align: center;
-  width: 9vh;
+  width: 100%;
   left: 0vh;
-  margin: 0.5vh;
+  margin: auto;
+  margin-top: 0.25vh;
+  margin-bottom: 0.25vh;
   font-weight: bold;
   user-select: none;
 }
 
 .menubutton:hover{
-  background-color: red;
+  background-color: orange;
 }
 
 
@@ -281,17 +264,17 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: white;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: grey;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: black;
 }
 
 
@@ -338,19 +321,23 @@ body{
 #nyaklanc{
   position: absolute;
   left: 1vh;
-  top: 11vh;
+  top: 9vh;
   background-image: url("necklace.png");
 
 }
 #polo{
   left: 1vh;
-  top: 21vh;
+  top: 17vh;
   background-image: url("shirt.png");
-
+}
+#kesztyu{
+  left: 1vh;
+  top: 25vh;
+  background-image: url("gloves.png");
 }
 #nadrag{
   left: 1vh;
-  top: 31vh;
+  top: 33vh;
   background-image: url("legs.png");
 }
 #cipo{
@@ -360,7 +347,7 @@ body{
 }
 #taska{
   left: 1vh;
-  top: 51vh;
+  top: 49vh;
   background-image: url("backpack.png");
 }
 
@@ -372,28 +359,33 @@ body{
 }
 #szemuveg{
   right: 1vh;
-  top: 11vh;
+  top: 9vh;
   background-image: url("glasses.png");
 }
 #fulbevalo{
   right: 1vh;
-  top: 21vh;
+  top: 17vh;
   background-image: url("earrings.png");
 }
 #karkoto{
   right: 1vh;
-  top: 31vh;
+  top: 25vh;
   background-image: url("bracelet.png");
 }
 #ora{
   right: 1vh;
-  top: 41vh;
+  top: 33vh;
   background-image: url("watch.png");
 }
 #armor{
   right: 1vh;
-  top: 51vh;
+  top: 41vh;
   background-image: url("armor.png");
+}
+#kituzo{
+  right: 1vh;
+  top: 49vh;
+  background-image: url("decal.png");
 }
 
 

@@ -31,17 +31,20 @@
 
       <div class="clothes">
         <div class="slot" id="kalap"></div>
+        <div class="slot" id="nyaklanc"></div>
+        <div class="slot" id="polo"></div>
+        <div class="slot" id="kesztyu"></div>
+        <div class="slot" id="nadrag"></div>
+        <div class="slot" id="cipo"></div>
+        <div class="slot" id="taska"></div>
+
         <div class="slot" id="maszk"></div>
         <div class="slot" id="szemuveg"></div>
         <div class="slot" id="fulbevalo"></div>
-        <div class="slot" id="nyaklanc"></div>
-        <div class="slot" id="polo"></div>
-        <div class="slot" id="armor"></div>
-        <div class="slot" id="nadrag"></div>
-        <div class="slot" id="taska"></div>
         <div class="slot" id="karkoto"></div>
         <div class="slot" id="ora"></div>
-        <div class="slot" id="cipo"></div>
+        <div class="slot" id="kituzo"></div>
+        <div class="slot" id="armor"></div>
       </div>
 
       <div class="actionbar">
@@ -67,6 +70,7 @@
 
     <div class="tooltip">
       <div class="name">Neve</div>
+      <hr>
       <div class="description">valami jó hosszú leírás</div>
       <div class="weight">2 kg</div>
     </div>
@@ -84,11 +88,11 @@
 
 
     let itemmenu = document.querySelector('.itemmenu');
-    let split_item = document.querySelector('#split_item');
-    let close_itemmenu = document.querySelector('#close_menu');
-    let use_itemmenu = document.querySelector('#use_item');
-    let open_container = document.querySelector('#open_container');
-    let itemmenu_target = null;
+    let split_item = null;
+    let close_itemmenu = null;
+    let use_itemmenu = null;
+    let open_container = null;
+    let target_itemmenu = null;
 
     let tooltip = document.querySelector('.tooltip');
     let status_click = false;
@@ -97,13 +101,14 @@
     let target_item = null;
     let target_slot = null;
 
-    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, container, priority){
+    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
               '<div class="name">'+itemname+'</div>'+
-              '<div class="amount">'+amount+'</div>';
+              '<div class="amount">'+amount+'</div>'+
+              '<div class="weight">'+weight/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -111,8 +116,7 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.container = container;
-
+      newItem.inuse = inuse;
 
       inv_player.appendChild(newItem);
 
@@ -123,12 +127,14 @@
       items = document.querySelectorAll('.item');
     }
 
-    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, container, priority){
+    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="amount">'+amount+'</div>';
+              '<div class="name">'+itemname+'</div>'+
+              '<div class="amount">'+amount+'</div>'+
+              '<div class="weight">'+weight/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -136,7 +142,7 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.container = container;
+      newItem.inuse = inuse;
       inv_container.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
@@ -151,14 +157,16 @@
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="amount">'+amount+'</div>';
+              '<div class="name">'+itemname+'</div>'+
+              '<div class="amount">'+amount+'</div>'+
+              '<div class="weight">'+weight/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
-      newItem.isclothing = true;
+      newItem.inuse = 'true';
       let toAppend = null;
       switch(itemid)
       {
@@ -198,6 +206,12 @@
           case '12':
           toAppend = document.querySelector("#armor");
             break;
+            case '13':
+          toAppend = document.querySelector("#kesztyu");
+            break;
+            case '14':
+          toAppend = document.querySelector("#kituzo");
+            break;
           default:
             console.log('invalid slot');
             break;
@@ -225,47 +239,96 @@
     var rect = item.getBoundingClientRect();
     itemmenu.style.left = (rect.left+rect.right) /2 + 'px';
     itemmenu.style.top = rect.bottom-5 + 'px';
-    itemmenu_target = ev.target;
-    setItemMenuStyle();
+    
+    target_itemmenu = item;
+    setItemMenuStyle(item);
   }
 
-  function setItemMenuStyle()
+
+  function setItemMenuStyle(item)
   {
     let menubuttons = '';
-    if(itemmenu_target.itemid <= 14)//ruha
+    itemmenu.innerHTML = '';
+    console.log(target_itemmenu.itemid);
+
+    if(target_itemmenu.itemid <= 14 && item.inuse == 'true')//ruha
     {
-      menubuttons = '<div class="menubutton" id="use_item">Felvétel</div>';
+      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Levétel</div>';
+    }
+    else if(target_itemmenu.itemid <= 14)
+    {
+      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Felvétel</div>';
+    }
+    else if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == 'false')//pisztoly
+    {
+      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elővétel</div>';
+    }
+    else if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == 'true')//pisztoly
+    {
+      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elrakás</div>';
     }
 
-    if(itemmenu_target.container > 0)//tároló
+    if(item.container > 0)//tároló
     {
-      menubuttons += '<div class="menubutton" id="open_container">Megnyitás</div>';
+      itemmenu.innerHTML += '<div class="menubutton" id="open_container">Megnyitás</div>';
     }
 
-    if(itemmenu_target.amount > 1)
+    if(item.amount > 1)
     {
-      menubuttons += '<div class="menubutton" id="split_item">Szétválasztás</div>';
+      itemmenu.innerHTML += '<div class="menubutton" id="split_item">Szétválasztás</div>';
     }
-    menubuttons += '<div class="menubutton" id="close_menu">Mégse</div>';
-    itemmenu.innerHTML = menubuttons;
-    split_item = document.querySelector('#split_item');
+    itemmenu.innerHTML += '<div class="menubutton" id="close_menu">Mégse</div>';
     close_itemmenu = document.querySelector('#close_menu');
-    open_container = document.querySelector('#open_container');
-    use_itemmenu = document.querySelector('#use_item');
-
-    use_itemmenu.addEventListener('mousedown',useItem);
-    open_container.addEventListener('mousedown',openContainer);
     close_itemmenu.addEventListener('mousedown', closeItemMenu);
+
+    use_itemmenu = document.querySelector('#use_item');
+    if(use_itemmenu != null)
+    {
+      use_itemmenu.addEventListener('mousedown',useItem);
+    }
+
+    open_container = document.querySelector('#open_container');
+    if(open_container != null)
+    {
+      open_container.addEventListener('mousedown',openContainer);
+    }
+      
+
+    split_item = document.querySelector('#split_item');
+    if(split_item != null)
+    {
+      split_item.addEventListener('mousedown', splitItem);
+    }
+      
+  }
+
+  function splitItem(ev)
+  {
+    console.log('Szétválaszt: '+target_itemmenu);
   }
 
   function openContainer(ev)
   {
-    
+    mp.trigger('client:OpenContainer',item.id);
+    console.log('Megnyit: '+target_itemmenu);
   }
 
   function useItem(ev){
-    console.log(itemmenu_target);
-
+    ev.preventDefault();
+    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == 'true')//ruha item és viselve van
+    {
+      mp.trigger('client:MoveItem',target_itemmenu.id,container_type,opened_container);
+      closeItemMenu(ev);
+    }
+    else if(target_itemmenu.itemid <= 14)//ruha item és nincs használatban
+    {
+      mp.trigger('client:MoveItemToClothing',target_itemmenu.id,-1);
+      closeItemMenu(ev);
+    }
+    else
+    {
+      mp.trigger('client:UseItem',target_itemmenu.id);
+    }
   }
 
   function closeItemMenu(ev){
@@ -323,12 +386,9 @@
       ghostItem.addEventListener('mouseup', dropItem);
     }
 
-
-
   function dropItem(ev)//megnézni hogy az inventory vagy container fölött engedte-e el.
   {//ha inventory, akkor -> priority változtatás - item sorbarendezés
     //ha container, akkor küldeni szervernek, visszakapni hogy törölje az inventorynkból és hozzáadja a másikhoz
-    console.log("ITEMID:"+item.id);
     if(target_slot != null && target_slot)//ruha slot-ra húzta
     {
       let target_clothing = -1;
@@ -352,7 +412,6 @@
           case 'taska':
             target_clothing = 5;
             break;
-
           case 'maszk':
             target_clothing = 6;
             break;
@@ -371,11 +430,17 @@
           case 'armor':
             target_clothing = 11;
             break;
+            case 'kesztyu':
+            target_clothing = 12;
+            break;
+            case 'kituzo':
+            target_clothing = 13;
+            break;
           default:
             console.log('invalid slot');
             break;
       }
-      if(target_clothing != -1)
+      if(target_clothing != -1)//valid slotra húzta, átadhatjuk
       {
         mp.trigger('client:MoveItemToClothing',item.id,target_clothing);
         //console.log(target_clothing);
@@ -384,18 +449,15 @@
     }
     else if(target_item != null)//item-re húzta, inventory is beállítva ilyenkor
     {
-      if(item.isclothing)
-      {
-        mp.trigger('client:SwapItem',item.id,target_item.id, true);
-      }
-      else
-      {
-        mp.trigger('client:SwapItem',item.id,target_item.id, false);
-      }
+      //console.log(item.id + '->'+target_item.id);
+      mp.trigger('client:SwapItem',item.id,target_item.id);
+
       
     }
     else if(target_inventory != null)//simán valamelyik inventory-ra húzta
     {
+
+      //mp.trigger('client:MoveItem',item.id,null, null);//saját inventory ha mindkettő null
       mp.trigger('client:MoveItem',item.id,container_type,opened_container);
 
       //mp.trigger('client:MoveItem',container_type,opened_container,item.id);
@@ -412,7 +474,7 @@
 
 }
 
-    function openContainer(type, id)
+    function loadContainer(type, id)
     {
       container_type = type;
       opened_container = id;
@@ -454,11 +516,11 @@
       let toDisplay = '';
       if (description != '')
       {
-        toDisplay = name+'<br/>'+ description+'<br/>Súly: '+ weight+' ' + unit;
+        toDisplay = name+'<br/><hr>'+ description+'<br/>Súly: '+ weight+' ' + unit;
       }
       else
       {
-        toDisplay = name+'<br/>Súly: '+ displayinfoitem.weight+' '+unit;
+        toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
       }
       
       tooltip.innerHTML = toDisplay;

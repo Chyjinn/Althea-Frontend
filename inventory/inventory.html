@@ -116,7 +116,7 @@
       newItem.priority = priority;
       newItem.amount = amount;
       newItem.inuse = inuse;
-
+      newItem.classList.add('invisible');
       inv_player.appendChild(newItem);
 
       newItem.addEventListener('mouseenter', displayItemInfo);
@@ -124,6 +124,8 @@
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
       items = document.querySelectorAll('.item');
+      sortItems();
+      newItem.classList.remove('invisible');
     }
 
     function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
@@ -141,6 +143,7 @@
       newItem.priority = priority;
       newItem.amount = amount;
       newItem.inuse = inuse;
+      newItem.classList.add('invisible');
       inv_container.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
@@ -148,6 +151,8 @@
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
       items = document.querySelectorAll('.item');
+      sortItems();
+      newItem.classList.remove('invisible');
     }
 
     function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
@@ -284,7 +289,7 @@
     {
       use_itemmenu.addEventListener('mousedown',useItem);
     }
-    
+
     open_container = document.querySelector('#open_container');
     if(open_container != null)
     {
@@ -342,7 +347,7 @@
 
   function sortItems()
   {
-    items = document.querySelectorAll('.item');
+    items = inv_player.querySelectorAll('.item');
     var listitems = [];
     items.forEach((userItem) => {
       listitems.push(userItem);

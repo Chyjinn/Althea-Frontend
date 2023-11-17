@@ -106,9 +106,8 @@
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+weight/1000+' kg</div>';
+              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -132,9 +131,8 @@
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+weight/1000+' kg</div>';
+              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -157,9 +155,8 @@
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+weight/1000+' kg</div>';
+              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -247,11 +244,9 @@
 
   function setItemMenuStyle(item)
   {
-    let menubuttons = '';
     itemmenu.innerHTML = '';
-    console.log(target_itemmenu.itemid);
 
-    if(target_itemmenu.itemid <= 14 && item.inuse == 'true')//ruha
+    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == 'true')//ruha
     {
       itemmenu.innerHTML += '<div class="menubutton" id="use_item">Levétel</div>';
     }
@@ -259,19 +254,22 @@
     {
       itemmenu.innerHTML += '<div class="menubutton" id="use_item">Felvétel</div>';
     }
-    else if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == 'false')//pisztoly
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elővétel</div>';
-    }
-    else if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == 'true')//pisztoly
+
+    if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == true)//pisztoly
     {
       itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elrakás</div>';
     }
+    else if(target_itemmenu.itemid == 18 || target_itemmenu.itemid == 20)
+    {
+      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elővétel</div>';
+    }
 
+/*
     if(item.container > 0)//tároló
     {
       itemmenu.innerHTML += '<div class="menubutton" id="open_container">Megnyitás</div>';
     }
+*/
 
     if(item.amount > 1)
     {
@@ -286,14 +284,13 @@
     {
       use_itemmenu.addEventListener('mousedown',useItem);
     }
-
+    
     open_container = document.querySelector('#open_container');
     if(open_container != null)
     {
       open_container.addEventListener('mousedown',openContainer);
     }
       
-
     split_item = document.querySelector('#split_item');
     if(split_item != null)
     {
@@ -310,7 +307,7 @@
   function openContainer(ev)
   {
     mp.trigger('client:OpenContainer',item.id);
-    console.log('Megnyit: '+target_itemmenu);
+    closeItemMenu(ev);
   }
 
   function useItem(ev){
@@ -328,12 +325,42 @@
     else
     {
       mp.trigger('client:UseItem',target_itemmenu.id);
+      closeItemMenu(ev);
     }
+  }
+
+  function setItemUse(dbid, state)
+  {
+      let toChange = document.getElementById(''+dbid);
+      toChange.inuse = ''+state;
   }
 
   function closeItemMenu(ev){
     ev.preventDefault();
     itemmenu.style.display = 'none';
+  }
+
+  function sortItems()
+  {
+    items = document.querySelectorAll('.item');
+    var listitems = [];
+    items.forEach((userItem) => {
+      listitems.push(userItem);
+      console.log(userItem);
+    })
+
+    listitems.sort(function(a,b)
+    {
+      var compA = a.priority;
+      var compB = b.priority;
+      return (compA < compB) ? - 1 : (compA > compB) ? 1 : 0;
+    }
+    );
+
+    for(i = 0; i < listitems.length; i++)
+    {
+      inv_player.appendChild(listitems[i]);
+    }
   }
 
   function moveItem(ev){

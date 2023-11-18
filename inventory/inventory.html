@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="inventory container">
+      <div class="inventory container invisible">
         <div class="header">
           
           <input id="container-search" type="text" class="search" placeholder="Keresés...">
@@ -76,30 +76,31 @@
     </div>
     </body>
 	<script>
-    let items = document.querySelectorAll('.item');
-    let inv_player = document.querySelector('.inventory-items');
-    let inv_container = document.querySelector('.container-items');
-    let inv_clothes = document.querySelectorAll('.slot');
+    var items = document.querySelectorAll('.item');
+    var container = document.querySelector('.container');
+    var inv_player = document.querySelector('.inventory-items');
+    var inv_container = document.querySelector('.container-items');
+    var inv_clothes = document.querySelectorAll('.slot');
 
-    let item = null;
+    var item = null;
 
-    let container_type = null;
-    let opened_container = null;
+    var container_type = null;
+    var opened_container = null;
 
 
-    let itemmenu = document.querySelector('.itemmenu');
-    let split_item = null;
-    let close_itemmenu = null;
-    let use_itemmenu = null;
-    let open_container = null;
-    let target_itemmenu = null;
+    var itemmenu = document.querySelector('.itemmenu');
+    var split_item = null;
+    var close_itemmenu = null;
+    var use_itemmenu = null;
+    var open_container = null;
+    var target_itemmenu = null;
 
-    let tooltip = document.querySelector('.tooltip');
-    let status_click = false;
-    let ghostItem = null;
-    let target_inventory = null;
-    let target_item = null;
-    let target_slot = null;
+    var tooltip = document.querySelector('.tooltip');
+    var status_click = false;
+    var ghostItem = null;
+    var target_inventory = null;
+    var target_item = null;
+    var target_slot = null;
 
     function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
       let newItem =  document.createElement('div');
@@ -115,7 +116,7 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.inuse = inuse;
+      newItem.inuse = Boolean(inuse);
       newItem.classList.add('invisible');
       inv_player.appendChild(newItem);
 
@@ -123,9 +124,29 @@
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
-      items = document.querySelectorAll('.item');
       sortItems();
       newItem.classList.remove('invisible');
+    }
+
+    function ClearContainer(){
+      items = inv_container.querySelectorAll('.item');
+      items.forEach(remove_every_item);
+
+      function remove_every_item(item){
+          item.remove();
+
+      }
+    }
+
+    function ShowContainer()
+    {
+      container.classList.remove('invisible');
+    }
+
+    function HideContainer()
+    {
+      ClearContainer();
+      container.classList.add('invisible');
     }
 
     function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
@@ -142,7 +163,7 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.inuse = inuse;
+      newItem.inuse = Boolean(inuse);
       newItem.classList.add('invisible');
       inv_container.appendChild(newItem);
       
@@ -150,7 +171,6 @@
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
-      items = document.querySelectorAll('.item');
       sortItems();
       newItem.classList.remove('invisible');
     }
@@ -168,7 +188,7 @@
       newItem.itemdescription = itemdescription;
       newItem.weight = weight;
       newItem.priority = priority;
-      newItem.inuse = 'true';
+      newItem.inuse = Boolean(true);
       let toAppend = null;
       switch(itemid)
       {
@@ -227,7 +247,6 @@
       newItem.addEventListener('mouseleave', hideToolTip)
       newItem.addEventListener('contextmenu', itemMenu);
       newItem.addEventListener('mousedown', moveItem);
-      items = document.querySelectorAll('.item');
     }
 
 
@@ -251,11 +270,11 @@
   {
     itemmenu.innerHTML = '';
 
-    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == 'true')//ruha
+    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == true)//ruha
     {
       itemmenu.innerHTML += '<div class="menubutton" id="use_item">Levétel</div>';
     }
-    else if(target_itemmenu.itemid <= 14)
+    else if(target_itemmenu.itemid <= 14)//ruha
     {
       itemmenu.innerHTML += '<div class="menubutton" id="use_item">Felvétel</div>';
     }
@@ -317,7 +336,7 @@
 
   function useItem(ev){
     ev.preventDefault();
-    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == 'true')//ruha item és viselve van
+    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == true)//ruha item és viselve van
     {
       mp.trigger('client:MoveItem',target_itemmenu.id,container_type,opened_container);
       closeItemMenu(ev);
@@ -336,14 +355,21 @@
 
   function setItemUse(dbid, state)
   {
-      let toChange = document.getElementById(''+dbid);
-      toChange.inuse = ''+state;
+      var toSet = document.getElementById(String(dbid));
+      toSet.inuse = Boolean(state);
   }
 
   function closeItemMenu(ev){
     ev.preventDefault();
     itemmenu.style.display = 'none';
   }
+
+
+  function setItemPrio(dbid, prio)
+    {
+      var toSet = document.getElementById(String(dbid));
+      toSet.priority = parseInt(prio);
+    }
 
   function sortItems()
   {
@@ -356,8 +382,8 @@
 
     listitems.sort(function(a,b)
     {
-      var compA = a.priority;
-      var compB = b.priority;
+      var compA = parseInt(a.priority);
+      var compB = parseInt(b.priority);
       return (compA < compB) ? - 1 : (compA > compB) ? 1 : 0;
     }
     );
@@ -483,8 +509,6 @@
     {
       //console.log(item.id + '->'+target_item.id);
       mp.trigger('client:SwapItem',item.id,target_item.id);
-
-      
     }
     else if(target_inventory != null)//simán valamelyik inventory-ra húzta
     {
@@ -503,8 +527,10 @@
       item = null;
       status_click = false;
   }
-
 }
+//MOVEITEM VÉGE
+
+
 
     function loadContainer(type, id)
     {
@@ -513,6 +539,7 @@
     }
 
     function RemoveItem(dbid){
+      items = document.querySelectorAll('.item');
       items.forEach(remove_one_item);
       function remove_one_item(item){
         if(item.id == ''+dbid){
@@ -522,14 +549,17 @@
     }
 
     function ClearInventory(){
+      items = document.querySelectorAll('.item');
       items.forEach(remove_every_item);
 
       function remove_every_item(item){
-          console.log(item.id);
           item.remove();
 
       }
     }
+
+
+
 
 
 
@@ -554,6 +584,8 @@
       {
         toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
       }
+
+      toDisplay += '<br/>Prio:'+displayinfoitem.priority;
       
       tooltip.innerHTML = toDisplay;
       tooltip.style.display = 'block';

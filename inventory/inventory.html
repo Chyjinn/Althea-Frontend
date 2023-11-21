@@ -99,10 +99,12 @@
     var status_click = false;
     var ghostItem = null;
     var target_inventory = null;
+    var target_container = null;
     var target_item = null;
     var target_slot = null;
 
     function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
+      RemoveItem(dbid);
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -116,13 +118,25 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.inuse = Boolean(inuse);
+      if (inuse === 'True')
+      {
+        newItem.inuse = true;
+      }
+      else{
+        newItem.inuse = false;
+      }
+
+      if(newItem.inuse == true)
+      {
+        newItem.style.border = 'solid 0.2vh orange';
+      }
+
       newItem.classList.add('invisible');
       inv_player.appendChild(newItem);
 
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
-      newItem.addEventListener('contextmenu', itemMenu);
+      newItem.addEventListener('contextmenu', useItem);
       newItem.addEventListener('mousedown', moveItem);
       sortItems();
       newItem.classList.remove('invisible');
@@ -150,6 +164,7 @@
     }
 
     function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
+      RemoveItem(dbid);
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -163,19 +178,27 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.amount = amount;
-      newItem.inuse = Boolean(inuse);
+      if (inuse === 'True')
+      {
+        newItem.inuse = true;
+      }
+      else{
+        newItem.inuse = false;
+      }
+
       newItem.classList.add('invisible');
       inv_container.appendChild(newItem);
       
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
-      newItem.addEventListener('contextmenu', itemMenu);
+      newItem.addEventListener('contextmenu', useItem);
       newItem.addEventListener('mousedown', moveItem);
       sortItems();
       newItem.classList.remove('invisible');
     }
 
     function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority){
+      RemoveItem(dbid);
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
@@ -189,6 +212,7 @@
       newItem.weight = weight;
       newItem.priority = priority;
       newItem.inuse = Boolean(true);
+
       let toAppend = null;
       switch(itemid)
       {
@@ -245,13 +269,9 @@
 
       newItem.addEventListener('mouseenter', displayItemInfo);
       newItem.addEventListener('mouseleave', hideToolTip)
-      newItem.addEventListener('contextmenu', itemMenu);
+      newItem.addEventListener('contextmenu', useItem);
       newItem.addEventListener('mousedown', moveItem);
     }
-
-
-
-
 
   function itemMenu(ev){
     ev.preventDefault();
@@ -336,27 +356,40 @@
 
   function useItem(ev){
     ev.preventDefault();
-    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == true)//ruha item és viselve van
+    if(status_click === false)
     {
-      mp.trigger('client:MoveItem',target_itemmenu.id,container_type,opened_container);
-      closeItemMenu(ev);
-    }
-    else if(target_itemmenu.itemid <= 14)//ruha item és nincs használatban
-    {
-      mp.trigger('client:MoveItemToClothing',target_itemmenu.id,-1);
-      closeItemMenu(ev);
-    }
-    else
-    {
-      mp.trigger('client:UseItem',target_itemmenu.id);
-      closeItemMenu(ev);
-    }
+      const item = this;
+      mp.trigger('client:UseItem',item.id);
+
+
+      /*
+      EZT MÁR ÁTÍRTUK SZERVER OLDALI KEZELÉSRE
+      if(item.itemid <= 14 && item.inuse == true)//ruha item és viselve van
+      {
+        mp.trigger('client:MoveItem',item.id, 0);
+      }
+      else if(item.itemid <= 14)//ruha item és nincs használatban
+      {
+        mp.trigger('client:MoveItemToClothing',item.id,-1);
+      }
+      else
+      {
+        
+      }
+   */
   }
+}
 
   function setItemUse(dbid, state)
   {
       var toSet = document.getElementById(String(dbid));
-      toSet.inuse = Boolean(state);
+      if (state === 'True')
+      {
+        toSet.inuse = true;
+      }
+      else{
+        toSet.inuse = false;
+      }
   }
 
   function closeItemMenu(ev){
@@ -377,7 +410,6 @@
     var listitems = [];
     items.forEach((userItem) => {
       listitems.push(userItem);
-      console.log(userItem);
     })
 
     listitems.sort(function(a,b)
@@ -395,7 +427,8 @@
   }
 
   function moveItem(ev){
-    if(event.button == 0)
+    
+    if(event.button == 0 && !status_click && (this.inuse === false || this.parentElement.classList.contains('slot')))//bal klikk ÉS (nincs használatban VAGY felvett ruha))
     {
       ev.preventDefault();
       item = this;
@@ -410,7 +443,7 @@
       ghostItem.style.zIndex = 1000;
       document.body.append(ghostItem);
 
-      status_click = !status_click;
+      status_click = true;
 
       if(status_click){
         moveAt(event.pageX,event.pageY);
@@ -431,13 +464,12 @@
       
       ghostItem.hidden = false;
       if (!elemBelow) return;
-      let droppableBelow = elemBelow.closest('.inventory');
+      target_inventory = elemBelow.closest('.inventory-items');
+      target_container = elemBelow.closest('.container-items');
       let itemBelow = elemBelow.closest('.item');
       let clothingBelow = elemBelow.closest('.slot');
-
-          target_inventory = droppableBelow;
-          target_item = itemBelow;
-          target_slot = clothingBelow;
+      target_item = itemBelow;
+      target_slot = clothingBelow;
 	  }
 
       document.addEventListener('mousemove', onMouseMove);
@@ -510,13 +542,13 @@
       //console.log(item.id + '->'+target_item.id);
       mp.trigger('client:SwapItem',item.id,target_item.id);
     }
-    else if(target_inventory != null)//simán valamelyik inventory-ra húzta
+    else if(target_inventory == inv_player)//saját inventory-jába húzta
     {
-
-      //mp.trigger('client:MoveItem',item.id,null, null);//saját inventory ha mindkettő null
-      mp.trigger('client:MoveItem',item.id,container_type,opened_container);
-
-      //mp.trigger('client:MoveItem',container_type,opened_container,item.id);
+      mp.trigger('client:MoveItem',item.id, 0);
+    }
+    else if(target_container == inv_container)//tárolóba húzta utolsó helyre
+    {
+      mp.trigger('client:MoveItem',item.id, 1);
     }
     else//nem húzta semmire
     {
@@ -564,32 +596,43 @@
 
 
     function displayItemInfo(event){
-      let displayinfoitem = event.target;
-      let name = displayinfoitem.itemname;
-      let description = displayinfoitem.itemdescription;
-      let weight = displayinfoitem.weight;
-      let unit = 'gramm';
+      if(status_click === false)//nem mozgat egy itemet sem
+      {
+          item = this;
+          if(!item.parentElement.classList.contains('slot'))//használatban van és nem ruha
+            {
+              item.style.border = 'solid 0.2vh lightskyblue';
+            }
+          let displayinfoitem = event.target;
+          let name = displayinfoitem.itemname;
+          let description = displayinfoitem.itemdescription;
+          let weight = displayinfoitem.weight;
+          let unit = 'gramm';
 
-      if (weight > 1000)
-      {
-        weight = weight / 1000;
-        unit = 'kilogramm';
-      }
-      let toDisplay = '';
-      if (description != '')
-      {
-        toDisplay = name+'<br/><hr>'+ description+'<br/>Súly: '+ weight+' ' + unit;
-      }
-      else
-      {
-        toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
+          if (weight > 1000)
+          {
+            weight = weight / 1000;
+            unit = 'kilogramm';
+          }
+          let toDisplay = '';
+          if (description != '')
+          {
+            toDisplay = name+'<br/><hr>'+ description+'<br/>Súly: '+ weight+' ' + unit;
+          }
+          else
+          {
+            toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
+          }
+
+          toDisplay += '<br/>Prio:'+displayinfoitem.priority;
+          
+          tooltip.innerHTML = toDisplay;
+          tooltip.style.display = 'block';
+          document.addEventListener('mousemove', moveToolTip);
       }
 
-      toDisplay += '<br/>Prio:'+displayinfoitem.priority;
-      
-      tooltip.innerHTML = toDisplay;
-      tooltip.style.display = 'block';
-      document.addEventListener('mousemove', moveToolTip);
+
+
 	  }
 
     function moveToolTip(event) {
@@ -600,8 +643,22 @@
     }
 
   function hideToolTip(){
+
 		  tooltip.style.display = 'none';
 		  document.removeEventListener('mousemove', moveToolTip);
+      if(item.inuse == true && !item.parentElement.classList.contains('slot'))//használatban van és nem ruha
+      {
+        item.style.border = 'solid 0.2vh orange';
+      }
+      else if(item.parentElement.classList.contains('slot'))//nincs használtban és ruha
+      {
+        item.style.border = '0';
+      }
+      else//nincs használatban és nem is ruha
+      {
+        item.style.border = 'solid 0.2vh black';
+      }
+      
 	}
 
   

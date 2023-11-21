@@ -24,6 +24,7 @@ const chatAPI = {
     push: (text) => {
         if(text.length < 1) return;
 
+
         MESSAGE_LIST.innerHTML += `
         <div class="message stroke">
             ${settings.timeStamp ? `<span class="timeStamp">${getDateString()}</span>` : ""}

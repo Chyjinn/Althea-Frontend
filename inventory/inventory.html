@@ -7,7 +7,12 @@
 </head>
 <body>
 <div class="content">
-
+      <div class="interactions">
+        <div class="interaction" id="giveitem"><p>Átadás</p></div>
+        <div class="interaction" id="useitem"><p>Használat</p></div>
+        <div class="interaction" id="showitem"><p>Felmutatás</p></div>
+        <div class="interaction" id="renameitem"><p>Átnevezés</p></div>
+      </div>
       <div class="inventory player">
         <div class="header">
           
@@ -62,10 +67,33 @@
 
     </div>
 
+    <div class="givemenu">
+      <div class="close">X</div>
+      <div class="title"><h1>TÁRGY ÁTADÁSA</h1></div>
+      <div class="itemname">placeholder</div>
+      <input id="amount" type="range" class="amount" name="points" step="1" min="1" max="10" value="1">
+      <label id="amount-label" for="amount" class="amountnumber">1</label>
+      <div class="nearbyplayers">
+
+          <input type="radio" id="1" name="picked" value="1">
+           <label for="1">Első Név</label><br>
+           <input type="radio" id="2" name="picked" value="2">
+           <label for="2">Második Név</label><br>
+           <input type="radio" id="3" name="picked" value="3">
+           <label for="3">Harmadik Név</label>
+
+
+
+      </div>
+      <div class="give">Átadás</div>
+      <div class="cancel">Mégse</div>
+    </div>
+
     <div class="itemmenu">
       <div class="menubutton" id="use_item">Használat</div>
       <div class="menubutton">Szétválasztás</div>
       <div class="menubutton" id="close_menu">Mégse</div>
+
     </div>
 
     <div class="tooltip">
@@ -76,11 +104,62 @@
     </div>
     </body>
 	<script>
+    var give_button = document.querySelector('.give');
+    var cancel_button = document.querySelector('.cancel');
+
+
+    var givemenu = document.querySelector('.givemenu');
+    var givemenu_slider = document.querySelector('.amount');
+
     var items = document.querySelectorAll('.item');
     var container = document.querySelector('.container');
     var inv_player = document.querySelector('.inventory-items');
     var inv_container = document.querySelector('.container-items');
     var inv_clothes = document.querySelectorAll('.slot');
+
+
+
+    var amount_slider = document.querySelector('.amount');
+    var amount_number = document.querySelector('.amountnumber');
+    amount_slider.addEventListener('input',UpdateSlider);
+
+    var closegivemenu = document.querySelector('.close');
+
+    var nearbyplayers = document.querySelector('.nearbyplayers');
+    closegivemenu.addEventListener('mousedown', closeGiveMenu);
+
+    function UpdateSlider(source){
+      amount_number.innerHTML = amount_slider.value;
+    }
+
+    function SetSliderMax(value)
+    {
+      givemenu_slider.max = value;
+      givemenu_slider.value = 1;
+      UpdateSlider();
+    }
+
+    function AddNameToGivemenu(name, playerid)
+    {
+      let newButton =  document.createElement('input');
+      newButton.id = playerid;
+      newButton.value = playerid;
+      newButton.type = 'radio';
+      newButton.name = 'picked';
+
+      let newLabel =  document.createElement('label');
+      newLabel.for = playerid;
+      newLabel.innerHTML = name + '<br>';
+
+      nearbyplayers.appendChild(newButton);
+      nearbyplayers.appendChild(newLabel);
+    }
+
+    function ClearGivemenuNames()
+    {
+      nearbyplayers.innerHTML = '';
+    }
+
 
     var item = null;
 
@@ -99,9 +178,16 @@
     var status_click = false;
     var ghostItem = null;
     var target_inventory = null;
+    var target_interact = null;
     var target_container = null;
     var target_item = null;
     var target_slot = null;
+
+  
+    function closeGiveMenu()
+    {
+      givemenu.style.display = 'none';
+    }
 
     function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
       RemoveItem(dbid);
@@ -360,8 +446,7 @@
     {
       const item = this;
       mp.trigger('client:UseItem',item.id);
-
-
+      hideToolTip();
       /*
       EZT MÁR ÁTÍRTUK SZERVER OLDALI KEZELÉSRE
       if(item.itemid <= 14 && item.inuse == true)//ruha item és viselve van
@@ -433,6 +518,7 @@
       ev.preventDefault();
       item = this;
       ghostItem = item.cloneNode(true);
+      ghostItem.style.border = 'solid 0.2vh black';
       ghostItem.setAttribute('class', 'ghostItem');
       item.classList.add('invisible');
 
@@ -465,6 +551,7 @@
       ghostItem.hidden = false;
       if (!elemBelow) return;
       target_inventory = elemBelow.closest('.inventory-items');
+      target_interact = elemBelow.closest('.interaction');
       target_container = elemBelow.closest('.container-items');
       let itemBelow = elemBelow.closest('.item');
       let clothingBelow = elemBelow.closest('.slot');
@@ -549,6 +636,21 @@
     else if(target_container == inv_container)//tárolóba húzta utolsó helyre
     {
       mp.trigger('client:MoveItem',item.id, 1);
+    }
+    else if(target_interact)//ráhúzta valami interact-ra
+    {
+      switch(target_interact.id)
+      {
+        case 'giveitem'://átadás menü
+          break;
+        case 'useitem'://használat
+          mp.trigger('client:UseItem',item.id);
+          break;
+        case 'showitem'://felmutatás
+          break;
+        case 'renameitem'://átadás menü
+          break;
+      }
     }
     else//nem húzta semmire
     {

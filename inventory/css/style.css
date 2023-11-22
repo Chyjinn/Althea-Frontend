@@ -1,5 +1,7 @@
 body{
   background-color: rgba(0,0,0,0);
+  font-family: Tahoma, sans-serif;
+  text-shadow: 2px 2px 5px black;
 }
 .content {
   width: 100%;
@@ -12,48 +14,92 @@ body{
   user-select: none;
 }
 
+.interactions{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  top: 1vh;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1vh;
+}
+
+.interactions .interaction{
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1vh;
+  color: white;
+  width: 7vh;
+  height: 7vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  border: solid black 0.1vh;
+  vertical-align: bottom;
+  box-shadow: 1px 1px black;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+.interaction p{
+  font-weight: bold;
+  text-align: center;
+  overflow: visible;
+  position: absolute;
+  bottom: -3vh;
+  left: 50%;
+  transform: translate(-50%,0);
+  font-size: 1.2vh;
+}
+
+#giveitem{
+  background-image: url("giveicon.png");
+}
+
+#useitem{
+  background-image: url("useitem.png");
+}
 
 .actionbar{
   position:absolute;
-  width: 62.5vw;
-  height: 11vh;
+  width: auto;
+  height: auto;
   left: 50vw;
   bottom: 5vh;
   transform: translate(-50%,0);
-  background-color: rgba(0, 0, 0, 0.8);
-  border: solid 0.5vh white;
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
-  border-radius: 1vh;
-  border: solid grey 0.1vh;
   overflow: hidden;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   overflow: hidden;
 }
+
 .action_slot{
-  width: 5vw;
-  height: 9vh;
-  margin: 1vh;
+  width: 7vh;
+  height: 7vh;
+  margin: 0.5vh;
   background-color: black;
   border: solid 0.1vh white;
   color: white;
   border-radius: 0.5vh;
 }
 .action_number{
-  width: 100%;
-  height: 100%;
   color: white;
   font-weight: bold;
   text-align: center;
+  font-size: 3vh;
+  line-height: 3.5;
   vertical-align: middle;
-  line-height: 9vh;
-  font-size: 5vh;
 }
 
 .inventory{
   width: 30vw;
-  height: 52vh;
+  height: 30vw;
   background-color: rgba(0,0,0,0.4);
   position: absolute;
   overflow: hidden;
@@ -135,7 +181,7 @@ body{
   width: 4vw;
   height: 7vh;
   min-height: 0;
-  box-shadow: 2px 2px;
+  box-shadow: 1px 1px black;
 }
 .ghostItem img{
    width: 4vw;
@@ -176,7 +222,7 @@ body{
 
 .item{
   margin: 0.5vh;
-  width: 4vw;
+  width: 7vh;
   height: 7vh;
   min-height: 0;
   overflow: hidden;
@@ -185,7 +231,7 @@ body{
   position: relative;
   align-self: stretch;
   border-radius: 0.5vw;
-  box-shadow: 2px 2px;
+  box-shadow: 1px 1px black;
 }
 
 
@@ -194,6 +240,136 @@ body{
   height: 100%;
   }
 
+
+.givemenu{
+  display: none;
+  position: absolute;
+  width: 20%;
+  height: 35%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,1);
+  font-size: 1.5vh;
+  border-radius: 0.5vh;
+  color: white;
+  min-width: 8vh;
+  left: 50%;
+  top: 50%;
+}
+
+.give{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3;
+}
+
+.cancel{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3;
+}
+
+.givemenu .close{
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: auto;
+  height: auto;
+  color: white;
+  font-size: 2vh;
+}
+
+.givemenu .give{
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 35%;
+  height: 15%;
+  border-radius: 0.5vh;
+  background: #ffb347;
+}
+
+.givemenu .cancel{
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  width: 35%;
+  height: 15%;
+  border-radius: 0.5vh;
+  background: grey;
+}
+
+.givemenu .itemname{
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%,0);
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.givemenu .nearbyplayers{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80%;
+  height: auto;
+  border-radius: 0.5vh;
+  transform: translate(-50%,0);
+  background: #d3d3d3;
+}
+
+.givemenu .nearbyplayers input{
+  margin: 1%;
+}
+
+.givemenu .amount{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%,0);
+  width: 80%;
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 2vh; 
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 1vh; 
+}
+
+.givemenu .amountnumber{
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  font-size: 2vh;
+  transform: translate(-50%,0);
+}
+
+.givemenu .amount:hover{
+  opacity: 1;
+}
+
+.givemenu .amount::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2vh; 
+  height: 2vh;
+  border-radius: 1vh;
+  background: #ffb347;
+  cursor: pointer;
+}
+
+.givemenu .title{
+  transform: translate(-50%,-50%);
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  width: 80%;
+  height: auto;
+  text-align: center;
+}
 
 .itemmenu{
   display: none;
@@ -280,7 +456,7 @@ body{
 .clothes {
   display: block;
   align-content: flex-start;
-  width: 27vw;
+  width: 45vh;
   height: 63vh;
   position: absolute;
   left: 50vw;
@@ -290,7 +466,7 @@ body{
 }
 
 .clothes .slot{
-  width: 4vw;
+  width: 7vh;
   height: 7vh;
   background-color: rgba(0,0,0,0.8);
   border: solid 0.2vh white;

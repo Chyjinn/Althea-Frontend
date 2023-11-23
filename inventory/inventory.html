@@ -82,8 +82,6 @@
            <input type="radio" id="3" name="picked" value="3">
            <label for="3">Harmadik Név</label>
 
-
-
       </div>
       <div class="give">Átadás</div>
       <div class="cancel">Mégse</div>
@@ -116,8 +114,6 @@
     var inv_player = document.querySelector('.inventory-items');
     var inv_container = document.querySelector('.container-items');
     var inv_clothes = document.querySelectorAll('.slot');
-
-
 
     var amount_slider = document.querySelector('.amount');
     var amount_number = document.querySelector('.amountnumber');
@@ -339,10 +335,48 @@
           toAppend = document.querySelector("#armor");
             break;
             case '13':
-          toAppend = document.querySelector("#kesztyu");
-            break;
-            case '14':
           toAppend = document.querySelector("#kituzo");
+          case '14':
+            toAppend = document.querySelector("#kalap");
+            break;
+          case '15':
+            toAppend = document.querySelector("#maszk");
+            break;
+          case '16':
+            toAppend = document.querySelector("#nyaklanc");
+            break;
+          case '17':
+            toAppend = document.querySelector("#szemuveg");
+            break;
+          case '18':
+            toAppend = document.querySelector("#polo");
+            break;
+          case '19':
+            toAppend = document.querySelector("#fulbevalo");
+            break;
+          case '20':
+          toAppend = document.querySelector("#nadrag");
+            break;
+          case '21':
+            toAppend = document.querySelector("#karkoto");
+            break;
+          case '22':
+          toAppend = document.querySelector("#cipo");
+            break;
+          case '23':
+            toAppend = document.querySelector("#ora");
+            break;
+          case '24':
+          toAppend = document.querySelector("#taska");
+            break;
+          case '25':
+          toAppend = document.querySelector("#armor");
+            break;
+          case '26':
+          toAppend = document.querySelector("#kituzo");
+            break;
+          case '27':
+            toAppend = document.querySelector("#kesztyu");
             break;
           default:
             console.log('invalid slot');
@@ -518,7 +552,7 @@
       ev.preventDefault();
       item = this;
       ghostItem = item.cloneNode(true);
-      ghostItem.style.border = 'solid 0.2vh black';
+      ghostItem.style.border = '0';
       ghostItem.setAttribute('class', 'ghostItem');
       item.classList.add('invisible');
 
@@ -574,45 +608,46 @@
           case 'kalap':
             target_clothing = 0;
             break;
-          case 'nyaklanc':
+          case 'maszk':
             target_clothing = 1;
             break;
-          case 'polo':
+          case 'nyaklanc':
             target_clothing = 2;
             break;
-          case 'nadrag':
+          case 'szemuveg':
             target_clothing = 3;
             break;
-          case 'cipo':
+          case 'polo':
             target_clothing = 4;
             break;
-          case 'taska':
+          case 'fulbevalo':
             target_clothing = 5;
             break;
-          case 'maszk':
+          case 'nadrag':
             target_clothing = 6;
             break;
-          case 'szemuveg':
+          case 'karkoto':
             target_clothing = 7;
             break;
-          case 'fulbevalo':
+          case 'cipo':
             target_clothing = 8;
             break;
-          case 'karkoto':
+          case 'ora':
             target_clothing = 9;
             break;
-          case 'ora':
+          case 'taska':
             target_clothing = 10;
             break;
           case 'armor':
             target_clothing = 11;
             break;
-            case 'kesztyu':
+          case 'kituzo':
             target_clothing = 12;
             break;
-            case 'kituzo':
+          case 'kesztyu':
             target_clothing = 13;
             break;
+ 
           default:
             console.log('invalid slot');
             break;

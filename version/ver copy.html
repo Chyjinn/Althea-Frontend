@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <title>A Spotify Embed Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <div id="music"></div>
+
+  <script type="text/javascript">
+    const music = document.getElementById("music");
+
+    function changeSong(url) {
+  fetch(`https://open.spotify.com/oembed?url=${url}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      music.innerHTML = data.html;
+    });
+    }
+
+
+  </script>
+</body>
+</html>

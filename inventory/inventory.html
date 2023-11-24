@@ -12,9 +12,11 @@
         <div class="interaction" id="useitem"><p>Használat</p></div>
         <div class="interaction" id="showitem"><p>Felmutatás</p></div>
         <div class="interaction" id="renameitem"><p>Átnevezés</p></div>
+        <div class="interaction" id="dropitem"><p>Eldobás</p></div>
       </div>
       <div class="inventory player">
         <div class="header">
+          <div id="playername" class="headertext">Karakter neve</div>
           
           <input id="inventory-search" type="text" class="search" placeholder="Keresés...">
 
@@ -25,7 +27,7 @@
 
       <div class="inventory container invisible">
         <div class="header">
-          
+          <div id="containertext" class="headertext">Tároló</div>
           <input id="container-search" type="text" class="search" placeholder="Keresés...">
 
         </div>
@@ -124,6 +126,19 @@
     var nearbyplayers = document.querySelector('.nearbyplayers');
     closegivemenu.addEventListener('mousedown', closeGiveMenu);
 
+    var inventory_title = document.querySelector('#playername');
+    var container_title = document.querySelector('#containertext');
+
+    function setInventoryName(theName)
+    {
+      inventory_title.innerHTML = theName;
+    }
+
+    function setContainerName(theName)
+    {
+      container_title.innerHTML = theName;
+    }
+
     function UpdateSlider(source){
       amount_number.innerHTML = amount_slider.value;
     }
@@ -185,15 +200,20 @@
       givemenu.style.display = 'none';
     }
 
-    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
+    function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse, itemtype){
       RemoveItem(dbid);
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
+            '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
+              '<div class="weight">'+(amount*weight)/1000+' kg</div>'+
+              '<div class="colorcode">'+''+'</div>';
+      let color = GetColorByItemType(itemtype);
 
+      let cc = newItem.querySelector('.colorcode');
+      cc.style.backgroundColor = color;
       newItem.itemid = itemid;
       newItem.itemname = itemname;
       newItem.itemdescription = itemdescription;
@@ -210,7 +230,7 @@
 
       if(newItem.inuse == true)
       {
-        newItem.style.border = 'solid 0.2vh orange';
+        newItem.style.outline = 'solid 1px #02c39a';
       }
 
       newItem.classList.add('invisible');
@@ -245,14 +265,60 @@
       container.classList.add('invisible');
     }
 
-    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse){
+    function GetColorByItemType(theType)
+    {
+      switch(theType)
+      {
+        case '0':
+        return 'rgba(0,0,0,0)';
+        break;
+        case '1':
+          return '#247ba0';
+        break;
+        case '2':
+          return '#ffe066';
+        break;
+        case '3':
+          return '#f25f5c';
+        break;
+        case '4':
+          return '#f77e7c';
+        break;
+        case '5':
+          return '#1b98e0';
+        break;
+        case '6':
+          return '#1a936f';
+        break;
+        case '7':
+          return '#ffa686';
+        break;
+        case '8':
+          return '#513b56';
+        break;
+        case '9':
+          return '#f3ffbd';
+        break;
+        default:
+          return 'red';
+          break;
+      }
+    }
+
+    function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse, itemtype){
       RemoveItem(dbid);
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
       newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
+            '<div class="name">'+itemname+'</div>'+
               '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
+              '<div class="weight">'+(amount*weight)/1000+' kg</div>'+
+              '<div class="colorcode">'+''+'</div>';
+      let color = GetColorByItemType(itemtype);
+
+      let cc = newItem.querySelector('.colorcode');
+      cc.style.backgroundColor = color;
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -284,9 +350,7 @@
       let newItem =  document.createElement('div');
       newItem.className = 'item';
       newItem.id = dbid;
-      newItem.innerHTML = '<img src="'+itempicture+'"></img>'+
-              '<div class="amount">'+amount+'</div>'+
-              '<div class="weight">'+(amount*weight)/1000+' kg</div>';
+      newItem.innerHTML = '<img src="'+itempicture+'"></img>';
 
       newItem.itemid = itemid;
       newItem.itemname = itemname;
@@ -553,6 +617,24 @@
       item = this;
       ghostItem = item.cloneNode(true);
       ghostItem.style.border = '0';
+      let ghostItemName = ghostItem.querySelector('.name');
+      if(ghostItemName != null)
+      {
+        ghostItemName.style.visibility = 'hidden';
+      }
+      
+      let ghostItemAmount = ghostItem.querySelector('.amount');
+      if(ghostItemAmount != null)
+      {
+        ghostItemAmount.style.visibility = 'hidden';
+      }
+
+      let ghostItemWeight = ghostItem.querySelector('.weight');
+      if(ghostItemWeight != null)
+      {
+        ghostItemWeight.style.visibility = 'hidden';
+      }
+
       ghostItem.setAttribute('class', 'ghostItem');
       item.classList.add('invisible');
 
@@ -685,6 +767,9 @@
           break;
         case 'renameitem'://átadás menü
           break;
+        case 'dropitem'://eldobás
+          mp.trigger('client:DropItem',item.id);
+          break;
       }
     }
     else//nem húzta semmire
@@ -698,8 +783,6 @@
   }
 }
 //MOVEITEM VÉGE
-
-
 
     function loadContainer(type, id)
     {
@@ -727,19 +810,11 @@
       }
     }
 
-
-
-
-
-
     function displayItemInfo(event){
       if(status_click === false)//nem mozgat egy itemet sem
       {
           item = this;
-          if(!item.parentElement.classList.contains('slot'))//használatban van és nem ruha
-            {
-              item.style.border = 'solid 0.2vh lightskyblue';
-            }
+
           let displayinfoitem = event.target;
           let name = displayinfoitem.itemname;
           let description = displayinfoitem.itemdescription;
@@ -783,6 +858,8 @@
 
 		  tooltip.style.display = 'none';
 		  document.removeEventListener('mousemove', moveToolTip);
+
+      /*
       if(item.inuse == true && !item.parentElement.classList.contains('slot'))//használatban van és nem ruha
       {
         item.style.border = 'solid 0.2vh orange';
@@ -795,7 +872,7 @@
       {
         item.style.border = 'solid 0.2vh black';
       }
-      
+      */
 	}
 
   

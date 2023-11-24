@@ -1,8 +1,17 @@
+@font-face {
+	font-family: "Roboto";
+	src: local('Roboto'), 
+	url('../fonts/Roboto.ttf') format('truetype');
+}
+
+
 body{
   background-color: rgba(0,0,0,0);
   font-family: Tahoma, sans-serif;
   text-shadow: 2px 2px 5px black;
+  font-family: 'Roboto';
 }
+
 .content {
   width: 100%;
   height: 100%;
@@ -35,7 +44,7 @@ body{
   height: 7vh;
   margin-left: 1vw;
   margin-right: 1vw;
-  border: solid black 0.1vh;
+  outline: solid 1px white;
   vertical-align: bottom;
   box-shadow: 1px 1px black;
   position: relative;
@@ -46,6 +55,7 @@ body{
 .interactions .interaction:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
 
 .interaction p{
@@ -65,6 +75,18 @@ body{
 
 #useitem{
   background-image: url("useitem.png");
+}
+
+#renameitem{
+  background-image: url("renameitem.png");
+}
+
+#showitem{
+  background-image: url("showitem.png");
+}
+
+#dropitem{
+  background-image: url("dropitem.png");
 }
 
 .actionbar{
@@ -88,14 +110,15 @@ body{
   height: 7vh;
   margin: 0.5vh;
   background-color: rgba(0,0,0,0.2);
-  border: solid 0.1vh white;
+  outline: solid 1px white;
   color: white;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
 }
 
 .action_slot:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
 
 .action_number{
@@ -125,15 +148,27 @@ body{
   top: 25vh;
 }
 
-
-
 .header{
-  width: 30vw;
+  width: 29vw;
   height: 5vh;
   background-color: rgba(0,0,0,0.8);
   border-style: none none solid none;
-  border-color: black;
+  border-color: #ff8c61;
   border-width: 0.25vh;
+  color: white;
+  padding: 0.5vw;
+  position: relative;
+}
+
+.header .headertext{
+  position: absolute;
+  line-height: 5.5vh;
+  left: 5%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  font-size: 200%;
+  overflow: hidden;
 }
 
 .search{
@@ -147,8 +182,21 @@ body{
   color: white;
   font-weight: bold;
   text-align: center;
-  border: solid 1px white;
+  border-radius: 1vh;
+  outline: solid 1px white;
 }
+.search:hover{
+  outline: solid 1px #ff8c61;
+}
+.search:focus{
+  outline: solid 1px #ff8c61;
+}
+
+.search:active{
+  outline: solid 1px #ff8c61;
+}
+
+
 
 .tooltip{
   font-family: sans-serif;
@@ -164,6 +212,7 @@ body{
   width: auto;
   height: auto;
   display: none;
+  pointer-events: none;
 }
 
 
@@ -174,10 +223,12 @@ body{
   flex-direction: row;
   margin: 0.5vh;
   display: flex;
+  flex-basis: auto;
   flex-wrap: wrap;
   overflow: auto;
   height: auto;
   align-content: flex-start;
+  min-width: 0;
 }
 
 .invisible {
@@ -233,14 +284,14 @@ body{
 }
 
 .item{
-  margin: 0.5vh;
+  margin: 0.75vh;
   width: 7vh;
-  height: 7vh;
+  height: 10vh;
   min-height: 0;
   overflow: hidden;
   background-color: rgb(0, 0, 0, 0.2);
-  border: solid 0.2vh black;
-  border-radius: 0.5vw;
+  border-radius: 1vh;
+  outline: solid 1px white;
   position: relative;
   align-self: stretch;
 }
@@ -248,12 +299,58 @@ body{
 .item:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
 
 .item img{
-  width: 100%;
-  height: 100%;
+  width: 7vh;
+  height: 7vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
   }
+  
+.item .amount{
+  position: absolute;
+  color: white;
+  left: 0.5vh;
+  top: 0.5vh;
+  font-size: 1.25vh;
+}
+
+.item .name{
+  font-weight: bold;
+  position: absolute;
+  color: white;
+  left: 50%;
+  bottom: 0vh;
+  transform: translate(-50%,0);
+  width: 100%;
+  height: 2.25vh;
+  background-color: rgba(0,0,0,0.6);
+  
+  text-align: center;
+  font-size: 1.2vh;
+}
+
+.item .weight{
+  position: absolute;
+  color: white;
+  right: 0.5vh;
+  top: 0.5vh;
+  text-align: right;
+  font-size: 1vh;
+}
+
+.item .colorcode{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.75vh;
+  background-color: red;
+  text-align: center;
+}
 
 
 .givemenu{
@@ -264,7 +361,7 @@ body{
   transform: translate(-50%,-50%);
   background-color: rgba(0,0,0,1);
   font-size: 1.5vh;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
   color: white;
   min-width: 8vh;
   left: 50%;
@@ -299,7 +396,7 @@ body{
   bottom: 5%;
   width: 35%;
   height: 15%;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
   background: #ffb347;
 }
 
@@ -309,7 +406,7 @@ body{
   bottom: 5%;
   width: 35%;
   height: 15%;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
   background: grey;
 }
 
@@ -328,7 +425,7 @@ body{
   top: 50%;
   width: 80%;
   height: auto;
-  border-radius: 0.5vh;
+  border-radius: 1vh;
   transform: translate(-50%,0);
   background: #d3d3d3;
 }
@@ -412,36 +509,10 @@ body{
 }
 
 .menubutton:hover{
-  background-color: orange;
+  background-color: #ff8c61;
 }
 
 
-.item .amount{
-  position: absolute;
-  color: white;
-  left: 0.25vh;
-  top: 0.25vh;
-}
-
-.item .name{
-  font-weight: bold;
-  position: absolute;
-  color: white;
-  left: 50%;
-  transform: translate(-50%,0);
-  width: 100%;
-
-  bottom: 5%;
-  text-align: center;
-}
-
-.item .weight{
-  position: absolute;
-  color: white;
-  right: 0.25vh;
-  top: 0.25vh;
-  text-align: right;
-}
 
 /* width */
 ::-webkit-scrollbar {
@@ -480,9 +551,9 @@ body{
   width: 7vh;
   height: 7vh;
   background-color: rgba(0,0,0,0.8);
-  border: solid 0.2vh white;
+  outline: solid 1px white;
   color: white;
-  border-radius: 0.5vw;
+  border-radius: 1vh;
   position: absolute;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -493,6 +564,7 @@ body{
 .clothes .slot:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
 
 .clothes .slot .item:hover{

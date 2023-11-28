@@ -76,17 +76,7 @@
       <input id="amount" type="range" class="amount" name="points" step="1" min="1" max="10" value="1">
       <label id="amount-label" for="amount" class="amountnumber">1</label>
       <div class="nearbyplayers">
-
-          <input type="radio" id="1" name="picked" value="1">
-           <label for="1">Első Név</label><br>
-           <input type="radio" id="2" name="picked" value="2">
-           <label for="2">Második Név</label><br>
-           <input type="radio" id="3" name="picked" value="3">
-           <label for="3">Harmadik Név</label>
-
       </div>
-      <div class="give">Átadás</div>
-      <div class="cancel">Mégse</div>
     </div>
 
     <div class="itemmenu">
@@ -104,12 +94,16 @@
     </div>
     </body>
 	<script>
-    var give_button = document.querySelector('.give');
-    var cancel_button = document.querySelector('.cancel');
 
 
     var givemenu = document.querySelector('.givemenu');
     var givemenu_slider = document.querySelector('.amount');
+    var givemenu_itemname = document.querySelector('.itemname');
+    var nearbyplayers =  document.querySelector('.nearbyplayers');
+    var selected_player = null;
+    var givemenu_name = null;
+    var givemenu_itemid = null;
+    var givemenu_maxvalue = null;
 
     var items = document.querySelectorAll('.item');
     var container = document.querySelector('.container');
@@ -128,6 +122,25 @@
 
     var inventory_title = document.querySelector('#playername');
     var container_title = document.querySelector('#containertext');
+
+
+    var item = null;
+
+    var itemmenu = document.querySelector('.itemmenu');
+    var split_item = null;
+    var close_itemmenu = null;
+    var use_itemmenu = null;
+    var open_container = null;
+    var target_itemmenu = null;
+
+    var tooltip = document.querySelector('.tooltip');
+    var status_click = false;
+    var ghostItem = null;
+    var target_inventory = null;
+    var target_interact = null;
+    var target_container = null;
+    var target_item = null;
+    var target_slot = null;
 
     function setInventoryName(theName)
     {
@@ -152,52 +165,53 @@
 
     function AddNameToGivemenu(name, playerid)
     {
-      let newButton =  document.createElement('input');
-      newButton.id = playerid;
-      newButton.value = playerid;
-      newButton.type = 'radio';
-      newButton.name = 'picked';
-
-      let newLabel =  document.createElement('label');
-      newLabel.for = playerid;
-      newLabel.innerHTML = name + '<br>';
-
-      nearbyplayers.appendChild(newButton);
-      nearbyplayers.appendChild(newLabel);
+      let toAdd = document.createElement('input');
+      toAdd.className = 'playerselect';
+      toAdd.type = 'button';
+      toAdd.value = name;
+      toAdd.id = playerid;
+      toAdd.addEventListener('click',selectPlayer);
+      nearbyplayers.appendChild(toAdd);
     }
 
-    function ClearGivemenuNames()
+    function selectPlayer(ev)
     {
-      nearbyplayers.innerHTML = '';
+      selected_player = ev.target.id;
+      //console.log(selected_player + ' item: ' + givemenu_itemid + ' amount: ' + givemenu_slider.value);
+      //beállítjuk a kiszemelt játékos ID-jét
+      //átküldjük szerver oldalra hogy melyik itemet (adatbázis id) szeretnénk átadni, melyik playernek és hány darabot. Ha az összeset akkor csak átrakjuk, ha nem akkor új itemet hozunk létre és állítjuk az értékeket megfelelően
+      mp.trigger('client:GiveItem',givemenu_itemid,selected_player,givemenu_slider.value);
+      closeGiveMenu();
     }
 
+    function clearGiveMenu()
+    {
+      let playernames = document.querySelectorAll('.playerselect');
+      playernames.forEach(removenames);
+      function removenames(name){
+        name.remove();
+      }
+      
+    }
 
-    var item = null;
-
-    var container_type = null;
-    var opened_container = null;
-
-
-    var itemmenu = document.querySelector('.itemmenu');
-    var split_item = null;
-    var close_itemmenu = null;
-    var use_itemmenu = null;
-    var open_container = null;
-    var target_itemmenu = null;
-
-    var tooltip = document.querySelector('.tooltip');
-    var status_click = false;
-    var ghostItem = null;
-    var target_inventory = null;
-    var target_interact = null;
-    var target_container = null;
-    var target_item = null;
-    var target_slot = null;
 
   
     function closeGiveMenu()
     {
+      clearGiveMenu();
       givemenu.style.display = 'none';
+      givemenu_slider.value = 0;
+      givemenu_slider.max = 0;
+      selected_player = -1;
+      givemenu_itemid = -1;
+    }
+
+    function openGiveMenu()
+    {
+      givemenu.style.display = 'block';
+      givemenu_itemname.innerHTML = givemenu_name;
+      givemenu_slider.value = 1;
+      givemenu_slider.max = givemenu_maxvalue;
     }
 
     function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse, itemtype){
@@ -250,7 +264,6 @@
 
       function remove_every_item(item){
           item.remove();
-
       }
     }
 
@@ -759,6 +772,10 @@
       switch(target_interact.id)
       {
         case 'giveitem'://átadás menü
+        givemenu_name = item.itemname;
+        givemenu_itemid = item.id;
+        givemenu_maxvalue = item.amount;
+        mp.trigger('client:GiveItemMenu');
           break;
         case 'useitem'://használat
           mp.trigger('client:UseItem',item.id);
@@ -783,12 +800,6 @@
   }
 }
 //MOVEITEM VÉGE
-
-    function loadContainer(type, id)
-    {
-      container_type = type;
-      opened_container = id;
-    }
 
     function RemoveItem(dbid){
       items = document.querySelectorAll('.item');

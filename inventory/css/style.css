@@ -356,8 +356,8 @@ body{
 .givemenu{
   display: none;
   position: absolute;
-  width: 20%;
-  height: 35%;
+  width: 30vh;
+  height: 40vh;
   transform: translate(-50%,-50%);
   background-color: rgba(0,0,0,1);
   font-size: 1.5vh;
@@ -366,18 +366,6 @@ body{
   min-width: 8vh;
   left: 50%;
   top: 50%;
-}
-
-.give{
-  text-align: center;
-  vertical-align: middle;
-  line-height: 3;
-}
-
-.cancel{
-  text-align: center;
-  vertical-align: middle;
-  line-height: 3;
 }
 
 .givemenu .close{
@@ -390,24 +378,10 @@ body{
   font-size: 2vh;
 }
 
-.givemenu .give{
-  position: absolute;
-  left: 5%;
-  bottom: 5%;
-  width: 35%;
-  height: 15%;
-  border-radius: 1vh;
-  background: #ffb347;
-}
-
-.givemenu .cancel{
-  position: absolute;
-  right: 5%;
-  bottom: 5%;
-  width: 35%;
-  height: 15%;
-  border-radius: 1vh;
-  background: grey;
+.givemenu .close:hover{
+  transform: scale(1.1);
+  transition-duration: 200ms;
+  color: #ffb347;
 }
 
 .givemenu .itemname{
@@ -423,15 +397,28 @@ body{
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 80%;
-  height: auto;
+  width: 25vh;
+  height: 20vh;
   border-radius: 1vh;
   transform: translate(-50%,0);
-  background: #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 
-.givemenu .nearbyplayers input{
-  margin: 1%;
+.givemenu .nearbyplayers .playerselect{
+  background-color: rgba(0,0,0,0);
+  border: 0;
+  color: white;
+  font-size: 2vh;
+  border-radius: 1vh;
+  outline: solid 1px white;
+  margin: 0.5vh;
+}
+
+.givemenu .nearbyplayers .playerselect:hover{
+  transition-duration: 200ms;
+  outline: solid 1px #ffb347;
 }
 
 .givemenu .amount{

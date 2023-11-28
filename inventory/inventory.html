@@ -177,7 +177,7 @@
     function selectPlayer(ev)
     {
       selected_player = ev.target.id;
-      //console.log(selected_player + ' item: ' + givemenu_itemid + ' amount: ' + givemenu_slider.value);
+      console.log(selected_player + ' item: ' + givemenu_itemid + ' amount: ' + givemenu_slider.value);
       //beállítjuk a kiszemelt játékos ID-jét
       //átküldjük szerver oldalra hogy melyik itemet (adatbázis id) szeretnénk átadni, melyik playernek és hány darabot. Ha az összeset akkor csak átrakjuk, ha nem akkor új itemet hozunk létre és állítjuk az értékeket megfelelően
       mp.trigger('client:GiveItem',givemenu_itemid,selected_player,givemenu_slider.value);
@@ -203,7 +203,6 @@
       givemenu_slider.value = 0;
       givemenu_slider.max = 0;
       selected_player = -1;
-      givemenu_itemid = -1;
     }
 
     function openGiveMenu()

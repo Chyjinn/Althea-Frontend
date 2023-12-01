@@ -194,8 +194,6 @@
       
     }
 
-
-  
     function closeGiveMenu()
     {
       clearGiveMenu();
@@ -469,75 +467,6 @@
       newItem.addEventListener('mousedown', moveItem);
     }
 
-  function itemMenu(ev){
-    ev.preventDefault();
-    const item = this;
-    itemmenu.style.display = 'block';
-    var rect = item.getBoundingClientRect();
-    itemmenu.style.left = (rect.left+rect.right) /2 + 'px';
-    itemmenu.style.top = rect.bottom-5 + 'px';
-    
-    target_itemmenu = item;
-    setItemMenuStyle(item);
-  }
-
-
-  function setItemMenuStyle(item)
-  {
-    itemmenu.innerHTML = '';
-
-    if(target_itemmenu.itemid <= 14 && target_itemmenu.inuse == true)//ruha
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Levétel</div>';
-    }
-    else if(target_itemmenu.itemid <= 14)//ruha
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Felvétel</div>';
-    }
-
-    if(target_itemmenu.itemid == 18 && target_itemmenu.inuse == true)//pisztoly
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elrakás</div>';
-    }
-    else if(target_itemmenu.itemid == 18 || target_itemmenu.itemid == 20)
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="use_item">Elővétel</div>';
-    }
-
-/*
-    if(item.container > 0)//tároló
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="open_container">Megnyitás</div>';
-    }
-*/
-
-    if(item.amount > 1)
-    {
-      itemmenu.innerHTML += '<div class="menubutton" id="split_item">Szétválasztás</div>';
-    }
-    itemmenu.innerHTML += '<div class="menubutton" id="close_menu">Mégse</div>';
-    close_itemmenu = document.querySelector('#close_menu');
-    close_itemmenu.addEventListener('mousedown', closeItemMenu);
-
-    use_itemmenu = document.querySelector('#use_item');
-    if(use_itemmenu != null)
-    {
-      use_itemmenu.addEventListener('mousedown',useItem);
-    }
-
-    open_container = document.querySelector('#open_container');
-    if(open_container != null)
-    {
-      open_container.addEventListener('mousedown',openContainer);
-    }
-      
-    split_item = document.querySelector('#split_item');
-    if(split_item != null)
-    {
-      split_item.addEventListener('mousedown', splitItem);
-    }
-      
-  }
 
   function splitItem(ev)
   {
@@ -581,9 +510,11 @@
       if (state === 'True')
       {
         toSet.inuse = true;
+        toSet.style.outline = 'solid 1px #02c39a';
       }
       else{
         toSet.inuse = false;
+        toSet.style.outline = 'solid 1px white';
       }
   }
 
@@ -647,6 +578,7 @@
         ghostItemWeight.style.visibility = 'hidden';
       }
 
+      ghostItem.style.outline = 'none';
       ghostItem.setAttribute('class', 'ghostItem');
       item.classList.add('invisible');
 
@@ -784,7 +716,7 @@
         case 'renameitem'://átadás menü
           break;
         case 'dropitem'://eldobás
-          mp.trigger('client:DropItem',item.id);
+          mp.trigger('client:DropItem',item.id, item.itemid);
           break;
       }
     }
@@ -830,6 +762,10 @@
           let description = displayinfoitem.itemdescription;
           let weight = displayinfoitem.weight;
           let unit = 'gramm';
+          if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
+          {
+            displayinfoitem.style.outline = 'solid 1px #ff8c61';
+          }
 
           if (weight > 1000)
           {
@@ -865,10 +801,21 @@
     }
 
   function hideToolTip(){
-
 		  tooltip.style.display = 'none';
 		  document.removeEventListener('mousemove', moveToolTip);
-
+      let displayinfoitem = event.target;
+      if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
+          {
+            if(displayinfoitem.inuse)
+            {
+              displayinfoitem.style.outline = 'solid 1px #02c39a';
+            }
+            else
+            {
+              displayinfoitem.style.outline = 'solid 1px white';
+            }
+            
+          }
       /*
       if(item.inuse == true && !item.parentElement.classList.contains('slot'))//használatban van és nem ruha
       {

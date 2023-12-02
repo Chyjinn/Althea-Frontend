@@ -1,25 +1,35 @@
 <html lang="en">
 <head>
-  <title>A Spotify Embed Example</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css" />
+
 </head>
-
 <body>
-    <div id="music"></div>
-
-  <script type="text/javascript">
-    const music = document.getElementById("music");
-
-    function changeSong(url) {
-  fetch(`https://open.spotify.com/oembed?url=${url}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      music.innerHTML = data.html;
-    });
-    }
-
-
-  </script>
+  <nav class="menu">
+    <input checked="checked" class="menu-toggler" type="checkbox">
+    <label for="menu-toggler"></label>
+    <ul>
+      <li class="menu-item">
+        <a class="fas fa-cat" href=""></a>
+      </li>
+      <li class="menu-item">
+        <a class="fas fa-cookie-bite" href="#"></a>
+      </li>
+      <li class="menu-item">
+        <a class="fab fa-earlybirds" href="#"></a>
+      </li>
+      <li class="menu-item">
+        <a class="fab fa-fly"href="#"></a>
+      </li>
+      <li class="menu-item">
+        <a class ="far fa-gem" href="#"></a>
+      </li>
+      <li class="menu-item">
+        <a class="fas fa-glass-cheers" href="#"></a>
+      </li>
+    </ul>
+  </nav>
 </body>
+<script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
 </html>

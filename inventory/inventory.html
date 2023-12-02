@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 <div class="content">
@@ -11,6 +12,7 @@
         <div class="interaction" id="giveitem"><p>Átadás</p></div>
         <div class="interaction" id="useitem"><p>Használat</p></div>
         <div class="interaction" id="showitem"><p>Felmutatás</p></div>
+        <div class="interaction" id="splititem"><p>Szétválasztás</p></div>
         <div class="interaction" id="renameitem"><p>Átnevezés</p></div>
         <div class="interaction" id="dropitem"><p>Eldobás</p></div>
       </div>
@@ -19,7 +21,9 @@
           <div id="playername" class="headertext">Karakter neve</div>
           
           <input id="inventory-search" type="text" class="search" placeholder="Keresés...">
-
+          <div id="inv_weight" class="w3-light-grey">
+            <div class="totalweight" style="width:0%"></div>
+          </div>
         </div>
         <div class="inventory-items">
         </div>
@@ -29,7 +33,9 @@
         <div class="header">
           <div id="containertext" class="headertext">Tároló</div>
           <input id="container-search" type="text" class="search" placeholder="Keresés...">
-
+          <div id="container_weight" class="w3-light-grey">
+            <div class="totalweight" style="width:0%"></div>
+          </div>
         </div>
         <div class="container-items">
         </div>
@@ -95,7 +101,8 @@
     </body>
 	<script>
 
-
+    var inv_weight = document.querySelector('#inv_weight');
+    var container_weight = document.querySelector('#container_weight');
     var givemenu = document.querySelector('.givemenu');
     var givemenu_slider = document.querySelector('.amount');
     var givemenu_itemname = document.querySelector('.itemname');
@@ -713,6 +720,8 @@
           break;
         case 'showitem'://felmutatás
           break;
+        case 'splititem'://szétválasztás
+          break;
         case 'renameitem'://átadás menü
           break;
         case 'dropitem'://eldobás
@@ -755,42 +764,60 @@
     function displayItemInfo(event){
       if(status_click === false)//nem mozgat egy itemet sem
       {
-          item = this;
-
           let displayinfoitem = event.target;
-          let name = displayinfoitem.itemname;
-          let description = displayinfoitem.itemdescription;
-          let weight = displayinfoitem.weight;
-          let unit = 'gramm';
-          if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
-          {
-            displayinfoitem.style.outline = 'solid 1px #ff8c61';
-          }
 
-          if (weight > 1000)
+          if(displayinfoitem == inv_weight)
           {
-            weight = weight / 1000;
-            unit = 'kilogramm';
+              let currWeight = displayinfoitem.currentweight;
+              let capacity = displayinfoitem.capacity;
+              let toDisplay = '';
+              toDisplay = (parseInt(currWeight)/1000)+' kg / '+ (parseInt(capacity)/1000)+' kg';
+              tooltip.innerHTML = toDisplay;
+              tooltip.style.display = 'block';
           }
-          let toDisplay = '';
-          if (description != '')
+          else if(displayinfoitem == container_weight)
           {
-            toDisplay = name+'<br/><hr>'+ description+'<br/>Súly: '+ weight+' ' + unit;
+              let currWeight = displayinfoitem.currentweight;
+              let capacity = displayinfoitem.capacity;
+              let toDisplay = '';
+              toDisplay = (parseInt(currWeight)/1000)+' kg / '+ (parseInt(capacity)/1000)+' kg';
+              tooltip.innerHTML = toDisplay;
+              tooltip.style.display = 'block';
           }
           else
           {
-            toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
+            let name = displayinfoitem.itemname;
+            let description = displayinfoitem.itemdescription;
+            let weight = displayinfoitem.weight;
+            let unit = 'gramm';
+            if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
+            {
+              displayinfoitem.style.outline = 'solid 1px #ff8c61';
+            }
+
+            if (weight > 1000)
+            {
+              weight = weight / 1000;
+              unit = 'kilogramm';
+            }
+            let toDisplay = '';
+            if (description != '')
+            {
+              toDisplay = name+'<br/><hr>'+ description+'<br/>Súly: '+ weight+' ' + unit;
+            }
+            else
+            {
+              toDisplay = name+'<br/><hr>Súly: '+ displayinfoitem.weight+' '+unit;
+            }
+
+            toDisplay += '<br/>Prio:'+displayinfoitem.priority;
+            
+            tooltip.innerHTML = toDisplay;
+            tooltip.style.display = 'block';
           }
-
-          toDisplay += '<br/>Prio:'+displayinfoitem.priority;
-          
-          tooltip.innerHTML = toDisplay;
-          tooltip.style.display = 'block';
           document.addEventListener('mousemove', moveToolTip);
+
       }
-
-
-
 	  }
 
     function moveToolTip(event) {
@@ -800,11 +827,13 @@
       tooltip.style.top = y+2 + 'px';
     }
 
-  function hideToolTip(){
+  function hideToolTip(event){
 		  tooltip.style.display = 'none';
 		  document.removeEventListener('mousemove', moveToolTip);
       let displayinfoitem = event.target;
-      if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
+      if(displayinfoitem != inv_weight && displayinfoitem != container_weight)
+      {
+        if(!displayinfoitem.parentElement.classList.contains('slot'))//nem ruhákra húzta, akkor lehet highlightolni
           {
             if(displayinfoitem.inuse)
             {
@@ -816,23 +845,29 @@
             }
             
           }
-      /*
-      if(item.inuse == true && !item.parentElement.classList.contains('slot'))//használatban van és nem ruha
-      {
-        item.style.border = 'solid 0.2vh orange';
       }
-      else if(item.parentElement.classList.contains('slot'))//nincs használtban és ruha
-      {
-        item.style.border = '0';
-      }
-      else//nincs használatban és nem is ruha
-      {
-        item.style.border = 'solid 0.2vh black';
-      }
-      */
 	}
 
-  
+  function setInventoryWeights(cur, capac)
+  {
+    inv_weight.currentweight = cur;
+    inv_weight.capacity = capac;
+    let percent = (parseFloat(cur) / parseFloat(capac)) * 100;
+    inv_weight.firstElementChild.style.width = percent + '%';
+  }
+
+  function setContainerWeights(cur, capac)
+  {
+    container_weight.currentweight = cur;
+    container_weight.capacity = capac;
+    let percent = (parseFloat(cur) / parseFloat(capac)) * 100;
+    container_weight.firstElementChild.style.width = percent + '%';
+  }
+
+    inv_weight.addEventListener('mouseenter', displayItemInfo);
+    inv_weight.addEventListener('mouseleave', hideToolTip)
+    container_weight.addEventListener('mouseenter', displayItemInfo);
+    container_weight.addEventListener('mouseleave', hideToolTip)
 
     </script>
 </html>

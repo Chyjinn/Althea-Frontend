@@ -81,6 +81,10 @@ body{
   background-image: url("renameitem.png");
 }
 
+#splititem{
+  background-image: url("splititem.png");
+}
+
 #showitem{
   background-image: url("showitem.png");
 }
@@ -149,15 +153,31 @@ body{
 }
 
 .header{
-  width: 29vw;
-  height: 5vh;
+  width: 30vw;
+  height: 6vh;
   background-color: rgba(0,0,0,0.8);
-  border-style: none none solid none;
-  border-color: #ff8c61;
-  border-width: 0.25vh;
+
   color: white;
   padding: 0.5vw;
   position: relative;
+}
+
+.w3-light-grey{
+  position: absolute;
+  bottom: -0.5vh;
+  left: 0px;
+  width: 100%;
+  margin: 0;
+  height: 0.5vh;
+  user-select: none;
+  outline: none;
+  border: none;
+}
+
+.totalweight{
+  height: 0.5vh;
+  background-color: #ff8c61;
+  user-select: none;
 }
 
 .header .headertext{
@@ -167,8 +187,9 @@ body{
   top: 10%;
   width: 80%;
   height: 80%;
-  font-size: 200%;
+  font-size: 150%;
   overflow: hidden;
+  font-variant: small-caps;
 }
 
 .search{

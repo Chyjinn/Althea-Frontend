@@ -21,7 +21,6 @@ body{
   flex-direction: row;
   overflow: clip;
   user-select: none;
-  transition-duration: 50ms;
 }
 
 .interactions{
@@ -29,22 +28,22 @@ body{
   left: 50%;
   transform: translate(-50%,0);
   top: 1vh;
-  width: 50vh;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1vh;
-  justify-content: center;
 }
 
 .interactions .interaction{
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 1vh;
   color: white;
-  width: 6vh;
-  height: 6vh;
-  margin: 1vh;
+  width: 7vh;
+  height: 7vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
   outline: solid 1px white;
   vertical-align: bottom;
   box-shadow: 1px 1px black;
@@ -56,7 +55,7 @@ body{
 .interactions .interaction:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ff8c61;
 }
 
 .interaction p{
@@ -67,7 +66,7 @@ body{
   bottom: -3vh;
   left: 50%;
   transform: translate(-50%,0);
-  font-size: 1vh;
+  font-size: 1.2vh;
 }
 
 #giveitem{
@@ -123,7 +122,7 @@ body{
 .action_slot:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ff8c61;
 }
 
 .action_number{
@@ -136,79 +135,61 @@ body{
 }
 
 .inventory{
-  width: 60vh;
-  height: 80vh;
-  background-color: rgba(0,0,0,0.05);
-  outline: solid 1px rgba(0,0,0,0.5);
-  border-radius: 1vh;
+  width: 30vw;
+  height: 30vw;
+  background-color: rgba(0,0,0,0.4);
   position: absolute;
   overflow: hidden;
 }
 
 .player {
-  right: 2vh;
-  top: 2vh;
+  right: 5vw;
+  top: 25vh;
 }
 
 .container {
-  left: 2vh;
-  top: 2vh;
+  left: 5vw;
+  top: 25vh;
 }
 
 .header{
-  width: 100%;
+  width: 30vw;
   height: 6vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.8);
+
   color: white;
-  padding: 1vh;
+  padding: 0.5vw;
   position: relative;
 }
 
-.w3-grey{
+.w3-light-grey{
   position: absolute;
-  bottom: -1.5vh;
+  bottom: -0.5vh;
   left: 0px;
   width: 100%;
   margin: 0;
-  height: 2vh;
+  height: 0.5vh;
   user-select: none;
   outline: none;
   border: none;
-  outline: solid 1px black;
 }
 
 .totalweight{
-  height: 2vh;
-  background-color: #d65d26;
+  height: 0.5vh;
+  background-color: #ff8c61;
   user-select: none;
-  transition-duration: 1000ms;
-}
-
-.weightdisplay{
-  position: absolute;
-  right: 2vh;
-  top: 50%;
-  transform: translate(0,-50%);
-  color: white;
 }
 
 .header .headertext{
   position: absolute;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 2.5vh;
+  line-height: 5.5vh;
+  left: 5%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  font-size: 150%;
   overflow: hidden;
   font-variant: small-caps;
-}
-.header .headertext p{
-  position: relative;
-  float: left;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .search{
@@ -226,86 +207,40 @@ body{
   outline: solid 1px white;
 }
 .search:hover{
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ff8c61;
 }
 .search:focus{
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ff8c61;
 }
 
 .search:active{
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ff8c61;
 }
 
 
 
 .tooltip{
+  font-family: sans-serif;
   font-weight: bold;
   background-color: rgba(0,0,0,0.8);
-  border-radius: 2vh;
   color: white;
 	padding: 1vh;
   position: absolute;
-
-
   text-align: center;
-
-
   display: inline;
   margin: 0px;
   overflow: clip;
-  width: 30vh;
-  height: 8vh;
-
-  display: block;
+  width: auto;
+  height: auto;
+  display: none;
   pointer-events: none;
-}
-
-.tooltip .tooltipimage{
-  position: absolute;
-  left: 1vh;
-  top: 1vh;
-  width: 5vh;
-  height: 5vh;
-  background: linear-gradient(0deg, black, white);
-  border-radius: 2vh;
-}
-
-.tooltip .tooltipimage img{
-  width: 100%;
-  height: 100%;
-}
-
-.tooltip .tooltiptext{
-  position: absolute;
-  left: 7vh;
-  top: 1vh;
-  width: 22vh;
-  height: 5vh;
-}
-
-.tooltip .tooltiptext .name{
-  border-bottom: solid 1px white;
-}
-
-.tooltip .weight{
-  position: absolute;
-  left:0.5vh;
-  bottom: 0.5vh;
-  width: 6vh;
-  text-align: center;
-  font-size: 1vh;
 }
 
 
 .inventory-items,
 .container-items{
-  min-height: 72vh;
-  max-height: 72vh;
-  position: absolute;
-  left: 0;
-  top: 7.5vh;
-  width: 100%;
-  height: 100%;
+  min-height: 88%;
+  max-height: 88%;
   flex-direction: row;
   margin: 0.5vh;
   display: flex;
@@ -340,6 +275,7 @@ body{
 }
 
 
+
 .ghostItem .name{
   font-weight: bold;
   position: absolute;
@@ -370,36 +306,24 @@ body{
   margin: 0;
 }
 
-.slot .item img{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  user-select: none;
-  pointer-events: none;
-}
-
 .item{
   margin: 0.75vh;
-  width: 8vh;
-  height: 8vh;
+  width: 7vh;
+  height: 10vh;
   min-height: 0;
   overflow: hidden;
-  background-color: rgb(0, 0, 0, 0);
-  border-radius: 0.5vh;
+  background-color: rgb(0, 0, 0, 0.2);
+  border-radius: 1vh;
+  outline: solid 1px white;
   position: relative;
   align-self: stretch;
 }
 
 .item:hover{
-
-  transition-duration: 150ms;
   transform: scale(1.1);
+  transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
-
-
 
 .item img{
   width: 7vh;
@@ -428,12 +352,30 @@ body{
   bottom: 0vh;
   transform: translate(-50%,0);
   width: 100%;
-  height: 2vh;
-  background-color: rgba(0,0,0,0);
+  height: 2.25vh;
+  background-color: rgba(0,0,0,0.6);
+  
   text-align: center;
   font-size: 1.2vh;
 }
 
+.item .weight{
+  position: absolute;
+  color: white;
+  right: 0.5vh;
+  top: 0.5vh;
+  text-align: right;
+  font-size: 1vh;
+}
+
+.item .colorcode{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.75vh;
+  background-color: red;
+  text-align: center;
+}
 
 
 .givemenu{
@@ -464,7 +406,7 @@ body{
 .givemenu .close:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
-  color: #d65d26;
+  color: #ffb347;
 }
 
 .givemenu .itemname{
@@ -501,7 +443,7 @@ body{
 
 .givemenu .nearbyplayers .playerselect:hover{
   transition-duration: 200ms;
-  outline: solid 1px #d65d26;
+  outline: solid 1px #ffb347;
 }
 
 .givemenu .amount{
@@ -539,7 +481,7 @@ body{
   width: 2vh; 
   height: 2vh;
   border-radius: 1vh;
-  background: #d65d26;
+  background: #ffb347;
   cursor: pointer;
 }
 
@@ -579,7 +521,7 @@ body{
 }
 
 .menubutton:hover{
-  background-color: #d65d26;
+  background-color: #ff8c61;
 }
 
 
@@ -613,7 +555,7 @@ body{
   position: absolute;
   left: 50vw;
   transform: translate(-50%, 0);
-  background-color: rgba(0,0,0,0);
+
   top: 20vh;
 }
 
@@ -621,6 +563,7 @@ body{
   width: 7vh;
   height: 7vh;
   background-color: rgba(0,0,0,0.8);
+  outline: solid 1px white;
   color: white;
   border-radius: 1vh;
   position: absolute;
@@ -633,6 +576,7 @@ body{
 .clothes .slot:hover{
   transform: scale(1.1);
   transition-duration: 200ms;
+  outline: solid 1px #ff8c61;
 }
 
 .clothes .slot .item:hover{

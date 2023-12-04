@@ -4,101 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	  <link rel="stylesheet" href="./css/styles.css" type="text/css" />
+	  <script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <div class="container">
-    <div class="row">
-		
-		<section id="charedit" class="col-lg-4">
-			
-			<div class="attribute-group">
-			<label id="slot1drawable-label" for="slot1drawable" class="form-label">-</label>
-			<input id="slot1drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot1texture-label" for="slot1texture" class="form-label">-</label>
-			<input id="slot1texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-			
-			
-			<div class="attribute-group">
-			<label id="slot11drawable-label" for="slot11drawable" class="form-label">-</label>
-			<input id="slot11drawable" type="range" class="form-range" name="points" step="1" min="0" max="700" value="0">
-			<label id="slot11texture-label" for="slot11texture" class="form-label">-</label>
-			<input id="slot11texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-			
-			
-			<div class="attribute-group">
-			<label id="slot3drawable-label" for="slot3drawable" class="form-label">-</label>
-			<input id="slot3drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			</div>
-			
-			<div class="attribute-group">
-			<label id="slot8drawable-label" for="slot8drawable" class="form-label">-</label>
-			<input id="slot8drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot8texture-label" for="slot8texture" class="form-label">-</label>
-			<input id="slot8texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-			
-			
-			<div class="attribute-group">
-			<label id="slot4drawable-label" for="slot4drawable" class="form-label">-</label>
-			<input id="slot4drawable" type="range" class="form-range" name="points" step="1" min="0" max="250" value="0">
-			<label id="slot4texture-label" for="slot4texture" class="form-label">-</label>
-			<input id="slot4texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-		
-			
-			<div class="attribute-group">
-			<label id="slot6drawable-label" for="slot6drawable" class="form-label">-</label>
-			<input id="slot6drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot6texture-label" for="slot6texture" class="form-label">-</label>
-			<input id="slot6texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-			
-			<div class="attribute-group">
-			<label id="slot7drawable-label" for="slot7drawable" class="form-label">-</label>
-			<input id="slot7drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot7texture-label" for="slot7texture" class="form-label">-</label>
-			<input id="slot7texture" type="range" class="form-range" name="points" step="1" min="0" max="10" value="0">
-			</div>
-			
-			<div class="attribute-group">
-			<label id="slot5drawable-label" for="slot5drawable" class="form-label">-</label>
-			<input id="slot5drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot5texture-label" for="slot5texture" class="form-label">-</label>
-			<input id="slot5texture" type="range" class="form-range" name="points" step="1" min="0" max="20" value="0">
-			</div>
-			
-			<div class="attribute-group">
-			<label id="slot9drawable-label" for="slot9drawable" class="form-label">-</label>
-			<input id="slot9drawable" type="range" class="form-range" name="points" step="1" min="0" max="500" value="0">
-			<label id="slot9texture-label" for="slot9texture" class="form-label">-</label>
-			<input id="slot9texture" type="range" class="form-range" name="points" step="1" min="0" max="10" value="0">
-			</div>
+	<div class="window">
+		<div class="shopname">Textile City Binco</div>
+		<div class="categories">
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
 
-			
 
-			
-	
-        </section>				
+		</div>
+	</div>
 
-			<input id="done" type="submit" class="btn btn-primary" value="Befejezés" />
-        </section>
-
-  </div>
-  </div>
   
 </body>
 <script>
+	var category = -1;
+	var categoriesButtons = document.querySelectorAll('.category');
+	var categories = document.querySelector('.categories');
+	var shopname = document.querySelector('.shopname');
+	categoriesButtons.forEach((element) => element.addEventListener('click',selectCategory));
+
+
+	function addCategory(id)
+	{
+		let newCat = document.createElement('div');
+		newCat.id = id;
+		newItem.className = 'category';
+		switch(id)
+		{
+			case 'shirt':
+				newCat.innerHTML = '<i class="icon fa-solid fa-shirt"></i>';
+				break;
+		}
+
+		categories.appendChild(newCat);
+	}
+
+	function selectCategory(ev)
+	{
+		let target = ev.target.id;
+		console.log(target);
+		categories.classList.add('invisible');
+	}
+
+	function setShopName(name)
+	{
+		shopname.innerHTML = name;
+	}
+	
   let attributes = [
 	['slot1drawable','Maszk modell: ', 1],
 	['slot1texture','Maszk textúra: ', 1],

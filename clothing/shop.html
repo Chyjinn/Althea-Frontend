@@ -9,58 +9,129 @@
 	  <script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="content">
+	<div class="categorychooser">
+		<div class="window">
+			<div class="shopname">Textile City Binco</div>
 
-  <div class="container">
-	<div class="window">
-		<div class="shopname">Textile City Binco</div>
-		<div class="categories">
-			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div class="categories">
+				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			</div>
 
-
+			<div class="clothes">
+				<div id="clothingid lesz" class="clothing"><img src="css/placeholder.png" alt=""><div class="name">Name</div><div class="price">$ 50</div></div>
+			</div>
 		</div>
-	</div>
+
+</div>
+
 
   
 </body>
 <script>
-	var category = -1;
 	var categoriesButtons = document.querySelectorAll('.category');
 	var categories = document.querySelector('.categories');
 	var shopname = document.querySelector('.shopname');
+	
+
+	var clothesWindow = document.querySelector('.clothes');
+	var clothes = null; //összes ruha listája
+
+	var lastSelectedClothing = null;
+	var basket = null;
 	categoriesButtons.forEach((element) => element.addEventListener('click',selectCategory));
+
+	function clearCategories(){
+      categoriesButtons = document.querySelectorAll('.category');
+      categoriesButtons.forEach(remove_every_item);
+
+      function remove_every_item(item){
+          item.remove();
+
+      }
+    }
+
+	function clearClothes(){
+		clothes = document.querySelectorAll('.clothing');
+		clothes.forEach(remove_every_item);
+
+      function remove_every_item(item){
+          item.remove();
+
+      }
+    }
+
+
+	function addClothing(id, name, price, picture)
+	{
+		let newClothing = document.createElement('div');
+		newClothing.id = id;
+		newClothing.className = 'clothing';
+		newClothing.innerHTML = '<img src="'+picture+'"></img>'+
+				'<div class="name">'+name+'</div>'+
+            	'<div class="price">$ '+price+'</div>';
+				clothesWindow.appendChild(newClothing);
+		newClothing.addEventListener('click', selectClothing);
+
+	}
+
+	function selectClothing(ev)
+	{
+		//hozzáadjuk az id alapján a kosárhoz
+		lastSelectedClothing = ev.target;
+		console.log(ev.target.id);
+		mp.trigger('client:SelectClothing', ev.target.id);
+	}
 
 
 	function addCategory(id)
 	{
 		let newCat = document.createElement('div');
 		newCat.id = id;
-		newItem.className = 'category';
+		newCat.className = 'category';
 		switch(id)
 		{
-			case 'shirt':
-				newCat.innerHTML = '<i class="icon fa-solid fa-shirt"></i>';
+				case 'mask':
+				newCat.innerHTML = '<i id="'+id+'" class="fa-solid fa-mask"></i>';
 				break;
+				case 'glasses':
+				newCat.innerHTML = '<i id="'+id+'" class="fa-solid fa-glasses"></i>';
+				break;
+				case 'bags':
+				newCat.innerHTML = '<i id="'+id+'" class="fa-solid fa-bag-shopping"></i>';
+				break;
+				case 'shoes':
+				newCat.innerHTML = '<i id="'+id+'" class="fa-solid fa-socks"></i>';
+				break;
+				case 'legs':
+				newCat.innerHTML = '<i id="'+id+'" class="icon fa-solid fa-shirt"></i>';
+				break;
+				case 'shirt':
+				newCat.innerHTML = '<i id="'+id+'" class="icon fa-solid fa-shirt"></i>';
 		}
 
 		categories.appendChild(newCat);
+		categoriesButtons = document.querySelectorAll('.category');
+		categoriesButtons.forEach((element) => element.addEventListener('click',selectCategory));
 	}
 
 	function selectCategory(ev)
-	{
-		let target = ev.target.id;
-		console.log(target);
-		categories.classList.add('invisible');
+	{	
+		categoriesButtons.forEach((element) => element.style.color = 'white');
+		ev.target.style.color = 'red';
+		console.log(ev.target.id);
+		mp.trigger('client:SelectClothingCategory', ev.target.id);
 	}
 
 	function setShopName(name)
 	{
 		shopname.innerHTML = name;
 	}
-	
+	/*
   let attributes = [
 	['slot1drawable','Maszk modell: ', 1],
 	['slot1texture','Maszk textúra: ', 1],
@@ -159,6 +230,6 @@
 	{
 
 			mp.trigger("client:CloseClothingShop");
-	}
+	}*/
 </script>
 </html>

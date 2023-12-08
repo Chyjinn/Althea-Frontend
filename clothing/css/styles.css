@@ -42,14 +42,87 @@ body{
     position: absolute;
     left: 5vh;
     top: 5vh;
-    width: 20vh;
-    height: 90vh;
+    width: 10vh;
+    min-height: 8vh;
+    max-height: 90vh;
     background-color: rgba(0,0,0,0);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
-    justify-content: center;
+    transition-duration: 400ms;
+}
+
+.clothes{
+  position: absolute;
+  left: 16vh;
+  top: 5vh;
+  width: 45vh;
+  min-height: 30vh;
+  max-height: 90vh;
+  background-color: rgba(0,0,0,0);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  flex-basis: auto;
+  align-content: flex-start;
+}
+
+.clothes .clothing{
+  width: 9vh;
+  height: 9vh;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 1vh;
+  margin: 1vh;
+  border-radius: 1vh;
+  color: white;
+  font-size: 5vh;
+  overflow: visible;
+  position: relative;
+}
+
+.clothes .clothing:hover{
+  transform: scale(1.1);
+  transition-duration: 200ms;
+}
+
+.clothes .clothing img{
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.clothes .clothing .price
+{
+position: absolute;
+left: 50%;
+bottom: 0vh;
+transform: translate(-50%, -50%);
+font-size: 1vh;
+text-align: center;
+color: lightgreen;
+text-shadow: 1px 1px 2px black;
+font-weight: bold;
+user-select: none;
+pointer-events: none;
+}
+
+.clothes .clothing .name{
+  position: absolute;
+  left: 50%;
+  top: 0.75vh;
+  transform: translate(-50%, -50%);
+  font-size: 1vh;
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
 }
 
 .invisible {
@@ -57,14 +130,16 @@ body{
   }
 
 .category{
-    width: 17vh;
-    height: 17vh;
+    width: 7vh;
+    height: 7vh;
     outline: solid 3px white;
     margin: 1vh;
     border-radius: 1vh;
     color: white;
-    font-size: 10vh;
+    font-size: 5vh;
     overflow: auto;
+    text-align: center;
+    position: relative;
 }
 
 .category:hover{
@@ -75,10 +150,11 @@ body{
 }
 
 .category .icon{
-    position: relative;
+    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    user-select: none;
     pointer-events: none;
 }
 
@@ -108,5 +184,5 @@ body{
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff8c61;
+    background: red;
   }

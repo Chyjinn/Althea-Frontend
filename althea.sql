@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2023. Nov 24. 07:59
+-- Létrehozás ideje: 2023. Dec 08. 02:35
 -- Kiszolgáló verziója: 8.0.31
 -- PHP verzió: 8.0.26
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `sc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
   `characterSlots` tinyint UNSIGNED NOT NULL DEFAULT '2',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `accounts`
@@ -51,10 +51,11 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 INSERT INTO `accounts` (`id`, `userName`, `email`, `adminLevel`, `adminNick`, `registerDate`, `passwordHash`, `passwordSalt`, `serial`, `scId`, `sc`, `characterSlots`) VALUES
 (1, 'Chy', 'chy@althea.hu', 10, '', '2023-08-31 20:19:07', '7irrMY/4RrueoXI8P+qUWZQbHrvJKbtS+exNEHIx+hd4imPbmfnd+7+MOO/saaU15NcjA0j8F0tPd9hGqTR1zPJCnCuQ5Q==', '5ntrk1MDntd4w8arKiISDul6iiSda6pLdOdyBb4VOnOkLFrbRmcxpDm20g9M/JH1dpx237kjC+WwrXZbo6oxcIS7MOjMxvzy1bKEyjVRbyow4xZfp/gW7MnuLt0oqHN2tGNXZQ==', 'D8903A0447DCA880A7E0057CCBF41C10CE30D8D8D5D27640B0C6102401728A80319C882076A65D10D8E0E54043861920E4526AE0681477E8AA7010047006F0C0', '67714232', 'CHYJIN', 2),
 (2, 'mayev', 'megegyvacosacc@gmail.com', 0, '', '2023-09-03 14:36:26', 'SiWEX5Ihqe28wou3c2/UFJJ07sjPm2FZ/vT5Q8qyACBKPDldoG8Ztw+nkEkr1QmHGWFhn/jt4fKBknEYcDucUb3V/t6A+w==', '+q9c7edwuIF1FTIF/jTOQuiqUZpVCD0sbRsbDr3ZZmmlS9K3aPyjPFSBZF/LgmOurFJSGgYwxOqWSDTPc9j94fPmdH/DIDhhVe3wIqmIqbKGwcrOhpqY78xPHiT4r2xOkD74MQ==', 'D8903A045B5858583EEEC4C0D554D1001F6057102FBA81C8BBF018C8DD229C004B5CC1B01096EAD8B0B610BC242A1950A37608A056B6E9E0A83E7A949C96A640', '24763806', 'bati_a_batyus', 2),
-(3, 'mandms', 'mandms@hcrp.hu', 0, '', '2023-09-20 13:08:52', 'oxQD+5k67KCwwWJ4tyoq1eMrXkgXhYBV0vY6ciYNgxALVSLsv7ogmmmlBmmDX6w+t9TG8Z1FaTlxwdFUoJizCumzsw9CSg==', 'KB4C7/wq8zkadPPAZfNsfrDxwEiTzplZsVADFsg7zIe78dypJ/1V4RRELv5GXwPcuSBs6pfkcUVOnsuhgRt2w2OiY2pGpdJuVgu/CnAtiEpASmRKjE0ojIPED0HCbss/fpG7gg==', 'DFBE67A8DD7E57487A72B834220A5AA0CFAE37486DCE67D81AC23824C23ABA40BF9E07E8FD1E7768BA12B814626A1AE0AF8ED7888D6E87F85A623804029A7A80', '85991460', 'MandMs-11', 2),
 (4, 'morcsog', 'morcsog@vagyok.hu', 0, '', '2023-10-07 19:14:59', 'Yw+y4wDxR2xNYXGJrbNTkswsEG1cXkrGYwk1n/tyzrbn2yt+6UHXFgRUInd9aQPvHyYKssnRo7JG72zdHikLMWi42oQdvw==', 'Mb2ts06L8y2fq78QrBaXbAkfcV6arvQLNkHpybCoHwHPOG8DrQ3vv7ykDQjPh4QGyz9ZOJ1RiUbjgBT53XNAvCV2v3sO9HXHP4FGmfTjroNYzITDYZaXxhw3InFqVqVCul/O/Q==', 'D8903A045BAC82D8BC661CD41A0A4810B9E2F8F8C620B2B070F018C8DD224EC05B3865D0634CE5C0D9BAE3E0AE44D0A072E008A056B6E9F0FEDEB464841AA640', '185981925', 'Botika9696', 2),
 (6, 'Chy2', 'Chy2@Chy2.com', 0, '', '2023-11-15 02:51:14', 'p7y9wcCN55AL4PJQv/hkQiItklDmeCapWQwvBii4bK5uXpMJTP3FW+d1Kd2hScNIkqUmRoDAOeM/vONjp3U4G9XQObGsfQ==', 'E45p9Kg/XQnVs8+3z6+TLwSkVauFzBtilLOOYHjVYO2lsHm1/1MqNSGB3ch0S5R+O4QgoAeySShhD0uoC3b3ZCT6UKQQirXe4YFvY5Fvx3CCiXawxNbRmywPiyDizI2AVVtiJw==', 'CE963468C95A2648B9125258560A5AD0AE46F408194AC6D8C962B278363ABAA08EF6B4A8693A6668D9B21298166A1A706EA67448B92A06F8E90272B8F69A7A40', '67714232', 'CHYJIN', 2),
-(7, 'Fanni', 'pohfanni@gmail.com', 0, '', '2023-11-20 18:04:07', 'H2eQMbp3/gwTKM218jIx0obynyjqg3NNuM/7B0D4Ivv0+wD8dUQZjvvZ8nFW+6z0rkwTIxbdmislJgKa9NVWXFE6i7g+ww==', 'eDjwM7ibKETl9nKi+HsZ5vMXvlmHqhlBGtqhcc5mzAJ3ct4kKnnKvnecQxZhfobIdyjOgLsrC8c7fQL6BA6cclzk8C7C5VkaK2OmWzxA153IBOlVcPyjaQwfY1HrbHqVY4k+Zg==', 'D8903A045B70AC704C0A84DC5F880D001F18BF845D7E703818500A1C43308CC06C22A494E7285580873837BC3536F0705810DA342BF06C108C3AC44C6F260080', '177775224', 'Fanniih', 2);
+(7, 'Fanni', 'pohfanni@gmail.com', 0, '', '2023-11-20 18:04:07', 'H2eQMbp3/gwTKM218jIx0obynyjqg3NNuM/7B0D4Ivv0+wD8dUQZjvvZ8nFW+6z0rkwTIxbdmislJgKa9NVWXFE6i7g+ww==', 'eDjwM7ibKETl9nKi+HsZ5vMXvlmHqhlBGtqhcc5mzAJ3ct4kKnnKvnecQxZhfobIdyjOgLsrC8c7fQL6BA6cclzk8C7C5VkaK2OmWzxA153IBOlVcPyjaQwfY1HrbHqVY4k+Zg==', 'D8903A045B70AC704C0A84DC5F880D001F18BF845D7E703818500A1C43308CC06C22A494E7285580873837BC3536F0705810DA342BF06C108C3AC44C6F260080', '177775224', 'Fanniih', 2),
+(8, 'mandms', 'mandmsmandms10@gmail.com', 0, '', '2023-11-28 17:57:17', 'F6YTlGXqh06F9/y5M2k8UfyvXh1uKN/7WdQEQgnkIXL/2Nl9Vm3diSB9ecepDYZjqIoU23VSBbUz1RUG1cPtSwmcyGTIJw==', 'adtuziRk31fq7tenlf9GVOeDAS+9jtM840YhRa2IMhkEhraejImLlkMjt3KvZnYe2v6FarWpumHGGNXGc7u3wj32EofHspAQnIYwxp6tztIhtMEDeEEIwzIVmiqdpHT5pNh/Sw==', 'DFBE67A8DD7E5078B0AE0534220A5AA0CFAE37486DCE5068B05EF524C23ABA40BF9E07E8FD1E5058B00EE514626A1AE0AF8ED7888D6E5048B0BED504029A7A80', '85991460', 'MandMs-11', 2),
+(9, 'Kiko', 'fuzykiko@gmail.com', 0, '', '2023-12-01 18:44:05', 'XGJt8f47qHhaeUKkwaA3uoQ+q/3YW64F4pG4D/4hcRoBCp8b6Gjb+DiXvdg+qqzXaXt6CHN6z0bb/Q1zF3nJ42cRAlv3Ug==', 'We80UxY6r0C1Shu7MNB3pyFfNnXVUmVOnd01Qn6R62vyTqagIRFg6J7ylWqv7QqEY91DyJfOg8B14+upiF9Jql4mwVVAe+PXeSB5S+tQ7GYvmnEvWO51ycSPS1R+96idwlA/Xw==', 'D1D4EE40D2D826408CD6FA381AE83FA09A201ED07270F4687EA436D0AD6C46006AC8BEA05CFA021052B81B38F2E0B6C00AD0C48C867C6EA089049EC0021E3FC0', '108231911', 'fuzykrisztian', 2);
 
 -- --------------------------------------------------------
 
@@ -181,14 +182,14 @@ CREATE TABLE IF NOT EXISTS `appearances` (
   `bodyblemish2Opacity` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `tattoos` json DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `appearances`
 --
 
 INSERT INTO `appearances` (`id`, `gender`, `eyeColor`, `hairStyle`, `hairColor`, `hairHighlight`, `parent1face`, `parent2face`, `parent3face`, `parent1skin`, `parent2skin`, `parent3skin`, `faceMix`, `skinMix`, `thirdMix`, `noseWidth`, `noseHeight`, `noseLength`, `noseBridge`, `noseTip`, `noseBroken`, `browHeight`, `browWidth`, `cheekboneHeight`, `cheekboneWidth`, `cheekWidth`, `eyes`, `lips`, `jawWidth`, `jawHeight`, `chinLength`, `chinPosition`, `chinWidth`, `chinShape`, `neckWidth`, `blemishId`, `blemishOpacity`, `facialhairId`, `facialhairColor`, `facialhairOpacity`, `eyebrowId`, `eyebrowColor`, `eyebrowOpacity`, `ageId`, `ageOpacity`, `makeupId`, `makeupOpacity`, `blushId`, `blushColor`, `blushOpacity`, `complexionId`, `complexionOpacity`, `sundamageId`, `sundamageOpacity`, `lipstickId`, `lipstickColor`, `lipstickOpacity`, `frecklesId`, `frecklesOpacity`, `chesthairId`, `chesthairColor`, `chesthairOpacity`, `bodyblemishId`, `bodyblemishOpacity`, `bodyblemish2Id`, `bodyblemish2Opacity`, `tattoos`) VALUES
-(1, 0, 3, 84, 13, 15, 21, 34, 45, 29, 25, 8, 55, 26, 25, -40, 23, 68, 18, 9, 0, 20, -17, -57, -64, 24, 8, -100, -65, -95, 16, -6, 10, 0, 0, 255, 0, 255, 29, 0, 2, 60, 100, 255, 0, 5, 74, 2, 11, 100, 255, 0, 255, 0, 5, 22, 60, 5, 15, 255, 0, 0, 255, 0, 255, 0, NULL),
+(1, 0, 3, 53, 61, 0, 40, 34, 21, 29, 21, 34, 49, 33, 25, -34, -27, 84, 40, -3, 0, -10, -9, -88, -26, 35, 14, -34, -59, -58, 61, 28, 20, -1, 0, 255, 0, 255, 29, 0, 2, 61, 100, 255, 0, 4, 70, 2, 11, 58, 10, 20, 255, 0, 3, 6, 50, 6, 30, 255, 0, 0, 0, 100, 255, 0, NULL),
 (2, 1, 0, 14, 42, 14, 34, 4, 2, 7, 18, 19, 23, 30, 21, -25, -51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 11, 2, 100, 18, 42, 100, 0, 0, 255, 100, 0, 0, 0, 3, 100, 0, 0, 0, 0, 0, 0, 0, 255, 31, 100, 0, 0, 0, 0, NULL),
 (3, 0, 5, 84, 59, 60, 40, 21, 27, 29, 12, 23, 50, 20, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 2, 57, 100, 0, 0, 5, 66, 2, 7, 100, 0, 0, 0, 0, 3, 7, 67, 0, 42, 255, 0, 0, 2, 100, 0, 0, NULL),
 (4, 0, 0, 40, 24, 20, 14, 14, 0, 0, 0, 0, 50, 50, 50, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
@@ -198,7 +199,10 @@ INSERT INTO `appearances` (`id`, `gender`, `eyeColor`, `hairStyle`, `hairColor`,
 (8, 1, 0, 40, 1, 0, 4, 15, 11, 14, 0, 0, 50, 9, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, NULL),
 (9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
 (10, 0, 5, 15, 3, 0, 8, 25, 25, 8, 2, 0, 100, 100, 49, -27, 22, 0, 2, 1, 52, 0, 0, 0, 0, 26, 0, -41, -62, -100, -89, -34, -83, -48, -100, 255, 0, 255, 0, 0, 1, 0, 79, 255, 0, 1, 75, 0, 11, 90, 255, 0, 255, 0, 5, 6, 72, 255, 0, 255, 0, 0, 0, 0, 255, 0, NULL),
-(11, 1, 0, 14, 0, 5, 0, 0, 0, 23, 30, 23, 50, 50, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 100, 12, 0, 100, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL);
+(11, 1, 0, 14, 0, 5, 0, 0, 0, 23, 30, 23, 50, 50, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 100, 12, 0, 100, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+(12, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 2, 30, 0, 0, 0, 0, 0, 13, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+(13, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
+(14, 0, 0, 41, 0, 0, 2, 8, 0, 0, 0, 0, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -232,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `bans` (
 
 DROP TABLE IF EXISTS `characters`;
 CREATE TABLE IF NOT EXISTS `characters` (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `accountId` int UNSIGNED DEFAULT NULL,
   `appearanceId` int UNSIGNED NOT NULL,
   `characterName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
@@ -247,23 +251,116 @@ CREATE TABLE IF NOT EXISTS `characters` (
   PRIMARY KEY (`id`),
   KEY `accountId` (`accountId`),
   KEY `AppearanceID` (`appearanceId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `characters`
 --
 
 INSERT INTO `characters` (`id`, `accountId`, `appearanceId`, `characterName`, `creationDate`, `dob`, `pob`, `posX`, `posY`, `posZ`, `rot`, `dimension`) VALUES
-(7, 1, 1, 'Chy Women', '2023-08-31 21:51:19', '2023-09-04', '0', 221.45, -984.5, -99, -90.0055, 0),
-(8, 2, 2, 'Emmett Velaquez', '2023-09-03 14:43:11', '0001-01-01', '0', 1162.73, -258.621, 69.1322, -122.005, 0),
+(7, 1, 1, 'Chy W', '2023-08-31 21:51:19', '2023-09-04', '0', -266.336, -1263.13, 29.0606, 4.61845, 0),
+(8, 2, 2, 'Emmett Velaquez', '2023-09-03 14:43:11', '0001-01-01', '0', 402.427, -856.428, 29.3463, 103.431, 0),
 (10, 2, 4, 'Uncle Mary', '2023-09-04 22:57:04', '2023-09-04', '0', 417.861, -810.597, 28.543, -171.314, 0),
-(11, 1, 5, 'Chy Black', '2023-09-04 22:57:42', '2023-09-04', '0', 427.078, -800.429, 29.4911, -78.512, 0),
-(12, 3, 6, 'faszos lofasz', '2023-09-20 13:12:16', '2023-09-20', '0', -1037, -2738, 21, -30, 0),
-(13, 3, 7, 'szia chy', '2023-09-20 13:13:44', '2023-09-20', '0', 405.117, -813.278, 28.5772, -91.627, 0),
+(11, 1, 5, 'Chyy Gang', '2023-09-04 22:57:42', '2023-09-04', '0', 228.6, -989.3, -98.5, -0.00531389, 0),
 (14, 4, 8, ' ', '2023-10-07 19:16:24', '2023-10-07', '0', 363.018, -832.975, 29.3676, -39.4535, 0),
 (15, 6, 9, 'Chy Ketto', '2023-11-15 02:51:41', '2023-11-15', '0', -1037, -2738, 21, -30, 0),
 (16, 7, 10, 'Audrey Hartley', '2023-11-20 18:23:12', '2023-11-20', '0', 1377.2, 233.655, -48.9945, -76.3347, 0),
-(17, 7, 11, 'Elijah Barnes', '2023-11-22 19:42:48', '2023-11-22', '0', -1037, -2738, 21, -30, 0);
+(17, 7, 11, 'Elijah Barnes', '2023-11-22 19:42:48', '2023-11-22', '0', -1037, -2738, 21, -30, 0),
+(18, 8, 12, 'Herceghalmi Odett Zoltán', '2023-11-28 18:01:07', '2023-11-28', '0', -1032.01, -2705.4, 13.8009, 39.8152, 0),
+(19, 8, 13, ' ', '2023-11-28 18:18:16', '2023-11-28', '0', 1181.13, -346.899, 69.3343, 121.41, 0),
+(20, 9, 14, 'Dorothy Harvey', '2023-12-01 18:50:25', '2023-12-01', '0', -1102.79, -2740.07, -7.41013, -5.06453, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `clothingshops`
+--
+
+DROP TABLE IF EXISTS `clothingshops`;
+CREATE TABLE IF NOT EXISTS `clothingshops` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `posX` float NOT NULL,
+  `posY` float NOT NULL,
+  `posZ` float NOT NULL,
+  `dim` int UNSIGNED NOT NULL,
+  `blip` smallint NOT NULL,
+  `blipColor` tinyint UNSIGNED NOT NULL,
+  `hatLow` tinyint(1) NOT NULL DEFAULT '0',
+  `hatMed` tinyint(1) NOT NULL DEFAULT '0',
+  `hatHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `maskLow` tinyint(1) NOT NULL DEFAULT '0',
+  `maskMed` tinyint(1) NOT NULL DEFAULT '0',
+  `maskHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `accLow` tinyint(1) NOT NULL DEFAULT '0',
+  `accMed` tinyint(1) NOT NULL DEFAULT '0',
+  `accHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `glassLow` tinyint(1) NOT NULL DEFAULT '0',
+  `glassMed` tinyint(1) NOT NULL DEFAULT '0',
+  `glassHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `topLow` tinyint(1) NOT NULL DEFAULT '0',
+  `topMed` tinyint(1) NOT NULL DEFAULT '0',
+  `topHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `earLow` tinyint(1) NOT NULL DEFAULT '0',
+  `earMed` tinyint(1) NOT NULL DEFAULT '0',
+  `earHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `pantsLow` tinyint(1) NOT NULL DEFAULT '0',
+  `pantsMed` tinyint(1) NOT NULL DEFAULT '0',
+  `pantsHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `braceletLow` tinyint(1) NOT NULL DEFAULT '0',
+  `braceletMed` tinyint(1) NOT NULL DEFAULT '0',
+  `braceletHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `shoesLow` tinyint(1) NOT NULL DEFAULT '0',
+  `shoesMed` tinyint(1) NOT NULL DEFAULT '0',
+  `shoesHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `watchLow` tinyint(1) NOT NULL DEFAULT '0',
+  `watchMed` tinyint(1) NOT NULL DEFAULT '0',
+  `watchHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `bagLow` tinyint(1) NOT NULL DEFAULT '0',
+  `bagMed` tinyint(1) NOT NULL DEFAULT '0',
+  `bagHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `armorLow` tinyint(1) NOT NULL DEFAULT '0',
+  `armorMed` tinyint(1) NOT NULL DEFAULT '0',
+  `armorHigh` tinyint(1) NOT NULL DEFAULT '0',
+  `decalLow` tinyint(1) NOT NULL DEFAULT '0',
+  `decalMed` tinyint(1) NOT NULL DEFAULT '0',
+  `decalHigh` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `clothingshops`
+--
+
+INSERT INTO `clothingshops` (`id`, `name`, `posX`, `posY`, `posZ`, `dim`, `blip`, `blipColor`, `hatLow`, `hatMed`, `hatHigh`, `maskLow`, `maskMed`, `maskHigh`, `accLow`, `accMed`, `accHigh`, `glassLow`, `glassMed`, `glassHigh`, `topLow`, `topMed`, `topHigh`, `earLow`, `earMed`, `earHigh`, `pantsLow`, `pantsMed`, `pantsHigh`, `braceletLow`, `braceletMed`, `braceletHigh`, `shoesLow`, `shoesMed`, `shoesHigh`, `watchLow`, `watchMed`, `watchHigh`, `bagLow`, `bagMed`, `bagHigh`, `armorLow`, `armorMed`, `armorHigh`, `decalLow`, `decalMed`, `decalHigh`) VALUES
+(1, 'Textie City Binco', 425.2, -806.5, 29, 0, 73, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `clothingshop_items`
+--
+
+DROP TABLE IF EXISTS `clothingshop_items`;
+CREATE TABLE IF NOT EXISTS `clothingshop_items` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `gender` tinyint(1) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `component` tinyint UNSIGNED NOT NULL,
+  `category` tinyint UNSIGNED NOT NULL,
+  `itemValue` json NOT NULL,
+  `price` mediumint UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `clothingshop_items`
+--
+
+INSERT INTO `clothingshop_items` (`id`, `gender`, `name`, `component`, `category`, `itemValue`, `price`, `image`) VALUES
+(1, 1, 'Szép ing', 11, 1, '{\"Torso\": 1, \"Texture\": 1, \"Drawable\": 366, \"UndershirtTexture\": 0, \"UndershirtDrawable\": 15}', 500, 'https://i.gyazo.com/f0b097c06de5c58f40d9ce796a7ebf60.png'),
+(2, 1, 'Csúnya ing', 11, 1, '{\"Torso\": 1, \"Texture\": 0, \"Drawable\": 14, \"UndershirtTexture\": 0, \"UndershirtDrawable\": 15}', 200, 'https://i.gyazo.com/b8beabb7927767c687c2658956a1fe44.png');
 
 -- --------------------------------------------------------
 
@@ -282,6 +379,78 @@ CREATE TABLE IF NOT EXISTS `dealership` (
   `addedBy` varchar(30) COLLATE utf8mb4_hungarian_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `grounditems`
+--
+
+DROP TABLE IF EXISTS `grounditems`;
+CREATE TABLE IF NOT EXISTS `grounditems` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `item_DbID` bigint UNSIGNED NOT NULL,
+  `posX` float NOT NULL,
+  `posY` float NOT NULL,
+  `posZ` float NOT NULL,
+  `rotX` float NOT NULL,
+  `rotY` float NOT NULL,
+  `rotZ` float NOT NULL,
+  `dim` int UNSIGNED NOT NULL,
+  `thrownDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `thrownBy` bigint UNSIGNED NOT NULL,
+  `pickupDate` datetime DEFAULT NULL,
+  `pickupBy` bigint UNSIGNED DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `grounditems`
+--
+
+INSERT INTO `grounditems` (`id`, `item_DbID`, `posX`, `posY`, `posZ`, `rotX`, `rotY`, `rotZ`, `dim`, `thrownDate`, `thrownBy`, `pickupDate`, `pickupBy`) VALUES
+(14, 127, 1066.11, -461.822, 64.121, 0, -0, -0, 0, '2023-12-01 09:45:47', 11, '2023-12-01 09:49:07', 7),
+(15, 133, 1066.34, -462.489, 64.0883, 0, -0, -0, 0, '2023-12-01 09:54:58', 11, '2023-12-01 09:55:02', 11),
+(16, 133, 1066.25, -463.84, 64.0144, 0, -0, -0, 0, '2023-12-01 09:57:51', 11, '2023-12-01 09:57:53', 11),
+(17, 133, 1063.92, -471.632, 63.5804, 0, -0, -0, 0, '2023-12-01 09:59:05', 11, '2023-12-01 09:59:07', 11),
+(18, 129, 1073.42, -461.331, 64.0123, 2.29623, -3.5799, 0.0717688, 0, '2023-12-01 14:52:59', 11, '2023-12-01 14:53:01', 11),
+(19, 133, 1066.11, -461.822, 64.1257, 0, -0, -0, 0, '2023-12-01 15:38:15', 11, '2023-12-01 15:38:22', 11),
+(20, 133, 1066.11, -461.899, 64.117, 0, -0, -0, 0, '2023-12-01 15:52:51', 11, '2023-12-01 15:54:52', 11),
+(21, 133, 1069.34, -465.469, 63.9504, 0, -0, -0, 0, '2023-12-01 15:56:05', 11, '2023-12-01 15:56:10', 11),
+(22, 131, 1066.11, -461.822, 63.9477, 0, -0, -0, 0, '2023-12-01 16:54:53', 11, '2023-12-01 17:25:19', 11),
+(23, 131, 1066.2, -460.952, 63.9946, 0, -0, -0, 0, '2023-12-01 17:25:25', 11, '2023-12-01 17:26:59', 11),
+(24, 133, 1065.13, -469.809, 63.6941, 0, -0, -0, 0, '2023-12-01 17:25:39', 11, '2023-12-01 17:25:45', 11),
+(25, 133, 1065.47, -470.653, 63.6272, 3.6825, 2.90699, -0.0934709, 0, '2023-12-01 17:25:49', 11, '2023-12-01 17:25:52', 11),
+(26, 131, 1066.11, -461.822, 63.9477, 0, -0, -0, 0, '2023-12-01 17:37:30', 11, '2023-12-01 17:37:49', 11),
+(27, 133, 1066.24, -461.468, 64.1411, 0, -0, -0, 0, '2023-12-01 17:37:54', 11, '2023-12-01 17:37:57', 11),
+(28, 131, 1066.11, -461.822, 63.9477, 0, -0, -0, 0, '2023-12-01 18:04:44', 11, '2023-12-01 18:04:47', 11),
+(29, 133, 1065.97, -462.796, 64.0674, 0, -0, -0, 0, '2023-12-01 18:04:52', 11, '2023-12-01 18:26:29', 11),
+(30, 133, 1066.11, -461.822, 64.121, 0, -0, -0, 0, '2023-12-01 18:26:36', 11, '2023-12-01 18:32:42', 11),
+(31, 133, 1066.11, -461.822, 64.121, 0, -0, -0, 0, '2023-12-01 18:37:04', 11, '2023-12-01 18:41:02', 11),
+(32, 133, 1066.11, -461.83, 64.1206, 0, -0, -0, 0, '2023-12-01 18:41:07', 11, '2023-12-01 18:41:16', 11),
+(33, 144, -1039.05, -2740.68, 19.3775, 0, -0, -0, 0, '2023-12-01 18:53:22', 11, '2023-12-01 19:16:52', 11),
+(34, 133, -807.808, -2544.05, 12.901, 0, -0, -0, 0, '2023-12-01 19:02:20', 11, '2023-12-01 19:02:54', 20),
+(35, 131, -808.24, -2545.17, 12.7201, 0, -0, -0, 0, '2023-12-01 19:02:54', 11, '2023-12-01 19:03:25', 20),
+(36, 133, -808.978, -2542.11, 12.9749, 0, -0, -0, 0, '2023-12-01 19:03:09', 20, NULL, NULL),
+(37, 132, 1066.66, -462.868, 63.8995, 0, -0, -0, 0, '2023-12-01 19:09:25', 11, '2023-12-01 19:09:28', 11),
+(38, 144, 1065.83, -463.948, 64.0094, 0, -0, -0, 0, '2023-12-02 14:29:56', 11, '2023-12-02 14:30:20', 11),
+(39, 144, 416.017, -816.584, 28.4295, 0, -0, -0, 0, '2023-12-02 14:49:47', 11, '2023-12-02 14:50:03', 11),
+(40, 150, 1020.84, -430.564, 63.9983, 0, -0, -0, 0, '2023-12-02 21:40:26', 11, '2023-12-02 21:40:43', 11),
+(41, 151, 1019.13, -429.697, 0, 0, 0, 0, 0, '2023-12-02 21:41:14', 11, NULL, NULL),
+(42, 113, 1019.67, -428.035, 64.158, 3.20718, -1.87689, 0.0525488, 0, '2023-12-02 21:42:14', 11, '2023-12-02 21:42:20', 11),
+(43, 152, 1019.44, -429.181, 64.0553, 4.30933, -1.03032, 0.0387659, 0, '2023-12-02 21:42:47', 11, '2023-12-02 21:43:02', 11),
+(44, 152, 1020.22, -429.097, 64.0787, 4.30933, -1.03032, 0.0387659, 0, '2023-12-02 21:43:06', 11, '2023-12-02 21:43:14', 11),
+(45, 149, 1066.11, -461.822, 63.9644, 0, -0, -0, 0, '2023-12-02 21:55:05', 11, '2023-12-02 21:57:56', 11),
+(46, 149, 1066.81, -462.501, 63.935, 0, 90, -0, 0, '2023-12-02 21:57:59', 11, '2023-12-02 22:05:10', 11),
+(47, 149, 1066.85, -463.137, 63.8892, -9.67648, -1.23303, 89.8956, 0, '2023-12-02 22:07:19', 11, '2023-12-02 22:07:25', 11),
+(48, 149, 1066.11, -461.822, 63.9644, 90, 90, 0, 0, '2023-12-02 22:10:17', 11, '2023-12-02 22:10:26', 11),
+(49, 149, 1065.95, -463.142, 63.8923, 90, 90, 0, 0, '2023-12-02 22:10:29', 11, '2023-12-02 22:24:31', 11),
+(50, 153, 1066.2, -463.467, 63.9215, 90, 90, 0, 0, '2023-12-02 22:11:43', 11, NULL, NULL),
+(51, 154, 1066.27, -460.833, 63.9716, 90, 90, 0, 0, '2023-12-02 22:25:03', 11, NULL, NULL),
+(52, 155, 1066.83, -460.782, 63.9803, 90, 90, 0, 0, '2023-12-02 22:25:21', 11, '2023-12-02 22:25:25', 11),
+(53, 155, 1066.98, -460.309, 64.0067, 90, 90, 0, 0, '2023-12-02 22:31:06', 11, '2023-12-02 22:31:09', 11),
+(54, 152, 427.208, -800.893, 28.4922, 0, -0, -0, 0, '2023-12-06 19:05:21', 11, '2023-12-06 19:05:25', 11),
+(55, 132, 416.507, -807.595, 28.4088, 0, -0, -0, 0, '2023-12-06 23:24:51', 11, '2023-12-06 23:26:06', 11);
 
 -- --------------------------------------------------------
 
@@ -335,43 +504,134 @@ CREATE TABLE IF NOT EXISTS `itemlist` (
   `itemType` int DEFAULT '0',
   `itemWeight` int UNSIGNED NOT NULL DEFAULT '1',
   `itemImage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `object` varchar(100) COLLATE utf8mb4_hungarian_ci NOT NULL DEFAULT '',
   `stackable` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`itemID`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `itemlist`
 --
 
-INSERT INTO `itemlist` (`itemID`, `itemName`, `itemDescription`, `itemType`, `itemWeight`, `itemImage`, `stackable`) VALUES
-(1, 'Férfi Kalap', '', 1, 500, 'https://cdn-icons-png.flaticon.com/512/6375/6375825.png', 0),
-(2, 'Férfi Maszk', '', 1, 500, 'https://i.gyazo.com/414dd3637f0df2414ecd8f2410dcb747.png', 0),
-(3, 'Férfi Nyaklánc', '', 1, 500, 'https://cdn-icons-png.flaticon.com/512/4831/4831818.png', 0),
-(4, 'Férfi Szemüveg', '', 1, 500, 'https://i.gyazo.com/2cf37f74a6f54d9234ed3f0c8b394149.png', 0),
-(5, 'Férfi Póló', '', 1, 500, 'https://i.gyazo.com/cace457c73e787d20d45e348ce1066a6.png', 0),
-(6, 'Férfi Fülbevaló', '', 1, 500, 'https://i.gyazo.com/46dd1062c9eb0f41ba05144a4dcd52fa.png', 0),
-(7, 'Férfi Nadrág', '', 1, 500, 'https://i.gyazo.com/9158a090afb4d76df0dea4c69b737fa4.png', 0),
-(8, 'Férfi Karkötő', '', 1, 500, 'https://i.gyazo.com/0279b542f0b43441823ea619e4cb7a47.png', 0),
-(9, 'Férfi Cipő', '', 1, 500, 'https://i.gyazo.com/357370e3e34824cb542eac1998d1b2d0.png', 0),
-(10, 'Férfi Óra', '', 1, 500, 'https://i.gyazo.com/214b80dffbd9102877e6cca72a596dd6.png', 0),
-(11, 'Férfi Táska', '', 1, 500, 'https://i.gyazo.com/933f909710f9ea35550f8f3925152e0f.png', 0),
-(12, 'Férfi Páncél', '', 1, 500, 'https://i.gyazo.com/09f5aff199b7a7d255cf304d731695a7.png', 0),
-(13, 'Férfi kitűző', '', 1, 500, '', 0),
-(14, 'Női Kalap', '', 1, 500, '', 0),
-(15, 'Női Maszk', '', 1, 500, 'https://i.gyazo.com/7ed180af1704baa76096c1cb596b26cf.png', 0),
-(16, 'Női Nyaklánc', '', 1, 500, '', 0),
-(17, 'Női Szemüveg', '', 1, 500, '', 0),
-(18, 'Női Póló', '', 1, 500, 'https://i.gyazo.com/f23dad09522ca856fca2930b2bbf4d9b.png', 0),
-(19, 'Női Fülbevaló', '', 1, 500, '', 0),
-(20, 'Női Nadrág', '', 1, 500, 'https://i.gyazo.com/684ae5bf03bc8f46e92ac2346e549b26.png', 0),
-(21, 'Női Karkötő', '', 1, 500, '', 0),
-(22, 'Női Cipő', '', 1, 500, 'https://i.gyazo.com/3bdd0a2490f6f71a6eea7d412c96efcc.png', 0),
-(23, 'Női Óra', '', 1, 500, '', 0),
-(24, 'Női Táska', '', 1, 500, '', 0),
-(25, 'Női Páncél', '', 1, 500, '', 0),
-(26, 'Női Kitűző', '', 1, 500, '', 0),
-(27, 'Kesztyű', '', 1, 500, 'https://i.gyazo.com/8f09c8e445eeaf1cc6cc2525eb94d32d.png', 0),
-(28, 'Glock', '', 3, 1090, 'https://i.gyazo.com/e8dbc113a8fadaccd36c10b7e2378e90.png', 0);
+INSERT INTO `itemlist` (`itemID`, `itemName`, `itemDescription`, `itemType`, `itemWeight`, `itemImage`, `object`, `stackable`) VALUES
+(1, 'Férfi Kalap', '', 1, 500, 'https://i.gyazo.com/cb56c8240d017d069135c9140804df12.png', 'reh_prop_reh_hat_cowboy_01a', 0),
+(2, 'Férfi Maszk', '', 1, 500, 'https://i.gyazo.com/414dd3637f0df2414ecd8f2410dcb747.png', '', 0),
+(3, 'Férfi Nyaklánc', '', 1, 500, 'https://cdn-icons-png.flaticon.com/512/4831/4831818.png', 'sf_prop_sf_necklace_01a', 0),
+(4, 'Férfi Szemüveg', '', 1, 500, 'https://i.gyazo.com/2cf37f74a6f54d9234ed3f0c8b394149.png', 'prop_cs_sol_glasses', 0),
+(5, 'Férfi Póló', '', 1, 500, 'https://i.gyazo.com/f59f65f611d7fecab07341b470e3e541.png', 'prop_ld_tshirt_02', 0),
+(6, 'Férfi Fülbevaló', '', 1, 500, 'https://i.gyazo.com/46dd1062c9eb0f41ba05144a4dcd52fa.png', '', 0),
+(7, 'Férfi Nadrág', '', 1, 500, 'https://i.gyazo.com/9158a090afb4d76df0dea4c69b737fa4.png', 'prop_ld_jeans_01', 0),
+(8, 'Férfi Karkötő', '', 1, 500, 'https://i.gyazo.com/0279b542f0b43441823ea619e4cb7a47.png', 'sf_prop_sf_bracelet_01a', 0),
+(9, 'Férfi Cipő', '', 1, 500, 'https://i.gyazo.com/357370e3e34824cb542eac1998d1b2d0.png', '', 0),
+(10, 'Férfi Óra', '', 1, 500, 'https://i.gyazo.com/214b80dffbd9102877e6cca72a596dd6.png', '', 0),
+(11, 'Férfi Táska', '', 1, 500, 'https://i.gyazo.com/933f909710f9ea35550f8f3925152e0f.png', 'prop_big_bag_01', 0),
+(12, 'Férfi Páncél', '', 1, 500, 'https://i.gyazo.com/09f5aff199b7a7d255cf304d731695a7.png', '', 0),
+(13, 'Férfi kitűző', '', 1, 500, '', '', 0),
+(14, 'Női Kalap', '', 1, 500, 'https://i.gyazo.com/942009a74eb1bd1390c00ecdb82152e4.png', '', 0),
+(15, 'Női Maszk', '', 1, 500, 'https://i.gyazo.com/7ed180af1704baa76096c1cb596b26cf.png', '', 0),
+(16, 'Női Nyaklánc', '', 1, 500, '', '', 0),
+(17, 'Női Szemüveg', '', 1, 500, '', '', 0),
+(18, 'Női Póló', '', 1, 500, 'https://i.gyazo.com/3ef3553dc7ac35bc725db55222871c4f.png', '', 0),
+(19, 'Női Fülbevaló', '', 1, 500, '', '', 0),
+(20, 'Női Nadrág', '', 1, 500, 'https://i.gyazo.com/684ae5bf03bc8f46e92ac2346e549b26.png', 'prop_ld_jeans_02', 0),
+(21, 'Női Karkötő', '', 1, 500, '', '', 0),
+(22, 'Női Cipő', '', 1, 500, 'https://i.gyazo.com/3bdd0a2490f6f71a6eea7d412c96efcc.png', '', 0),
+(23, 'Női Óra', '', 1, 500, '', '', 0),
+(24, 'Női Táska', '', 1, 500, '', '', 0),
+(25, 'Női Páncél', '', 1, 500, '', '', 0),
+(26, 'Női Kitűző', '', 1, 500, '', '', 0),
+(27, 'Kesztyű', '', 1, 500, 'https://i.gyazo.com/99ebc778a2a28151b8cb7e35f50fbfae.png', '', 0),
+(28, 'Járműkulcs', '', 2, 22, '', '', 0),
+(29, 'Ingatlankulcs', '', 2, 22, '', '', 0),
+(30, 'Kapukulcs', '', 2, 22, '', '', 0),
+(31, 'Dagger', '', 3, 1000, '', 'prop_w_me_dagger', 0),
+(32, 'Bat', '', 3, 1000, '', '', 0),
+(33, 'Bottle', '', 3, 1000, '', '', 0),
+(34, 'Crowbar', '', 3, 1000, '', '', 0),
+(35, 'Flashlight', '', 3, 1000, '', '', 0),
+(36, 'Golfcub', '', 3, 1000, '', '', 0),
+(37, 'Hammer', '', 3, 1000, '', '', 0),
+(38, 'Hatchet', '', 3, 1000, '', '', 0),
+(39, 'Knuckle', '', 3, 1000, '', '', 0),
+(40, 'Knife', '', 3, 1000, '', '', 0),
+(41, 'Machete', '', 3, 1000, '', '', 0),
+(42, 'Switchblade', '', 3, 1000, '', '', 0),
+(43, 'Nightstick', '', 3, 1000, '', '', 0),
+(44, 'Wrench', '', 3, 1000, '', '', 0),
+(45, 'Battleaxe', '', 3, 1000, '', '', 0),
+(46, 'Poolcue', '', 3, 1000, '', '', 0),
+(47, 'Stone hatchet', '', 3, 1000, '', '', 0),
+(48, 'Candy cane', '', 3, 1000, '', '', 0),
+(49, 'Pistol', '', 3, 1000, '', '', 0),
+(50, 'Pistol MK2', '', 3, 1000, '', '', 0),
+(51, 'Combatpistol', '', 3, 1000, '', 'w_pi_combatpistol', 0),
+(52, 'Appistol', '', 3, 1000, '', '', 0),
+(53, 'Stungun', '', 3, 1000, '', '', 0),
+(54, 'Pistol50', '', 3, 1000, '', '', 0),
+(55, 'Sns Pistol', '', 3, 1000, '', '', 0),
+(56, 'Sns Pistol MK2', '', 3, 1000, '', '', 0),
+(57, 'Heavy Pistol', '', 3, 1000, '', '', 0),
+(58, 'Vintage Pistol', '', 3, 1000, '', '', 0),
+(59, 'Marksman Pistol', '', 3, 1000, '', '', 0),
+(60, 'Revolver', '', 3, 1000, '', '', 0),
+(61, 'Revolver MK2', '', 3, 1000, '', '', 0),
+(62, 'Doubleaction Revolver', '', 3, 1000, '', '', 0),
+(63, 'Ceramic Pistol', '', 3, 1000, '', '', 0),
+(64, 'Navy Revolver', '', 3, 1000, '', '', 0),
+(65, 'Pistol MX3', '', 3, 1000, '', '', 0),
+(66, 'Flare Gun', '', 3, 1000, '', '', 0),
+(67, 'MicroSMG', '', 3, 1000, '', '', 0),
+(68, 'SMG', '', 3, 1000, '', '', 0),
+(69, 'SMG MK2', '', 3, 1000, '', '', 0),
+(70, 'AssaultSMG', '', 3, 1000, '', '', 0),
+(71, 'CombatPWD', '', 3, 1000, '', '', 0),
+(72, 'MachinePistol', '', 3, 1000, '', '', 0),
+(73, 'MiniSMG', '', 3, 1000, '', '', 0),
+(74, 'Tecpistol', '', 3, 1000, '', '', 0),
+(75, 'Pumpshotgun', '', 3, 1000, '', '', 0),
+(76, 'Pumpshotgun MK2', '', 3, 1000, '', '', 0),
+(77, 'Sawnoff Shotgun', '', 3, 1000, '', '', 0),
+(78, 'Assault Shotgun', '', 3, 1000, '', '', 0),
+(79, 'Bullpup Shotgun', '', 3, 1000, '', '', 0),
+(80, 'Musket', '', 3, 1000, '', '', 0),
+(81, 'Heavy Shotgun', '', 3, 1000, '', '', 0),
+(82, 'DB Shotgun', '', 3, 1000, '', '', 0),
+(83, 'Autoshotgun', '', 3, 1000, '', '', 0),
+(84, 'Combat Shotgun', '', 3, 1000, '', '', 0),
+(85, 'Beanbag', '', 3, 1000, '', '', 0),
+(86, 'Assault Rifle', '', 3, 1000, '', '', 0),
+(87, 'Assaultrifle MK2', '', 3, 1000, '', '', 0),
+(88, 'Carbinerifle', '', 3, 1000, '', '', 0),
+(89, 'Carbinerifle MK2', '', 3, 1000, '', '', 0),
+(90, 'Advancedrifle', '', 3, 1000, '', '', 0),
+(91, 'Specialcarbine', '', 3, 1000, '', '', 0),
+(92, 'Specialcarbine MK2', '', 3, 1000, '', '', 0),
+(93, 'Bullpuprifle', '', 3, 1000, '', '', 0),
+(94, 'Bullpuprifle MK2', '', 3, 1000, '', '', 0),
+(95, 'Compactrifle', '', 3, 1000, '', '', 0),
+(96, 'Militaryrifle', '', 3, 1000, '', '', 0),
+(97, 'Heavyrifle', '', 3, 1000, '', '', 0),
+(98, 'Tacticalrifle', '', 3, 1000, '', '', 0),
+(99, 'MG', '', 3, 1000, '', '', 0),
+(100, 'CombatMG', '', 3, 1000, '', '', 0),
+(101, 'CombatMG MK2', '', 3, 1000, '', '', 0),
+(102, 'Gusenberg', '', 3, 1000, '', '', 0),
+(103, 'Sniperrifle', '', 3, 1000, '', '', 0),
+(104, 'Heavysniper', '', 3, 1000, '', '', 0),
+(105, 'Heavysniper MK2', '', 3, 1000, '', '', 0),
+(106, 'Marksmanrifle', '', 3, 1000, '', '', 0),
+(107, 'Marksmanrifle MK2', '', 3, 1000, '', '', 0),
+(108, 'PrecisionRifle', '', 3, 1000, '', '', 0),
+(109, 'Smoke grenade', '', 3, 500, '', '', 1),
+(110, 'Molotov', '', 3, 500, '', '', 1),
+(111, 'BZ gas', '', 3, 500, '', '', 1),
+(112, 'Poroltó', '', 3, 500, '', '', 0),
+(113, 'Ejtőernyő', '', 3, 500, '', '', 0),
+(114, '.45 ACP', 'lőszer', 4, 15, '', '', 0),
+(115, '9mm', 'lőszer', 4, 10, '', '', 1),
+(116, '5.56 mm', '', 4, 10, '', '', 1),
+(117, '7.62mm', 'lőszer', 4, 10, '', '', 1),
+(118, '12 gauge', 'lőszer', 4, 30, '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -395,33 +655,32 @@ CREATE TABLE IF NOT EXISTS `items` (
   PRIMARY KEY (`DbID`),
   KEY `ItemID` (`itemID`),
   KEY `ItemOwnerVehicle` (`ownerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `items`
 --
 
 INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `itemAmount`, `duty`, `createdBy`, `creationDate`, `priority`, `inUse`) VALUES
-(71, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":305,\"Texture\":8}', 1, 0, '11', '2023-11-22 14:29:13', 4, 0),
-(72, 11, 0, 7, '{\"Drawable\":4,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:29:41', 0, 1),
-(73, 11, 0, 9, '{\"Drawable\":126,\"Texture\":3}', 1, 0, '11', '2023-11-22 14:29:52', 1, 1),
-(74, 11, 0, 11, '{\"Drawable\":82,\"Texture\":5}', 1, 0, '11', '2023-11-22 14:30:15', 3, 1),
-(75, 11, 0, 4, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:30:52', 2, 1),
-(76, 7, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:04:02', 9, 1),
-(77, 8, 2, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":1}', 1, 0, '7', '2023-11-22 16:06:24', 0, 0),
-(78, 7, 0, 20, '{\"Drawable\":6,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:00', 0, 1),
-(79, 7, 0, 22, '{\"Drawable\":0,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:16', 1, 1),
-(80, 7, 0, 24, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '7', '2023-11-23 01:19:34', 10, 0),
+(71, 17, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":305,\"Texture\":8}', 1, 0, '11', '2023-11-22 14:29:13', 2, 1),
+(72, 17, 0, 7, '{\"Drawable\":4,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:29:41', 0, 1),
+(73, 11, 0, 9, '{\"Drawable\":126,\"Texture\":3}', 1, 0, '11', '2023-11-22 14:29:52', 3, 0),
+(75, 17, 0, 4, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:30:52', 3, 1),
+(76, 18, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:04:02', 2, 1),
+(77, 7, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":1}', 1, 0, '7', '2023-11-22 16:06:24', 9, 1),
+(78, 18, 0, 20, '{\"Drawable\":6,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:00', 1, 1),
+(79, 18, 0, 22, '{\"Drawable\":0,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:16', 3, 1),
+(80, 7, 0, 24, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '7', '2023-11-23 01:19:34', 0, 1),
 (81, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:11:34', 1, 0),
-(82, 7, 0, 27, '0', 1, 0, '7', '2023-11-24 03:11:52', 3, 0),
-(83, 7, 0, 27, '1', 1, 0, '7', '2023-11-24 03:11:54', 8, 0),
-(84, 7, 0, 27, '2', 1, 0, '7', '2023-11-24 03:11:56', 5, 1),
-(85, 7, 0, 27, '3', 1, 0, '7', '2023-11-24 03:11:57', 2, 0),
+(82, 7, 0, 27, '0', 1, 0, '7', '2023-11-24 03:11:52', 5, 0),
+(83, 7, 0, 27, '1', 1, 0, '7', '2023-11-24 03:11:54', 6, 0),
+(84, 7, 0, 27, '2', 1, 0, '7', '2023-11-24 03:11:56', 7, 0),
+(85, 18, 0, 27, '3', 1, 0, '7', '2023-11-24 03:11:57', 0, 1),
 (86, 9, 2, 27, '4', 1, 0, '7', '2023-11-24 03:11:58', 0, 0),
-(87, 7, 0, 27, '5', 1, 0, '7', '2023-11-24 03:11:59', 7, 0),
+(87, 7, 0, 27, '5', 1, 0, '7', '2023-11-24 03:11:59', 2, 1),
 (88, 8, 3, 27, '6', 1, 0, '7', '2023-11-24 03:12:00', 2, 0),
-(89, 7, 0, 27, '7', 1, 0, '7', '2023-11-24 03:12:01', 6, 0),
-(90, 7, 0, 27, '8', 1, 0, '7', '2023-11-24 03:12:02', 4, 0),
+(89, 7, 0, 27, '7', 1, 0, '7', '2023-11-24 03:12:01', 4, 0),
+(90, 7, 0, 27, '8', 1, 0, '7', '2023-11-24 03:12:02', 3, 0),
 (91, 8, 3, 27, '9', 1, 0, '7', '2023-11-24 03:12:04', 3, 0),
 (92, 8, 3, 27, '10', 1, 0, '7', '2023-11-24 03:12:05', 4, 0),
 (94, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:15', 17, 0),
@@ -439,7 +698,42 @@ INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `ite
 (106, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:23', 15, 0),
 (107, 9, 2, 28, '-', 1, 0, '7', '2023-11-24 03:13:30', 1, 0),
 (108, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:30', 10, 0),
-(111, 11, 0, 27, '5', 1, 0, '11', '2023-11-24 06:21:06', 5, 0);
+(111, 17, 0, 27, '5', 1, 0, '11', '2023-11-24 06:21:06', 1, 1),
+(113, 11, 0, 7, '{\"Drawable\":1,\"Texture\":0}', 1, 0, '11', '2023-11-28 17:47:44', 4, 0),
+(117, 20, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":0}', 1, 0, '11', '2023-11-30 19:29:03', 1, 1),
+(118, 10, 2, 42, '-', 1, 0, '11', '2023-11-30 19:52:10', 5, 0),
+(119, 10, 2, 49, '-', 1, 0, '11', '2023-11-30 19:53:05', 6, 0),
+(128, 10, 2, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:03', 4, 0),
+(129, 133, 1, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:17', 1, 0),
+(130, 133, 1, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:22', 2, 0),
+(131, 20, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:23', 4, 0),
+(132, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:23', 7, 1),
+(133, 0, 6, 11, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:34', 3, 0),
+(134, 8, 2, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":15,\"Drawable\":-4,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:14:29', 3, 0),
+(135, 8, 2, 20, '{\"Drawable\":-4,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:12', 1, 0),
+(136, 8, 2, 20, '{\"Drawable\":-5,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:19', 0, 0),
+(137, 7, 0, 20, '{\"Drawable\":-6,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:28', 8, 1),
+(138, 133, 1, 27, '5', 1, 0, '11', '2023-12-01 15:55:28', 3, 0),
+(139, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:31', 0, 0),
+(140, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:31', 1, 0),
+(141, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:31', 2, 0),
+(142, 20, 0, 27, '5', 1, 0, '11', '2023-12-01 15:55:32', 2, 1),
+(143, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:32', 3, 0),
+(144, 11, 0, 11, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '11', '2023-12-01 17:52:41', 2, 0),
+(145, 20, 0, 18, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '20', '2023-12-01 18:52:43', 0, 0),
+(146, 20, 0, 24, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '20', '2023-12-01 18:53:01', 3, 0),
+(147, 144, 1, 27, '6', 1, 0, '11', '2023-12-02 14:29:08', 0, 0),
+(148, 11, 0, 28, '-', 1, 0, '11', '2023-12-02 21:31:50', 1, 0),
+(149, 144, 1, 31, '-', 1, 0, '11', '2023-12-02 21:32:04', 1, 0),
+(150, 11, 0, 3, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-12-02 21:40:04', 5, 0),
+(151, 0, 6, 4, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-12-02 21:41:09', 8, 0),
+(152, 11, 0, 8, '{\"Drawable\":1,\"Texture\":0}', 1, 0, '11', '2023-12-02 21:42:42', 6, 0),
+(153, 0, 6, 51, '-', 1, 0, '11', '2023-12-02 22:11:04', 8, 0),
+(154, 0, 6, 51, '-', 1, 0, '11', '2023-12-02 22:24:59', 1000, 0),
+(155, 11, 0, 31, '-', 1, 0, '11', '2023-12-02 22:25:18', 0, 0),
+(156, 7, 0, 22, '{\"Drawable\":0,\"Texture\":0}', 1, 0, '7', '2023-12-04 16:56:51', 1, 1),
+(157, 7, 0, 14, '{\"Drawable\":54,\"Texture\":0}', 1, 0, '7', '2023-12-04 18:38:22', 10, 1),
+(158, 8, 2, 31, '-', 1, 0, '7', '2023-12-04 19:24:43', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -483,7 +777,7 @@ CREATE TABLE IF NOT EXISTS `tokens` (
   `expiration` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `TokenAccID` (`accountId`)
-) ENGINE=InnoDB AUTO_INCREMENT=874 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1132 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `tokens`
@@ -502,7 +796,6 @@ INSERT INTO `tokens` (`id`, `accountId`, `token`, `expiration`) VALUES
 (149, 1, 'mZSubDSoCrNGWmLn1icxqtCR9PVzVqDGqLG5Q814IF+NxODZRQtoROHCFtqSS78cMYcj29KQLVDOiLbpbKko+w==', '2023-09-18 20:21:17'),
 (173, 1, 'RtGeP3zvf4oeOKXIdQEncYsq5LXmKGNRzu0eoHINzquCDGGpsdkRCHl3Bzj+q6ujXh44XOt8BSFM85JvB2iXXA==', '2023-09-19 14:41:04'),
 (233, 2, '5OFzwxR6hbIezBWLZHfvKvmKw/B6AVolbr9vQddw6ywMIihb7kzh1ljlOASyUTgWiiT75gTQeuiQ0CMlB89l8A==', '2023-09-20 22:41:30'),
-(235, 3, 'pDFs/sDCwGfa+/asE91WGKZfOaC5dAFTzVPzH1kvmeJqNMNCCpc5XpMgtueM/cB5bw6bh3yb3vAHmwOCqk5lsA==', '2023-10-04 13:08:58'),
 (360, 1, 'kiDM0eT5StBdwpEGSwqMCFA3poVRa2Bw8sS0BEAKYpUI0mIgVNp0zJi1t1/ZuSwxRXf+UdF3tI15sA0Bvk8RSA==', '2023-10-10 20:32:30'),
 (389, 1, 'iC9wU8rC+45L0VNDNjmn3y4ZjJ3y65IJhYJ/vedETdxHWAFMCRMjV7evEe6P3U+DQ5Yy/iEtB05tLU+m4Oa1QA==', '2023-10-21 20:07:37'),
 (398, 1, 'WHnc8dSC6+rigoR9pfE+Z2a8XF5vDAl38QP0d2GhKpZbQMxddIJWyQOUXsvLofKgjGFaxKTSFQWRjPNAm3imbg==', '2023-10-31 18:03:28'),
@@ -533,7 +826,18 @@ INSERT INTO `tokens` (`id`, `accountId`, `token`, `expiration`) VALUES
 (852, 1, 'h9lHFPacsdVQOC4iAmqxldf3dotkpNeutjETiEOJUXoOOqLWsqx9u8TglBPGXDSiSb1RipqqV9bk7d9oKVlvjA==', '2023-12-07 04:23:44'),
 (853, 1, 'oIMF7h5Yg/nLrpcsY+tAzQDnYWb2zjZn57dKUOUTtKMjoddNQ8KE8a8KK53v79gCrYZORpzq66JVVXX25P4R8g==', '2023-12-07 04:35:47'),
 (865, 1, 'om/GzOF5EA3y/NVac2TzzXp2RSiNySYP0QX4ol72FcpAh03AT+hVsKoc/TZpvKuuy6hAX1tl16xCmIK6mlbH+w==', '2023-12-08 04:07:16'),
-(873, 1, 'Y2ic6tWaJMmcqvbt10K8XyMSY2xLx01ZkxSRvTinhqZV+0LjG2nnkENSX8iSu4hfMoiDM66fPUyGypk1gBGD6g==', '2023-12-08 06:34:25');
+(888, 2, 'kL8mzjxsnglTbQwdlyJjkByYpxq1fUHvEXLf7KHrAp7bXQTYj7vc+ktcXNVmlLalM9Too5gW/0gqkIHXIxpVeg==', '2023-12-12 11:29:32'),
+(889, 7, '13lcScDvg6dbSowgSIP25mNQ9HEE0gnw+lCaWguGuHcn7I9Fh8M8OYc41F3rRIdgAYgNq/PcOzDl9qKEZVlCKg==', '2023-12-12 11:29:38'),
+(895, 1, 'MVpc5gpyiWUWLNR3ZVee3hugJZgWy8LPnTQ2lpKYSWPFbd000wdfCRgsInSaHpOHQBD4LzxrI49lUR0uQNK1kQ==', '2023-12-12 17:17:06'),
+(913, 1, '1gAnsZ844sUheqNDC4xIEnphUHkyDhxRmQV0NC8iQqJTMOCJWKC9nc5nYMiMoNKxx24xpDKr4QWhgPfmssbYQw==', '2023-12-14 17:29:08'),
+(925, 1, 'GRbJMfEqO/DSM53a7w4LnQulfkjap+0k6nQ29fGRa0g+vHwG6VaD7eLDP73uwbeOB2dDZpagX5XZW6jE+f7kfA==', '2023-12-14 20:16:58'),
+(945, 1, 'xRZ9hYfQ5RUEy1GsmO6KgdEUvBeAxylNSPYucFVTZpvnoSHZIKiB9pDJRj6pAl4orzHupMslGkmAwNCxp2dJ/w==', '2023-12-15 00:14:58'),
+(1001, 9, 'X1SzbYbIJ9cL9ihJkprtwWRj08MMmhA3Aa/MksRanE/RnMuu/82uupd5fhKZtP8Vab8cyKoiJOxpqWaMv1NmnQ==', '2023-12-15 19:14:36'),
+(1007, 1, '9AeHeMLXeUFXcFpI5MBdHvmDXKOYANAmS+jINpTWvxvwNlkizyUzfmg9fHLepf/tn6aKsr7v9FR9xOuvhmKd1Q==', '2023-12-16 18:42:36'),
+(1053, 1, 'Qoq2LEncnRBehXFNHXWdFMUSBaOqtGb6yld+eDP0HWLHmtWnH2RPmGkhyMXOVRuwnPxTX1gyjKJxhzXbNrxGtw==', '2023-12-17 14:40:37'),
+(1055, 1, 'RxQvW0R+2urZwG22ugMZ28C+qJ0pG8QGgMvgpDEcZxKqwCBVah8ev4LtSKP+0ZP6/+aZmxTUZJGU1Cnw/+6Q9g==', '2023-12-17 21:04:56'),
+(1070, 1, 'ZoeFV79v1H77bq0lejzFwKQ9asont/Mv/ZfwTF0yOgw4FiU5BcGoZrtK38LNSihOGhkfZsDcwgB/UXAUFiYVrQ==', '2023-12-18 18:37:35'),
+(1131, 1, 'zaDBdbvvsZy9kpuwuZTdnA4Zmg/rGC1TbedkAiba+QmVnZk2+ekxcUWDGBCRGio0NlrzHzZZb/uglyuI9m01Tg==', '2023-12-22 03:31:10');
 
 -- --------------------------------------------------------
 
@@ -568,7 +872,7 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `createdBy` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_hungarian_ci NOT NULL,
   `creationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `vehicles`
@@ -584,7 +888,8 @@ INSERT INTO `vehicles` (`id`, `ownerType`, `ownerID`, `model`, `posX`, `posY`, `
 (7, 0, 16, 'turismo2', 760.956, -38.9251, 59.9388, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, '', 0, 0, 'Audrey Hartley', '2023-11-20 18:39:31'),
 (8, 0, 7, 'calico', -79.4252, -1094.1, 26.4011, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 'CELICA', 0, 0, 'Chy Nem', '2023-11-21 01:33:37'),
 (9, 0, 7, 'drafter', -74.9683, -1089.65, 26.5698, 0, 0, 0, 255, 255, 255, 0, 0, 0, 37, 0, 0, 'AA-AA-12', 0, 0, 'Chy Women', '2023-11-24 03:44:57'),
-(10, 0, 11, 'sentineldm', -1394.83, 5089.35, 61.0998, 0, 0, 0, 235, 64, 52, 235, 64, 52, 42, 0, 0, 'rendszam', 0, 0, 'Chy Black', '2023-11-24 05:47:08');
+(10, 0, 11, 'sentineldm', -1394.83, 5089.35, 61.0998, 0, 0, 0, 235, 64, 52, 235, 64, 52, 42, 0, 0, 'rendszam', 0, 0, 'Chy Black', '2023-11-24 05:47:08'),
+(11, 0, 18, 'raiden', -78.846, -1084.96, 26.7035, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 'asdsda', 0, 0, 'Herceghalmi Odett Zoltán', '2023-11-28 18:10:16');
 
 --
 -- Megkötések a kiírt táblákhoz

@@ -1,0 +1,74 @@
+#mainBox{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 20px;
+    height: 50vh;
+    width: 50vw;
+    border-color: rgb(83, 83, 83);
+}
+#container{    
+    left: 0;
+    top: 5%;    
+    position: absolute;
+    width: 30px;
+    min-height: 90%;    
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#endContainer{
+    right: 0;
+    top: 5%;
+    position: absolute;
+    width: 30px;
+    min-height: 90%;    
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#blueWire{
+    position: absolute;
+    left: 9px;
+    top: 10%
+}
+#wireforBlue{
+    position: absolute;
+    left: 65px;
+    top: 9.4%
+}
+/*#s1{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: aqua;
+}
+#s2{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: #f06c00;
+}*/
+#e1{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+}
+#svg{
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#blueWire{
+    height: 35px;
+}

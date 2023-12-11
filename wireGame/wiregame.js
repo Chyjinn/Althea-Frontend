@@ -49,6 +49,10 @@ let rnd = getRandomNumber(5, 10);
 let rndColors = getRandomColors(rnd);
 let container = document.querySelector('#container');
 let endContainer = document.querySelector('#endContainer');
+
+let containerBack = document.querySelector('#containerBack');
+let endContainerBack = document.querySelector('#endContainerBack');
+
 let startNumbers = getStartNumbers(rnd);
 let endNumbers = getEndNumbers(startNumbers);
 let endColors = getEndColors(rndColors);
@@ -83,6 +87,40 @@ for (let j = 0; j < rnd; j++){
     //console.log("ePoint: "+ePoint.number);
     endContainer.appendChild(ePoint);    
 }
+
+for (let i = 0; i < rnd; i++) {        
+    let sPoint = document.createElement("div");    
+    sPoint.setAttribute("id", "s" + startNumbers[i]);
+    sPoint.style.position = "relative";
+    sPoint.style.width = "20px";
+    sPoint.style.height = "20px";    
+    sPoint.style.backgroundColor = rndColors[i];
+    sPoint.classList.add("startPointsBack");
+    sPoint.number = startNumbers[i];
+    //console.log("sPoint: " + sPoint.number);
+    containerBack.appendChild(sPoint);
+    sPoint.addEventListener('mousedown', onMouseDown);
+}
+for (let j = 0; j < rnd; j++){
+    let ePoint = document.createElement("div");
+    ePoint.setAttribute("id", "s" + endNumbers[j]);
+    ePoint.style.position = "relative";
+    ePoint.style.width = "20px";
+    ePoint.style.height = "20px";    
+    ePoint.classList.add("endPointsBack");
+    let startPoints = document.getElementsByClassName('startPoints');
+    for (let k = 0;  k < startPoints.length; k++) {
+        if(startPoints[k].number == endNumbers[j]){
+            ePoint.style.backgroundColor = startPoints[k].style.backgroundColor;
+        }        
+    }
+    ePoint.number = endNumbers[j];
+    //console.log("ePoint: "+ePoint.number);
+    endContainerBack.appendChild(ePoint);    
+}
+
+
+
 
 let startPoint = null;    
 let startPosX = null;

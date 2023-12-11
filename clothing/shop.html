@@ -9,30 +9,40 @@
 	  <script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="content">
-	<div class="categorychooser">
-		<div class="window">
-			<div class="shopname">Textile City Binco</div>
+	<div class="window">
+		<div class="shopname">Textile City Binco</div>
 
-			<div class="categories">
-				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-				<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
-			</div>
-
-			<div class="clothes">
-				<div id="clothingid lesz" class="clothing"><img src="css/placeholder.png" alt=""><div class="name">Name</div><div class="price">$ 50</div></div>
-			</div>
+		<div class="categories">
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
+			<div id="shirt" class="category"><i class="icon fa-solid fa-shirt"></i></div>
 		</div>
 
-</div>
+		<div class="clothes">
+			
+			<div id="clothingid lesz" class="clothing"><img src="css/placeholder.png" alt=""><div class="name">Name</div><div class="price">$ 50</div></div>
+		</div>
+	</div>
+	<div class="baskettitle">KOSÁR</div>
+	<div class="basket">
+		
+		<div class="item">
+			<div class="image"></div>
+			<div class="name"></div>
+			<div class="price"></div>
+		</div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</div>
 
 
   
 </body>
 <script>
+	var basket = {};
+
 	var categoriesButtons = document.querySelectorAll('.category');
 	var categories = document.querySelector('.categories');
 	var shopname = document.querySelector('.shopname');
@@ -42,6 +52,7 @@
 	var clothes = null; //összes ruha listája
 
 	var lastSelectedClothing = null;
+
 	var basket = null;
 	categoriesButtons.forEach((element) => element.addEventListener('click',selectCategory));
 

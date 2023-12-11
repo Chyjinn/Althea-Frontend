@@ -1,3 +1,5 @@
+
+
 function getRandomNumber(min, max){
     let rnd = Math.floor(Math.random() * (max-min + 1)) + min;    
     return rnd;
@@ -45,6 +47,8 @@ function getEndColors(rndColors){
     }
     return endColors;
 }
+
+var connectedWires = 0;
 let rnd = getRandomNumber(5, 10);
 let rndColors = getRandomColors(rnd);
 let container = document.querySelector('#container');
@@ -195,7 +199,6 @@ function correctMatch(){
         let svg = document.querySelector('#svg');            
         let newLine = document.createElementNS('http://www.w3.org/2000/svg','line');                
         newLine.style.stroke = startPoint.style.backgroundColor;
-        newLine.style.strokeWidth = "18";
         newLine.setAttribute("x1", startPosX);
         newLine.setAttribute("y1", startPosY);
         newLine.classList.add("newLines");
@@ -204,8 +207,15 @@ function correctMatch(){
         newLine.setAttribute("x2", endPosX);
         newLine.setAttribute("y2", endPosY);
         startPoint.matched = true;
-        svg.appendChild(newLine);        
+        svg.appendChild(newLine);
+        svg.removeChild(line);
+        svg.appendChild(line);     
         console.log("Sikeres match!");
+        connectedWires += 1;
+        if(connectedWires >= rnd)
+        {
+            console.log('Teljesítetted a minigamet!');
+        }
     }
 }
 function resetDefaultLine(){
@@ -233,7 +243,6 @@ function onResize(){
             let svg = document.querySelector('#svg');            
             let newLine = document.createElementNS('http://www.w3.org/2000/svg','line');                
             newLine.style.stroke = allStartPoints[j].style.backgroundColor;
-            newLine.style.strokeWidth = "18";
             newStartPosX = allStartPoints[j].getBoundingClientRect().left + allStartPoints[j].clientWidth / 2;
             newStartPosY = allStartPoints[j].getBoundingClientRect().top + allStartPoints[j].clientHeight / 2;
             for (let k = 0; k < allEndPoints.length; k++) {

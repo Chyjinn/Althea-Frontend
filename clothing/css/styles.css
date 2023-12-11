@@ -21,7 +21,36 @@ body{
     width: 50vh;
     height: 100vh;
     background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+}
 
+.basket{
+  position: absolute;
+  right: 0vh;
+  top: 5vh;
+  width: 25vh;
+  min-height: 5vh;
+  max-height: 100vh;
+  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: auto;
+}
+.baskettitle{
+  position: absolute;
+  right: 0%;
+  width: 25vh;
+  height: 3vh;
+  top: 0.5vh;
+  text-align: center;
+  font-size: 4vh;
+  color: white;
+}
+
+.basket .item{
+  width: 25vh;
+  height: 5vh;
+  background-color: red;
 }
 
 .shopname

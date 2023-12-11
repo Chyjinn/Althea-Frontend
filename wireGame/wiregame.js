@@ -154,6 +154,7 @@ function onMouseDown(event){
       else if(startPoint.number != endPoint.number){
         resetDefaultLine();
         console.log("Nem egyezik meg a kezdő és a végpont! Balfasz.");
+        mp.trigger('client:FailMinigame');
       }
       if(endPoint != null){           
         if(startPoint.number == endPoint.number){                                   
@@ -214,7 +215,7 @@ function correctMatch(){
         connectedWires += 1;
         if(connectedWires >= rnd)
         {
-            console.log('Teljesítetted a minigamet!');
+            mp.trigger('client:CompleteMinigame');
         }
     }
 }

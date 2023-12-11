@@ -13,6 +13,54 @@ body{
   overflow: hidden;
 }
 
+.gender{
+  position: absolute;
+  width: 18.1vh;
+  height: 15vh;
+  left: 50%;
+  top: 4vh;
+  transform: translate(-50%, 0);
+  background-color: rgba(0,0,0,0);
+  font-size: 6vh;
+}
+
+.gender .male{
+  position: absolute;
+  right: 1vh;
+  top: 1vh;
+  width: 7vh;
+  height: 7vh;
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(63,63,63,1));
+  color: white;
+  font-weight: bold;
+  border-radius: 1vh;
+  text-align: center;
+  padding: 0.5vh;
+  border-top-left-radius: 0vh;
+  border-bottom-left-radius: 0vh;
+}
+
+.gender .female{
+  position: absolute;
+  left: 1vh;
+  top: 1vh;
+  width: 7vh;
+  height: 7vh;
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(63,63,63,1));
+  color: white;
+  font-weight: bold;
+  border-radius: 1vh;
+  text-align: center;
+  padding: 0.5vh;
+  border-top-right-radius: 0vh;
+  border-bottom-right-radius: 0vh;
+}
+
+.gender .male:hover,
+.gender .female:hover{
+  transition-duration: 200ms;
+  outline: solid 1px white;
+}
 
 .window{
     position: absolute;
@@ -20,22 +68,50 @@ body{
     top: 0vh;
     width: 50vh;
     height: 100vh;
-    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(63,63,63,1));
+    outline: solid 1px black;
 }
 
-.basket{
+.money{
   position: absolute;
-  right: 0vh;
-  top: 5vh;
-  width: 25vh;
-  min-height: 5vh;
-  max-height: 100vh;
-  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  overflow: auto;
+  left: 50%;
+  bottom: 0.5vh;
+  width: 45vh;
+  height: 8vh;
+  background-color: rgba(0,0,0,0);
+  transform: translate(-50%, 0);
+  font-size: 3vh;
+  font-weight: bold;
+  color: white;
 }
+
+.money .cash{
+  position: absolute;
+  left: 1vh;
+  bottom: 1vh;
+  width: 15vh;
+  height: 3vh;
+  text-align: left;
+}
+.money .card{
+  position: absolute;
+  left: 15vh;
+  bottom: 1vh;
+  width: 15vh;
+  height: 3vh;
+  text-align: center;
+}
+.money .amount{
+  position: absolute;
+  right: 1vh;
+  bottom: 1vh;
+  width: 15vh;
+  height: 3vh;
+  text-align: right;
+}
+
+
+
 .baskettitle{
   position: absolute;
   right: 0%;
@@ -57,23 +133,25 @@ body{
 {
     color: white;
     position: absolute;
-    left: 5vh;
-    top: 2vh;
-    width: 20vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 1vh;
+    width: 45vh;
     height: 5vh;
     text-align: center;
     justify-content: center;
-    font-size: 2vh;
+    font-size: 3vh;
     text-shadow: 2px 2px 3px black;
 }
 
 .categories{
     position: absolute;
-    left: 5vh;
-    top: 5vh;
-    width: 10vh;
-    min-height: 8vh;
-    max-height: 90vh;
+    left: 50%;
+    transform: translate(-50%,0%);
+    top: 13vh;
+    width: 46vh;
+    min-height: 10vh;
+    max-height: 11vh;
     background-color: rgba(0,0,0,0);
     display: flex;
     flex-direction: row;
@@ -84,11 +162,12 @@ body{
 
 .clothes{
   position: absolute;
-  left: 16vh;
-  top: 5vh;
+  left: 50%;
+  transform: translate(-50%,0%);
+  top: 24vh;
   width: 45vh;
   min-height: 30vh;
-  max-height: 90vh;
+  max-height: 65vh;
   background-color: rgba(0,0,0,0);
 
   display: flex;
@@ -159,16 +238,24 @@ pointer-events: none;
   }
 
 .category{
-    width: 7vh;
-    height: 7vh;
-    outline: solid 3px white;
+    width: 9vh;
+    height: 9vh;
+    outline: solid 1px white;
     margin: 1vh;
     border-radius: 1vh;
     color: white;
     font-size: 5vh;
-    overflow: auto;
+    overflow: hidden;
     text-align: center;
     position: relative;
+}
+
+.category .name{
+  position: absolute;
+  left: 50%;
+  top: 0.25vh;
+  transform: translate(-50%,0);
+  font-size: 2vh;
 }
 
 .category:hover{

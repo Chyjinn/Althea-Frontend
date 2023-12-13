@@ -256,7 +256,7 @@ body{
   width: 30vh;
   height: 8vh;
 
-  display: block;
+  display: none;
   pointer-events: none;
 }
 

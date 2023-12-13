@@ -1,0 +1,238 @@
+@font-face {
+	font-family: "Roboto";
+	src: local('Roboto'), 
+	url('fonts/Roboto.ttf') format('truetype');
+}
+
+
+body{
+    background-color: rgba(0,0,0,0);
+    text-shadow: 1px 1px 3px black;
+    font-family: 'Roboto';
+    overflow: hidden;
+}
+
+#svg, .controls {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+}
+
+.invisible {
+    visibility: hidden;
+  }
+  
+
+#LineX
+{
+    stroke: #CB0202;
+}
+
+#LineY
+{
+    stroke: #62C536;
+}
+
+#LineZ
+{
+    stroke: #12D7FA;
+}
+
+.line{
+    stroke: black;
+    stroke-width: 3;
+    opacity: 80%;
+    filter: drop-shadow(2px 2px 5px black);
+}
+
+.control{
+    position: absolute;
+    width: 2.5vh;
+    height: 2.5vh;
+    transform: translate(-50%, -50%);
+    opacity: 80%;
+    background-image: url("icons/move.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: drop-shadow(1px 1px 2px black);
+    border-radius: 1vh;
+}
+
+.control:hover{
+    transition-duration: 200ms;
+    opacity: 100%;
+    filter: drop-shadow(1px 1px 5px black);
+}
+
+.control img{
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    color: white;
+    pointer-events: none;
+    user-select: none;
+}
+
+#posX{
+    background-color: #CB0202;
+}
+
+#posY{
+    background-color: #62C536;
+}
+
+#posZ{
+    background-color: #12D7FA;
+}
+
+
+.fine{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    width: 35vh;
+    height: 20vh;
+    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(63,63,63,1));
+    border-radius: 2vh;
+    color: white;
+    font-weight: bold;
+}
+
+.fine .move{
+    position: absolute;
+    left: 1vh;
+    top: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+    background-image: url("icons/move.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 1vh;
+    background-color: #ff8c61;
+}
+
+.fine .rotate{
+    position: absolute;
+    left: 7vh;
+    top: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+    background-image: url("icons/rotate.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 1vh;
+
+}
+
+.fine .ground{
+    position: absolute;
+    left: 13vh;
+    top: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+    background-image: url("icons/ground.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 1vh;
+}
+
+.fine .save{
+    position: absolute;
+    left: 19vh;
+    top: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+    background-image: url("icons/save.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 1vh;
+}
+
+.fine .move:hover,
+.fine .rotate:hover,
+.fine .ground:hover,
+.fine .save:hover{
+    transition-duration: 200ms;
+    transform: scale(1.1);
+}
+
+.fine .inputPosX{
+    position: absolute;
+    left: 2vh;
+    top: 7vh;
+    width: 14vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+.fine .inputPosY{
+    position: absolute;
+    left: 2vh;
+    top: 11vh;
+    width: 14vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+
+.fine .inputPosZ{
+    position: absolute;
+    left: 2vh;
+    top: 15vh;
+    width: 14vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+.fine .inputRotX{
+    position: absolute;
+    left: 18vh;
+    top: 7vh;
+    width: 16vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+.fine .inputRotY{
+    position: absolute;
+    left: 18vh;
+    top: 11vh;
+    width: 16vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+
+.fine .inputRotZ{
+    position: absolute;
+    left: 18vh;
+    top: 15vh;
+    width: 16vh;
+    height: 3.5vh;
+    font-size: 3vh;
+}
+
+label{
+    float: left;
+}
+
+
+input{
+    font-size: 2vh;
+    float: right;
+    width: 10vh;
+    height: 3vh;
+    overflow: clip;
+    border-radius: 1vh;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+

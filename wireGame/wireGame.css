@@ -159,10 +159,12 @@ body{
     filter: drop-shadow(0px 10px 5px black);
     stroke-linecap: round;
     stroke-width: 18;
+    marker-end: url('https://www.s3i.co.uk/image/s3i/end-stop-for-wire-rope.jpg');
 }
 
 .newLines{
     filter: drop-shadow(0px 10px 5px black);
     stroke-linecap: round;
     stroke-width: 18;
+    marker-end: url('https://www.s3i.co.uk/image/s3i/end-stop-for-wire-rope.jpg');
 }

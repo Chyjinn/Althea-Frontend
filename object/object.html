@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="object.css">
+  <script src="https://kit.fontawesome.com/2e18c099ce.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+  <svg id="svg">
+    <line x1="500" y1="500" x2="250" y2="500" id="LineX" class="line"/>
+    <line x1="500" y1="500" x2="250" y2="750" id="LineY" class="line" />
+    <line x1="500" y1="500" x2="500" y2="750" id="LineZ" class="line" />
+  </svg>
+
+  <div class="controls">
+    <div class="control" id="posX"></div>
+    <div class="control" id="posY"></div>
+    <div class="control" id="posZ"></div>
+  </div>
+
+  <div class="fine">
+    <div class="move" id="move"></div>
+    <div class="rotate" id="rotate"></div>
+    <div class="ground" id="ground"></div>
+    <div class="save" id="save"></div>
+
+
+
+    <div class="inputPosX"><label for="posx">X: </label> <input type="text" name="posx" id="px"></div>
+    <div class="inputPosY"><label for="posy">Y: </label> <input type="text" name="posy" id="py"></div>
+    <div class="inputPosZ"><label for="posz">Z: </label> <input type="text" name="posz" id="pz"></div>
+
+    <div class="inputRotX"><label for="rotx">RX: </label> <input type="text" name="rotx" id="rx"></div>
+    <div class="inputRotY"><label for="roty">RY: </label> <input type="text" name="roty" id="ry"></div>
+    <div class="inputRotZ"><label for="rotz">RZ: </label> <input type="text" name="rotz" id="rz"></div>
+  </div>
+  
+</body>
+<script src="object.js"></script>
+</html>

@@ -54,11 +54,20 @@ body{
     height: 2.5vh;
     transform: translate(-50%, -50%);
     opacity: 80%;
-    background-image: url("icons/move.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    
     filter: drop-shadow(1px 1px 2px black);
     border-radius: 1vh;
+}
+
+.moveicon{
+    background-image: url("icons/move.png");
+    background-size: 100%;
+}
+
+.rotateicon{
+    background-image: url("icons/rotate.png");
+    background-size: 100%;
 }
 
 .control:hover{
@@ -154,10 +163,30 @@ body{
     border-radius: 1vh;
 }
 
+.fine .close{
+    position: absolute;
+    left: 25vh;
+    top: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+    background-image: url("icons/close.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 1vh;
+}
+
+.fine .speed{
+    position: absolute;
+    left: 5vh;
+    top: 4.5vh;
+    width: 25vh;
+}
+
 .fine .move:hover,
 .fine .rotate:hover,
 .fine .ground:hover,
-.fine .save:hover{
+.fine .save:hover,
+.fine .close:hover{
     transition-duration: 200ms;
     transform: scale(1.1);
 }

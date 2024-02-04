@@ -11,29 +11,135 @@
   </div>
     </body>
 	<script>
+    let oldnametable = [];
+    let newnametable = [];
+    //karakter ID-ket tárol
+
     let names = document.querySelectorAll('.content');
 
-   function renderNametag(charid, name, posX, posY, scale)
+    function startRender()
+    {
+        newnametable = [];
+        //összeállítjuk az új neveket, összehasonlítjuk a régiekkel. ha van új akkor hozzáadunk újat, ha van ami már nincs rajta akkor töröljük
+    }
+
+    function endRender()
+    {
+        oldnametable.forEach(checkRender);
+        oldnametable = newnametable;
+    }
+
+    function addNameTag(charid, name, posX, posY, scale)
    {
-      let newName =  document.createElement('div');
-      newName.className = 'nametag';
-      newName.id = charid;
-      newName.innerHTML = '<div class="name">'+name+'</div>';
-      newName.style.left = posX + 'px';
-      newName.style.top = posY + 'px';
-      newName.style.fontSize = scale*3 + 'vh';
-      names = document.querySelector('.content');
-      names.appendChild(newName);
+        if(oldnametable.includes(charid))//az előző képkockán is szerepelt a név, így csak módosítjuk a pozícióját és méretezését -> ha nem váltoott az adminduty
+        {
+            newnametable.push(charid);
+            let newName = document.getElementById(charid);
+            newName.classList.remove('admin1');
+            let newImage = document.getElementById(charid+'-image');
+            newImage.remove();
+            newName.style.left = posX + 'px';
+            newName.style.top = posY + 'px';
+            newName.style.fontSize = scale*3 + 'vh';
+            names = document.querySelector('.content');
+        }
+        else//teljesen új név, újat kell hozzáadnunk a nevekhez
+        {
+            newnametable.push(charid);
+            let newName = document.createElement('div');
+            newName.className = 'nametag';
+            newName.id = charid;
+            newName.innerHTML = '<div class="name">'+name+' ('+charid+')</div>';
+            newName.style.left = posX + 'px';
+            newName.style.top = posY + 'px';
+            newName.style.fontSize = scale*3 + 'vh';
+            names = document.querySelector('.content');
+
+            names.appendChild(newName);
+        }
    }
 
-   function clearNametags()
+   function addAdminNameTag(charid, name, posX, posY, scale, adminduty, adminnick, adminlevel)
    {
-    names = document.querySelectorAll('.nametag');
-    names.forEach(remove_every_item);
+        if(oldnametable.includes(charid))//az előző képkockán is szerepelt a név, így csak módosítjuk a pozícióját és méretezését -> ha nem váltoott az adminduty
+        {
+            newnametable.push(charid);
 
-    function remove_every_item(item){
-        item.remove();
-    }
+            let newName = document.getElementById(charid);
+            newName.style.left = posX + 'px';
+            newName.style.top = posY + 'px';
+            newName.style.fontSize = scale*3 + 'vh';
+            if(adminduty == 'True')
+            {
+                newName.classList.add('admin1');
+
+                let newImage;
+                if(document.getElementById(charid+'-image') == null)
+                {
+                    newImage = document.createElement('img');
+                    newImage.id = charid+'-image';
+                    newImage.className = 'image';
+                    newImage.src = 'https://i.gyazo.com/fc21656a07e075953f71daf0bbd377f9.png';
+                    
+                    newImage.style.left = posX+'px';
+                    newImage.style.top = posY+'px';
+                    newImage.style.width = (scale*120) + 'px';
+                    newImage.style.height = (scale*120) + 'px';
+                }
+                else
+                {
+                    newImage = document.getElementById(charid+'-image');
+                    newImage.style.left = posX+'px';
+                    newImage.style.top = posY+'px';
+                    newImage.style.width = (scale*120) + 'px';
+                    newImage.style.height = (scale*120) + 'px';
+                }
+            }
+            
+            names = document.querySelector('.content');
+
+        }
+        else//teljesen új név, újat kell hozzáadnunk a nevekhez
+        {
+            newnametable.push(charid);
+            let newName = document.createElement('div');
+            newName.className = 'nametag';
+            newName.id = charid;
+            newName.innerHTML = '<div class="name">'+name+' ('+charid+')</div>';
+            newName.style.left = posX + 'px';
+            newName.style.top = posY + 'px';
+            newName.style.fontSize = scale*3 + 'vh';
+            names = document.querySelector('.content');
+            if(adminduty == 'True')
+            {
+                newName.classList.add('admin1');
+                newName.innerHTML = '<div class="name">' + adminnick +' ('+charid+')</div>';
+
+                let newImage = document.createElement('img');
+                newImage.id = charid+'-image';
+                newImage.className = 'image';
+                newImage.src = 'https://i.gyazo.com/fc21656a07e075953f71daf0bbd377f9.png';
+                newImage.style.width = (scale*120) + 'px';
+                newImage.style.height = (scale*120) + 'px';
+                newImage.style.left = posX+'px';
+                newImage.style.top = posY+'px'; 
+                names.appendChild(newImage);
+            }
+            names.appendChild(newName);
+        }
+   }
+
+   function checkRender(item)
+   {
+        if(newnametable.includes(item) == false)//nincs benne a renderben az új nametag
+        {
+            document.getElementById(item).remove();
+            if(document.getElementById(item+'-image') != null)
+            {
+                document.getElementById(item+'-image').remove();
+            }
+            
+        }
    }
     </script>
 </html>

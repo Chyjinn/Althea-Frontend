@@ -2,6 +2,7 @@ body{
   background-color: rgba(0,0,0,0);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   overflow: hidden;
+  user-select: none;
 }
 
 .nametag{
@@ -10,4 +11,17 @@ body{
   text-shadow: 2px 2px 3px black;
   font-size: 150%;
   transform: translate(-50%, -50%);
+}
+
+.admin1{
+  color: rgba(145,201,117);
+  
+}
+
+.image{
+  position: absolute;
+  transform: translate(-50%,-110%);
+  left: 500px;
+  top: 500px;
+  width: 50px;
 }

@@ -372,6 +372,11 @@ function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, i
   newItem.addEventListener('mouseleave', hideToolTip)
   newItem.addEventListener('contextmenu', useItem);
   newItem.addEventListener('mousedown', moveItem);
+  toAppend.style.background = "none";
+  
+  /** revert:
+   * toAppend.style.background = null; | LENNE, de az élet nem ilyen egyszerű :-)
+   */
 }
 
 
@@ -670,6 +675,7 @@ function RemoveItem(dbid){
   function remove_one_item(item){
     if(item.id == ''+dbid){
       item.remove();
+      item.parentElement.style.background = null;
     }
   }
 }

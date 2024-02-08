@@ -674,8 +674,8 @@ function RemoveItem(dbid){
   items.forEach(remove_one_item);
   function remove_one_item(item){
     if(item.id == ''+dbid){
-      item.remove();
       item.parentElement.style.background = null;
+      item.remove();
     }
   }
 }

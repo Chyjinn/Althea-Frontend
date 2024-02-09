@@ -313,6 +313,7 @@ function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amou
   newItem.addEventListener('mousedown', moveItem);
   sortItems();
   newItem.classList.remove('invisible');
+  removeBackgroundIcon();
 }
 
 function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, itemtype){

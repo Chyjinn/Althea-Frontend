@@ -123,6 +123,59 @@ function openGiveMenu()
   givemenu_slider.max = givemenu_maxvalue;
 }
 
+function setClothingPicture(dbid, gender, clothingslot, drawable, texture)
+{
+  if(gender = "True")
+  {
+    checkImage('clothes/clothing_male_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
+      let clothingitem = document.getElementById(''+dbid);
+      let clothingimage = clothingitem.getElementsByTagName('img')[0];
+      clothingimage.src = 'clothes/clothing_male_'+clothingslot+'_'+drawable+'_'+texture+'.png';
+     }, function(){ 
+
+
+      } );
+  }
+  else if(gender = "False")
+  {
+    checkImage('clothes/clothing_female_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
+      let clothingitem = document.getElementById(''+dbid);
+      let clothingimage = clothingitem.getElementsByTagName('img')[0];
+      clothingimage.src = 'clothes/clothing_female_'+clothingslot+'_'+drawable+'_'+texture+'.png';
+     }, function(){ 
+
+
+      } );
+  }
+}
+
+function setPropPicture(dbid, gender, clothingslot, drawable, texture)
+{
+  if(gender = "True")
+  {
+    checkImage('props/prop_male_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
+      let clothingitem = document.getElementById(''+dbid);
+      let clothingimage = clothingitem.getElementsByTagName('img')[0];
+      clothingimage.src = 'props/prop_male_'+clothingslot+'_'+drawable+'_'+texture+'.png';
+     }, function(){ 
+
+
+      } );
+  }
+  else if(gender = "False")
+  {
+    checkImage('props/prop_female_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
+      let clothingitem = document.getElementById(''+dbid);
+      let clothingimage = clothingitem.getElementsByTagName('img')[0];
+      clothingimage.src = 'props/prop_female_'+clothingslot+'_'+drawable+'_'+texture+'.png';
+     }, function(){ 
+
+
+      } );
+  }
+}
+
+
 function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, inuse, itemtype){
   RemoveItem(dbid);
   let newItem =  document.createElement('div');
@@ -263,6 +316,7 @@ function addItemToContainer(dbid,itemid, itemname, itemdescription, weight, amou
 
 function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, itempicture, priority, itemtype){
   RemoveItem(dbid);
+
   let newItem =  document.createElement('div');
   newItem.className = 'item';
   newItem.id = dbid;
@@ -813,4 +867,11 @@ container_weight.capacity = capac;
 let percent = (parseFloat(cur) / parseFloat(capac)) * 100;
 container_weight.firstElementChild.style.width = percent + '%';
 container_weight_display.innerHTML = (cur/1000).toFixed(1) + ' / ' + (capac/1000).toFixed(1) + ' kg';
+}
+
+function checkImage(imageSrc, good, bad) {
+  var img = new Image();
+  img.onload = good; 
+  img.onerror = bad;
+  img.src = imageSrc;
 }

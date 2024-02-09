@@ -162,6 +162,7 @@ function addItemToInventory(dbid,itemid, itemname, itemdescription, weight, amou
   newItem.addEventListener('mousedown', moveItem);
   sortItems();
   newItem.classList.remove('invisible');
+  removeBackgroundIcon();
 }
 
 function ClearContainer(){
@@ -377,6 +378,7 @@ function addItemToSlot(dbid,itemid, itemname, itemdescription, weight, amount, i
   /** revert:
    * toAppend.style.background = null; | LENNE, de az élet nem ilyen egyszerű :-)
    */
+  removeBackgroundIcon();
 }
 
 
@@ -674,10 +676,17 @@ function RemoveItem(dbid){
   items.forEach(remove_one_item);
   function remove_one_item(item){
     if(item.id == ''+dbid){
-      item.parentElement.style.background = null;
       item.remove();
     }
   }
+}
+
+const removeBackgroundIcon = () =>{
+  document.querySelectorAll(".slot").forEach((item) =>{
+    if (item.innerHTML == ""){
+      item.style.background = null;
+    }
+  })
 }
 
 function ClearInventory(){

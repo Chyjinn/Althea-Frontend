@@ -125,8 +125,9 @@ function openGiveMenu()
 
 function setClothingPicture(dbid, gender, clothingslot, drawable, texture)
 {
-  if(gender = "True")
+  if(gender == "True")
   {
+    //clothing_female_6_0_0
     checkImage('clothes/clothing_male_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
       let clothingitem = document.getElementById(''+dbid);
       let clothingimage = clothingitem.getElementsByTagName('img')[0];
@@ -136,7 +137,7 @@ function setClothingPicture(dbid, gender, clothingslot, drawable, texture)
 
       } );
   }
-  else if(gender = "False")
+  else if(gender == "False")
   {
     checkImage('clothes/clothing_female_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
       let clothingitem = document.getElementById(''+dbid);
@@ -151,7 +152,7 @@ function setClothingPicture(dbid, gender, clothingslot, drawable, texture)
 
 function setPropPicture(dbid, gender, clothingslot, drawable, texture)
 {
-  if(gender = "True")
+  if(gender == "True")
   {
     checkImage('props/prop_male_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
       let clothingitem = document.getElementById(''+dbid);
@@ -162,7 +163,7 @@ function setPropPicture(dbid, gender, clothingslot, drawable, texture)
 
       } );
   }
-  else if(gender = "False")
+  else if(gender == "False")
   {
     checkImage('props/prop_female_'+clothingslot+'_'+drawable+'_'+texture+'.png', function(){ 
       let clothingitem = document.getElementById(''+dbid);

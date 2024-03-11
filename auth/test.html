@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%; margin: 0;" lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="./css/styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+    <div class="video-container">
+        <iframe id="ytplayer" width="2560" height="1440" src="https://www.youtube.com/embed/QdBZY2fkU-0?start=0&autoplay=1&controls=0&quality=high&version=3&loop=1&playlist=QdBZY2fkU-0" title="YouTube video player" frameborder="0" allow="autoplay;modestbranding; " allowfullscreen></iframe>
+	</div>
+
+
+
+
+	</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script>
+	
+	var onresize = function() {
+	   //your code here
+	   //this is just an example
+	   width = document.body.clientWidth;
+	   height = document.body.clientHeight;
+
+	   SetResolution(width, height);
+	   console.log('resize');
+	}
+	window.addEventListener("resize", onresize);
+	
+
+</script>
+
+</html>

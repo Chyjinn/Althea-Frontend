@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3306
--- Létrehozás ideje: 2024. Feb 13. 20:52
--- Kiszolgáló verziója: 8.0.31
--- PHP verzió: 8.0.26
+-- Létrehozás ideje: 2024. Már 11. 22:44
+-- Kiszolgáló verziója: 8.2.0
+-- PHP verzió: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -52,7 +52,7 @@ INSERT INTO `accounts` (`id`, `userName`, `email`, `adminLevel`, `adminNick`, `r
 (1, 'Chy', 'chy@althea.hu', 10, 'chyy', '2023-08-31 20:19:07', '7irrMY/4RrueoXI8P+qUWZQbHrvJKbtS+exNEHIx+hd4imPbmfnd+7+MOO/saaU15NcjA0j8F0tPd9hGqTR1zPJCnCuQ5Q==', '5ntrk1MDntd4w8arKiISDul6iiSda6pLdOdyBb4VOnOkLFrbRmcxpDm20g9M/JH1dpx237kjC+WwrXZbo6oxcIS7MOjMxvzy1bKEyjVRbyow4xZfp/gW7MnuLt0oqHN2tGNXZQ==', 'D8903A0447DCA880A7E0057CCBF41C10CE30D8D8D5D27640B0C6102401728A80319C882076A65D10D8E0E54043861920E4526AE0681477E8AA7010047006F0C0', '67714232', 'CHYJIN', 2),
 (2, 'mayev', 'megegyvacosacc@gmail.com', 10, 'bate', '2023-09-03 14:36:26', 'SiWEX5Ihqe28wou3c2/UFJJ07sjPm2FZ/vT5Q8qyACBKPDldoG8Ztw+nkEkr1QmHGWFhn/jt4fKBknEYcDucUb3V/t6A+w==', '+q9c7edwuIF1FTIF/jTOQuiqUZpVCD0sbRsbDr3ZZmmlS9K3aPyjPFSBZF/LgmOurFJSGgYwxOqWSDTPc9j94fPmdH/DIDhhVe3wIqmIqbKGwcrOhpqY78xPHiT4r2xOkD74MQ==', 'D8903A045B5858583EEEC4C0D554D1001F6057102FBA81C8BBF018C8DD229C004B5CC1B01096EAD8B0B610BC242A1950A37608A056B6E9E0A83E7A949C96A640', '24763806', 'bati_a_batyus', 2),
 (4, 'morcsog', 'morcsog@vagyok.hu', 0, '', '2023-10-07 19:14:59', 'Yw+y4wDxR2xNYXGJrbNTkswsEG1cXkrGYwk1n/tyzrbn2yt+6UHXFgRUInd9aQPvHyYKssnRo7JG72zdHikLMWi42oQdvw==', 'Mb2ts06L8y2fq78QrBaXbAkfcV6arvQLNkHpybCoHwHPOG8DrQ3vv7ykDQjPh4QGyz9ZOJ1RiUbjgBT53XNAvCV2v3sO9HXHP4FGmfTjroNYzITDYZaXxhw3InFqVqVCul/O/Q==', 'D8903A045BAC82D8BC661CD41A0A4810B9E2F8F8C620B2B070F018C8DD224EC05B3865D0634CE5C0D9BAE3E0AE44D0A072E008A056B6E9F0FEDEB464841AA640', '185981925', 'Botika9696', 2),
-(6, 'Chy2', 'Chy2@Chy2.com', 0, '', '2023-11-15 02:51:14', 'p7y9wcCN55AL4PJQv/hkQiItklDmeCapWQwvBii4bK5uXpMJTP3FW+d1Kd2hScNIkqUmRoDAOeM/vONjp3U4G9XQObGsfQ==', 'E45p9Kg/XQnVs8+3z6+TLwSkVauFzBtilLOOYHjVYO2lsHm1/1MqNSGB3ch0S5R+O4QgoAeySShhD0uoC3b3ZCT6UKQQirXe4YFvY5Fvx3CCiXawxNbRmywPiyDizI2AVVtiJw==', 'CE963468C95A2648B9125258560A5AD0AE46F408194AC6D8C962B278363ABAA08EF6B4A8693A6668D9B21298166A1A706EA67448B92A06F8E90272B8F69A7A40', '67714232', 'CHYJIN', 2),
+(6, 'Chy2', 'Chy2@Chy2.com', 7, '', '2023-11-15 02:51:14', 'p7y9wcCN55AL4PJQv/hkQiItklDmeCapWQwvBii4bK5uXpMJTP3FW+d1Kd2hScNIkqUmRoDAOeM/vONjp3U4G9XQObGsfQ==', 'E45p9Kg/XQnVs8+3z6+TLwSkVauFzBtilLOOYHjVYO2lsHm1/1MqNSGB3ch0S5R+O4QgoAeySShhD0uoC3b3ZCT6UKQQirXe4YFvY5Fvx3CCiXawxNbRmywPiyDizI2AVVtiJw==', 'CE963468C95A2648B9125258560A5AD0AE46F408194AC6D8C962B278363ABAA08EF6B4A8693A6668D9B21298166A1A706EA67448B92A06F8E90272B8F69A7A40', '67714232', 'CHYJIN', 2),
 (7, 'Fanni', 'pohfanni@gmail.com', 0, '', '2023-11-20 18:04:07', 'H2eQMbp3/gwTKM218jIx0obynyjqg3NNuM/7B0D4Ivv0+wD8dUQZjvvZ8nFW+6z0rkwTIxbdmislJgKa9NVWXFE6i7g+ww==', 'eDjwM7ibKETl9nKi+HsZ5vMXvlmHqhlBGtqhcc5mzAJ3ct4kKnnKvnecQxZhfobIdyjOgLsrC8c7fQL6BA6cclzk8C7C5VkaK2OmWzxA153IBOlVcPyjaQwfY1HrbHqVY4k+Zg==', 'D8903A045B70AC704C0A84DC5F880D001F18BF845D7E703818500A1C43308CC06C22A494E7285580873837BC3536F0705810DA342BF06C108C3AC44C6F260080', '177775224', 'Fanniih', 2),
 (8, 'mandms', 'mandmsmandms10@gmail.com', 0, '', '2023-11-28 17:57:17', 'F6YTlGXqh06F9/y5M2k8UfyvXh1uKN/7WdQEQgnkIXL/2Nl9Vm3diSB9ecepDYZjqIoU23VSBbUz1RUG1cPtSwmcyGTIJw==', 'adtuziRk31fq7tenlf9GVOeDAS+9jtM840YhRa2IMhkEhraejImLlkMjt3KvZnYe2v6FarWpumHGGNXGc7u3wj32EofHspAQnIYwxp6tztIhtMEDeEEIwzIVmiqdpHT5pNh/Sw==', 'DFBE67A8DD7E5078B0AE0534220A5AA0CFAE37486DCE5068B05EF524C23ABA40BF9E07E8FD1E5058B00EE514626A1AE0AF8ED7888D6E5048B0BED504029A7A80', '85991460', 'MandMs-11', 2),
 (9, 'Kiko', 'fuzykiko@gmail.com', 0, '', '2023-12-01 18:44:05', 'XGJt8f47qHhaeUKkwaA3uoQ+q/3YW64F4pG4D/4hcRoBCp8b6Gjb+DiXvdg+qqzXaXt6CHN6z0bb/Q1zF3nJ42cRAlv3Ug==', 'We80UxY6r0C1Shu7MNB3pyFfNnXVUmVOnd01Qn6R62vyTqagIRFg6J7ylWqv7QqEY91DyJfOg8B14+upiF9Jql4mwVVAe+PXeSB5S+tQ7GYvmnEvWO51ycSPS1R+96idwlA/Xw==', 'D1D4EE40D2D826408CD6FA381AE83FA09A201ED07270F4687EA436D0AD6C46006AC8BEA05CFA021052B81B38F2E0B6C00AD0C48C867C6EA089049EC0021E3FC0', '108231911', 'fuzykrisztian', 2),
@@ -98,31 +98,18 @@ CREATE TABLE IF NOT EXISTS `adminjail` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `targetAccountId` int UNSIGNED NOT NULL,
   `adminAccountId` int UNSIGNED NOT NULL,
-  `adminNick` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `reason` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `adminNick` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci NOT NULL,
   `time` int NOT NULL,
   `remaining` int NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `servedDate` datetime DEFAULT NULL,
   `unjailBy` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `targetAccountId` (`targetAccountId`),
+  KEY `adminAccountId` (`adminAccountId`),
+  KEY `targetAccountId_2` (`targetAccountId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `adminjail`
---
-
-INSERT INTO `adminjail` (`id`, `targetAccountId`, `adminAccountId`, `adminNick`, `reason`, `time`, `remaining`, `date`, `servedDate`, `unjailBy`) VALUES
-(9, 1, 2, 'bate', 'na, here we go ', 5, 0, '2024-02-04 15:37:02', '2024-02-04 15:48:59', NULL),
-(10, 1, 1, 'chyy', 'tesztelés ', 10, 6, '2024-02-04 15:59:14', NULL, 1),
-(11, 1, 1, 'chyy', 'vává ', 15, 13, '2024-02-04 16:17:01', NULL, 1),
-(12, 1, 1, 'chyy', 'vé ', 15, 15, '2024-02-04 16:21:59', NULL, 1),
-(13, 1, 1, 'chyy', 'teszt ', 5, 4, '2024-02-04 16:24:08', NULL, 1),
-(14, 1, 1, 'chyy', 'é ', 50, 50, '2024-02-04 16:26:10', NULL, 1),
-(15, 1, 1, 'chyy', 'sok sok rosszalkodás ', 180, 79, '2024-02-04 16:26:54', NULL, 1),
-(16, 1, 1, 'chyy', 'első ', 15, 15, '2024-02-04 18:13:29', NULL, 1),
-(17, 1, 1, 'chyy', 'másodk ', 15, 0, '2024-02-04 18:13:34', '2024-02-04 18:29:05', NULL),
-(18, 1, 1, 'chyy', 'vsdfvfdsvv ', 4, 0, '2024-02-04 18:31:09', '2024-02-04 18:36:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,6 +277,8 @@ CREATE TABLE IF NOT EXISTS `characters` (
   `posY` float NOT NULL DEFAULT '-2837',
   `posZ` float NOT NULL DEFAULT '21',
   `rot` float NOT NULL DEFAULT '-30',
+  `health` tinyint UNSIGNED NOT NULL DEFAULT '100',
+  `armor` tinyint UNSIGNED NOT NULL DEFAULT '0',
   `dimension` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `accountId` (`accountId`),
@@ -300,19 +289,18 @@ CREATE TABLE IF NOT EXISTS `characters` (
 -- A tábla adatainak kiíratása `characters`
 --
 
-INSERT INTO `characters` (`id`, `accountId`, `appearanceId`, `characterName`, `creationDate`, `dob`, `pob`, `posX`, `posY`, `posZ`, `rot`, `dimension`) VALUES
-(7, 1, 1, 'Chy w', '2023-08-31 21:51:19', '2023-09-04', '0', 228.6, -989.3, -98.5, -0.00531389, 0),
-(8, 2, 2, 'Emmett Velazquez', '2023-09-03 14:43:11', '0001-01-01', '0', 402.427, -856.428, 29.3463, 103.431, 0),
-(10, 2, 4, 'Olivia Blix', '2023-09-04 22:57:04', '2023-09-04', '0', -839.292, -92.935, 37.8846, -0.00531389, 0),
-(11, 1, 5, 'Chyy Gang', '2023-09-04 22:57:42', '2023-09-04', '0', 228.6, -989.3, -98.5, -0.00531389, 0),
-(14, 4, 8, ' ', '2023-10-07 19:16:24', '2023-10-07', '0', 363.018, -832.975, 29.3676, -39.4535, 0),
-(15, 6, 9, 'Chy Ketto', '2023-11-15 02:51:41', '2023-11-15', '0', -1037, -2738, 21, -30, 0),
-(16, 7, 10, 'Audrey Hartley', '2023-11-20 18:23:12', '2023-11-20', '0', 1377.2, 233.655, -48.9945, -76.3347, 0),
-(17, 7, 11, 'Elijah Barnes', '2023-11-22 19:42:48', '2023-11-22', '0', -1037, -2738, 21, -30, 0),
-(18, 8, 12, 'Herceghalmi Odett Zoltán', '2023-11-28 18:01:07', '2023-11-28', '0', -1032.01, -2705.4, 13.8009, 39.8152, 0),
-(19, 8, 13, ' ', '2023-11-28 18:18:16', '2023-11-28', '0', 1181.13, -346.899, 69.3343, 121.41, 0),
-(20, 9, 14, 'Dorothy Harvey', '2023-12-01 18:50:25', '2023-12-01', '0', -1102.79, -2740.07, -7.41013, -5.06453, 0),
-(21, 10, 15, 'Fiona Burns', '2024-02-03 00:47:05', '2024-02-03', '0', -761.908, 304.681, 85.7079, 2.64748, 0);
+INSERT INTO `characters` (`id`, `accountId`, `appearanceId`, `characterName`, `creationDate`, `dob`, `pob`, `posX`, `posY`, `posZ`, `rot`, `health`, `armor`, `dimension`) VALUES
+(8, 2, 2, 'Emmett Velazquez', '2023-09-03 14:43:11', '0001-01-01', '0', 402.427, -856.428, 29.3463, 103.431, 100, 0, 0),
+(10, 2, 4, 'Olivia Blix', '2023-09-04 22:57:04', '2023-09-04', '0', -1134.67, -671.624, 11.1588, 55.5429, 100, 0, 0),
+(11, 1, 5, 'Teszt Egy', '2023-09-04 22:57:42', '1999-01-31', 'Los Santos', -1461.17, 0.103784, -165.577, -171.096, 100, 0, 0),
+(14, 4, 8, ' ', '2023-10-07 19:16:24', '2023-10-07', '0', 363.018, -832.975, 29.3676, -39.4535, 100, 0, 0),
+(15, 6, 9, 'Chy Ketto', '2023-11-15 02:51:41', '2023-11-15', '0', -60.044, -994.824, 29.147, -156.285, 100, 0, 0),
+(16, 7, 10, 'Audrey Hartley', '2023-11-20 18:23:12', '2023-11-20', '0', 1377.2, 233.655, -48.9945, -76.3347, 100, 0, 0),
+(17, 7, 11, 'Elijah Barnes', '2023-11-22 19:42:48', '2023-11-22', '0', 915.301, -485.422, 62.3503, 117.382, 100, 0, 0),
+(18, 8, 12, 'Herceghalmi Odett Zoltán', '2023-11-28 18:01:07', '2023-11-28', '0', -1032.01, -2705.4, 13.8009, 39.8152, 100, 0, 0),
+(19, 8, 13, ' ', '2023-11-28 18:18:16', '2023-11-28', '0', 1181.13, -346.899, 69.3343, 121.41, 100, 0, 0),
+(20, 9, 14, 'Dorothy Harvey', '2023-12-01 18:50:25', '2023-12-01', '0', -1102.79, -2740.07, -7.41013, -5.06453, 100, 0, 0),
+(21, 10, 15, 'Fiona Burns', '2024-02-03 00:47:05', '2024-02-03', '0', -761.908, 304.681, 85.7079, 2.64748, 100, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -496,9 +484,29 @@ INSERT INTO `grounditems` (`id`, `item_DbID`, `posX`, `posY`, `posZ`, `rotX`, `r
 (54, 152, 427.208, -800.893, 28.4922, 0, 0, 0, 0, '2023-12-06 19:05:21', 11, '2023-12-06 19:05:25', 11),
 (55, 132, 416.507, -807.595, 28.4088, 0, 0, 0, 0, '2023-12-06 23:24:51', 11, '2023-12-06 23:26:06', 11),
 (56, 137, -262.266, -1264.48, 28.7993, -4.44989, -0.0068689, -0.000266873, 0, '2023-12-18 14:51:26', 7, '2023-12-18 14:51:29', 7),
-(57, 144, 419.699, -815.925, 28.4127, 0, -0, -0, 0, '2024-02-03 00:02:20', 11, '2024-02-03 02:02:28', 11),
-(58, 144, 416.629, -813.889, 28.4617, 0, -0, -0, 0, '2024-02-03 02:02:52', 11, '2024-02-03 02:03:22', 11),
+(57, 144, 419.699, -815.925, 28.4127, 0, 0, 0, 0, '2024-02-03 00:02:20', 11, '2024-02-03 02:02:28', 11),
+(58, 144, 416.629, -813.889, 28.4617, 0, 0, 0, 0, '2024-02-03 02:02:52', 11, '2024-02-03 02:03:22', 11),
 (59, 166, 918.759, -499.321, 57.8826, -1.46834, -4.64353, -0.0595361, 0, '2024-02-08 20:19:24', 21, '2024-02-08 20:19:30', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `injuries`
+--
+
+DROP TABLE IF EXISTS `injuries`;
+CREATE TABLE IF NOT EXISTS `injuries` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `characterID` bigint UNSIGNED NOT NULL,
+  `causedBy` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `damage` int NOT NULL DEFAULT '0',
+  `damageType` varchar(255) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `bone` int UNSIGNED NOT NULL DEFAULT '0',
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `characterID` (`characterID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -787,25 +795,17 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `itemAmount`, `duty`, `createdBy`, `creationDate`, `priority`, `inUse`) VALUES
-(71, 17, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":305,\"Texture\":8}', 1, 0, '11', '2023-11-22 14:29:13', 2, 1),
-(72, 17, 0, 7, '{\"Drawable\":4,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:29:41', 0, 1),
-(73, 11, 0, 9, '{\"Drawable\":126,\"Texture\":3}', 1, 0, '11', '2023-11-22 14:29:52', 7, 1),
-(75, 17, 0, 4, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:30:52', 3, 1),
+(71, 17, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":305,\"Texture\":8}', 1, 0, '11', '2023-11-22 14:29:13', 1, 0),
+(72, 17, 0, 7, '{\"Drawable\":4,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:29:41', 3, 1),
+(73, 11, 0, 9, '{\"Drawable\":126,\"Texture\":3}', 1, 0, '11', '2023-11-22 14:29:52', 6, 1),
+(75, 17, 0, 4, '{\"Drawable\":2,\"Texture\":0}', 1, 0, '11', '2023-11-22 14:30:52', 0, 1),
 (76, 18, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:04:02', 2, 1),
-(77, 7, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":1}', 1, 0, '7', '2023-11-22 16:06:24', 11, 1),
 (78, 18, 0, 20, '{\"Drawable\":6,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:00', 1, 1),
 (79, 18, 0, 22, '{\"Drawable\":0,\"Texture\":0}', 1, 0, '7', '2023-11-22 16:26:16', 3, 1),
-(80, 7, 0, 24, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '7', '2023-11-23 01:19:34', 5, 0),
 (81, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:11:34', 1, 0),
-(82, 7, 0, 27, '0', 1, 0, '7', '2023-11-24 03:11:52', 0, 0),
-(83, 7, 0, 27, '1', 1, 0, '7', '2023-11-24 03:11:54', 1, 0),
-(84, 7, 0, 27, '2', 1, 0, '7', '2023-11-24 03:11:56', 2, 0),
 (85, 18, 0, 27, '3', 1, 0, '7', '2023-11-24 03:11:57', 0, 1),
 (86, 9, 2, 27, '4', 1, 0, '7', '2023-11-24 03:11:58', 0, 0),
-(87, 7, 0, 27, '5', 1, 0, '7', '2023-11-24 03:11:59', 3, 0),
 (88, 8, 3, 27, '6', 1, 0, '7', '2023-11-24 03:12:00', 2, 0),
-(89, 7, 0, 27, '7', 1, 0, '7', '2023-11-24 03:12:01', 8, 0),
-(90, 7, 0, 27, '8', 1, 0, '7', '2023-11-24 03:12:02', 7, 0),
 (91, 8, 3, 27, '9', 1, 0, '7', '2023-11-24 03:12:04', 3, 0),
 (92, 8, 3, 27, '10', 1, 0, '7', '2023-11-24 03:12:05', 4, 0),
 (94, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:15', 17, 0),
@@ -823,7 +823,7 @@ INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `ite
 (106, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:23', 15, 0),
 (107, 9, 2, 28, '-', 1, 0, '7', '2023-11-24 03:13:30', 1, 0),
 (108, 8, 3, 28, '-', 1, 0, '7', '2023-11-24 03:13:30', 10, 0),
-(111, 17, 0, 27, '5', 1, 0, '11', '2023-11-24 06:21:06', 1, 1),
+(111, 17, 0, 27, '5', 1, 0, '11', '2023-11-24 06:21:06', 2, 0),
 (113, 11, 0, 7, '{\"Drawable\":1,\"Texture\":0}', 1, 0, '11', '2023-11-28 17:47:44', 4, 1),
 (117, 20, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":366,\"Texture\":0}', 1, 0, '11', '2023-11-30 19:29:03', 1, 1),
 (118, 10, 2, 42, '-', 1, 0, '11', '2023-11-30 19:52:10', 5, 0),
@@ -832,12 +832,11 @@ INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `ite
 (129, 133, 1, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:17', 1, 0),
 (130, 133, 1, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:22', 2, 0),
 (131, 20, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:23', 4, 0),
-(132, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:23', 6, 1),
+(132, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":0,\"Drawable\":44,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:23', 7, 1),
 (133, 0, 6, 11, '{\"Drawable\":82,\"Texture\":0}', 1, 0, '11', '2023-12-01 09:54:34', 3, 0),
 (134, 8, 2, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":15,\"Drawable\":-4,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:14:29', 3, 0),
 (135, 8, 2, 20, '{\"Drawable\":-4,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:12', 1, 0),
 (136, 8, 2, 20, '{\"Drawable\":-5,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:19', 0, 0),
-(137, 7, 0, 20, '{\"Drawable\":-6,\"Texture\":0}', 1, 0, '7', '2023-12-01 10:15:28', 9, 0),
 (138, 133, 1, 27, '5', 1, 0, '11', '2023-12-01 15:55:28', 3, 0),
 (139, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:31', 0, 0),
 (140, 10, 2, 27, '5', 1, 0, '11', '2023-12-01 15:55:31', 1, 0),
@@ -856,7 +855,6 @@ INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `ite
 (153, 0, 6, 51, '-', 1, 0, '11', '2023-12-02 22:11:04', 8, 0),
 (154, 0, 6, 51, '-', 1, 0, '11', '2023-12-02 22:24:59', 1000, 0),
 (155, 8, 0, 31, '-', 1, 0, '11', '2023-12-02 22:25:18', 0, 0),
-(156, 7, 0, 22, '{\"Drawable\":0,\"Texture\":0}', 1, 0, '7', '2023-12-04 16:56:51', 4, 1),
 (157, 21, 0, 14, '{\"Drawable\":54,\"Texture\":0}', 1, 0, '7', '2023-12-04 18:38:22', 3, 0),
 (158, 8, 2, 31, '-', 1, 0, '7', '2023-12-04 19:24:43', 2, 0),
 (159, 0, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":3,\"Drawable\":3,\"Texture\":0}', 1, 0, '0', '2024-02-03 00:14:13', 1000, 0),
@@ -869,9 +867,7 @@ INSERT INTO `items` (`DbID`, `ownerID`, `ownerType`, `itemID`, `itemValue`, `ite
 (166, 21, 0, 18, '{\"UndershirtDrawable\":2,\"UndershirtTexture\":0,\"Torso\":3,\"Drawable\":103,\"Texture\":0}', 1, 0, '7', '2024-02-04 18:42:52', 0, 1),
 (167, 21, 0, 20, '{\"Drawable\":75,\"Texture\":0}', 1, 0, '7', '2024-02-04 18:43:41', 1, 1),
 (168, 21, 0, 22, '{\"Drawable\":11,\"Texture\":0}', 1, 0, '7', '2024-02-04 18:43:59', 2, 1),
-(169, 7, 0, 51, '-', 1, 0, '7', '2024-02-04 21:12:44', 6, 0),
-(170, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":182,\"Texture\":0}', 1, 0, '11', '2024-02-09 00:18:07', 5, 0),
-(171, 7, 0, 20, '{\"Drawable\":133,\"Texture\":0}', 1, 0, '7', '2024-02-09 20:55:29', 10, 1);
+(170, 11, 0, 5, '{\"UndershirtDrawable\":15,\"UndershirtTexture\":0,\"Torso\":1,\"Drawable\":182,\"Texture\":0}', 1, 0, '11', '2024-02-09 00:18:07', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -931,21 +927,14 @@ CREATE TABLE IF NOT EXISTS `tokens` (
   `expiration` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `TokenAccID` (`accountId`)
-) ENGINE=InnoDB AUTO_INCREMENT=1457 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1604 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `tokens`
 --
 
 INSERT INTO `tokens` (`id`, `accountId`, `token`, `expiration`) VALUES
-(1358, 2, 'IrHLhR5v1s7jNEMk5/wgdp+LsEDNhNP1fm36fGtgOn1RkFtqHIlBnUNyfz7Yuk0Z975pvB3r1q6KaZ5rjM5shg==', '2024-02-18 15:45:18'),
-(1383, 2, 'ONFjV9j/Kp404vnd54totbx5j6PkjSrCB473mB+1pfbP2tpm4A2kfgd626gWOiEF6t/jUjBkQdMzg08HJvWqKg==', '2024-02-18 21:42:27'),
-(1394, 1, 'GyjpgivIJg1CUvHtJSD7WWF/po1fnl1yi49DDPSPui72Ya8FTKG/CPU3fLh6yKZ0/RYqUedjyFRmjScqFSge5Q==', '2024-02-19 21:36:26'),
-(1431, 10, 'OvmehnvgSh6xd+d8X92ExoO1W5mWUogR7zKCmj82/6mHJZ/qBUKxYjL2vvKVovsL3WTK1CmzB+vF/Ud3Ym36mw==', '2024-02-22 22:31:37'),
-(1448, 10, 'DYq440sns2rnrXmauUf8lTCe1MF+PVwKOt1WT9VKq4POhp9yUxL+wBienzzT8/i3VGRK35ge74nOYCgSpME81w==', '2024-02-23 20:28:36'),
-(1450, 1, 'yV4Tg77i3Ww1+/U/KVT47DL7iV4bp7rlbGGQOO6/Iinx2TASJetXeKGz+NG3E5CQf3U5g0VethFu87un3gY9uA==', '2024-02-23 21:15:07'),
-(1455, 1, 'KzlCMcIZrAnIBjS0A6dW5/9Aw+VA6RXiB1vVXiMP2t4Z8ju6bgs9NXWioD5M8Z6gRgc2R6W4YPaYVks4KsFhuw==', '2024-02-27 21:37:46'),
-(1456, 6, 'T3F6Y4RY4rs5M+3HnQhDkIHjDmn99EpTrq431B6C4hqgHfc/BXpR+0n541WJKyw+vipm4jVlAZtST0bDT4DYSQ==', '2024-02-27 21:44:14');
+(1603, 1, 'd+HVrFvs8/cEaOR/gwpUJ7jGDbN0WwRCVoJ66q6piZMkHYeBW6NUDVMLLDoOCCXmrKrSaM5nM2JRzopIKFhgDw==', '2024-03-25 23:35:23');
 
 -- --------------------------------------------------------
 
@@ -1007,6 +996,13 @@ INSERT INTO `vehicles` (`id`, `ownerType`, `ownerID`, `model`, `posX`, `posY`, `
 --
 
 --
+-- Megkötések a táblához `adminjail`
+--
+ALTER TABLE `adminjail`
+  ADD CONSTRAINT `AdminAccID` FOREIGN KEY (`adminAccountId`) REFERENCES `accounts` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `TargetAccID` FOREIGN KEY (`targetAccountId`) REFERENCES `accounts` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Megkötések a táblához `bans`
 --
 ALTER TABLE `bans`
@@ -1018,6 +1014,12 @@ ALTER TABLE `bans`
 ALTER TABLE `characters`
   ADD CONSTRAINT `AccID` FOREIGN KEY (`accountId`) REFERENCES `accounts` (`id`),
   ADD CONSTRAINT `AppearanceID` FOREIGN KEY (`appearanceId`) REFERENCES `appearances` (`id`);
+
+--
+-- Megkötések a táblához `injuries`
+--
+ALTER TABLE `injuries`
+  ADD CONSTRAINT `injuries_ibfk_1` FOREIGN KEY (`characterID`) REFERENCES `characters` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Megkötések a táblához `items`
